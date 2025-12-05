@@ -469,14 +469,15 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     }
 }
 
-/* --- SEÇÃO PREMIUM (O BOTÃO DE OURO) --- */
+/* --- SEÇÃO PREMIUM (CYBER PURPLE) --- */
 .premium-section {
-    padding: 80px 5%;
+    padding: 100px 5%;
     position: relative;
-    /* Um fundo levemente diferente para destacar a seção do resto do site */
-    background: radial-gradient(circle at center, #1a1a00 0%, #000000 100%);
     display: flex;
     justify-content: center;
+    /* Removemos o fundo preto sólido para deixar o grid do site aparecer levemente */
+    overflow: hidden;
+    margin-top: 50px;
 }
 
 .premium-container {
@@ -485,81 +486,74 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     justify-content: space-between;
     width: 100%;
     max-width: 1100px;
-    background: #080808; /* Fundo quase preto sólido */
-    border: 2px solid #b8860b; /* Borda Dourada Escura */
+    
+    /* Fundo Roxo Bem Escuro com Transparência (Glassmorphism) */
+    background: linear-gradient(135deg, rgba(20, 0, 40, 0.9), rgba(5, 5, 5, 0.95));
+    
+    /* Borda Brilhante Roxa */
+    border: 1px solid rgba(138, 43, 226, 0.5);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.15), inset 0 0 20px rgba(138, 43, 226, 0.1);
+    backdrop-filter: blur(10px);
+    
     border-radius: 30px;
     padding: 60px;
     position: relative;
-    overflow: hidden;
-    /* Sombra Dourada Poderosa */
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.15), inset 0 0 100px rgba(0,0,0,0.9);
-}
-
-/* Efeito de Grade no fundo do cartão (Tech Vibe) */
-.premium-container::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: 
-        linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
-    background-size: 30px 30px;
-    opacity: 0.5;
-    pointer-events: none;
+    z-index: 2;
 }
 
 .premium-content {
-    flex: 1.5; /* Ocupa mais espaço que a imagem */
+    flex: 1.5;
     z-index: 2;
     text-align: left;
 }
 
-/* O Selo VIP */
+/* Selo VIP Roxo */
 .premium-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(90deg, #FFD700, #DAA520);
-    color: #000;
+    background: rgba(138, 43, 226, 0.2);
+    border: 1px solid var(--purple);
+    color: #fff;
     padding: 8px 16px;
-    border-radius: 4px;
-    font-weight: 900;
-    font-size: 0.9rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
 }
 
-/* Título Metálico */
 .premium-content h2 {
-    font-size: 3.5rem; /* Bem grande */
-    line-height: 1;
+    font-size: 3rem;
+    line-height: 1.1;
     margin-bottom: 20px;
     color: white;
-    font-weight: 800;
 }
 
-.gold-text {
-    /* Efeito de texto cromado dourado */
-    background: linear-gradient(to bottom, #cfc09f 20%, #ffecb3 40%, #3a2c0f 80%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-    display: block; /* Quebra linha para destaque */
+/* Texto Neon Pulsante */
+.neon-text {
+    color: #fff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #8a2be2,
+        0 0 40px #8a2be2;
 }
 
 .premium-content p {
     color: #ccc;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 30px;
     max-width: 90%;
+    line-height: 1.6;
 }
 
 /* Lista de Benefícios */
 .premium-features {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
     margin-bottom: 40px;
 }
@@ -567,46 +561,45 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
 .premium-features li {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 1rem;
-    color: #fff;
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px 15px;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    background: rgba(138, 43, 226, 0.05); /* Fundo roxo muito leve */
+    padding: 10px;
     border-radius: 8px;
-    border-left: 3px solid #FFD700;
+    border-left: 2px solid var(--purple);
 }
 
 .premium-features li i {
-    color: #FFD700;
-    font-size: 1.2rem;
+    color: var(--purple);
 }
 
-/* Botão de Compra */
+/* Botão Neon */
 .btn-premium {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    padding: 20px 50px;
-    background: linear-gradient(45deg, #FFD700, #B8860B);
-    color: #000;
-    font-weight: 900;
+    gap: 10px;
+    padding: 18px 45px;
+    background: var(--purple);
+    color: white;
+    font-weight: 800;
     text-transform: uppercase;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: 0.3s;
-    box-shadow: 0 10px 30px rgba(218, 165, 32, 0.4);
-    text-decoration: none;
+    border: 1px solid transparent;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
 }
 
 .btn-premium:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
-    background: #fff;
+    background: transparent;
+    border-color: var(--purple);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.8);
+    transform: translateY(-3px);
 }
 
-/* Área Visual (Direita) */
+/* Área Visual do Robô */
 .premium-visual {
     flex: 1;
     display: flex;
@@ -615,58 +608,52 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     position: relative;
 }
 
-.bot-icon-3d {
-    font-size: 12rem;
-    /* Degradê no ícone também */
-    background: linear-gradient(to bottom, #FFD700, #B8860B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.3));
+.bot-icon-neon {
+    font-size: 10rem;
+    color: white;
+    /* Sombra Neon Roxa no ícone */
+    filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
     animation: floatBot 4s ease-in-out infinite;
     z-index: 2;
 }
 
 .glowing-circle {
     position: absolute;
-    width: 350px;
-    height: 350px;
-    border: 2px dashed rgba(255, 215, 0, 0.3);
+    width: 300px;
+    height: 300px;
+    border: 2px dashed rgba(138, 43, 226, 0.3);
     border-radius: 50%;
     animation: spinSlow 20s linear infinite;
 }
 
-/* RESPONSIVO */
+/* Responsivo */
 @media(max-width: 900px) {
     .premium-container {
-        flex-direction: column-reverse; /* Imagem em cima, texto em baixo no celular */
+        flex-direction: column-reverse;
         padding: 40px 20px;
         text-align: center;
     }
     
-    .premium-content {
-        width: 100%;
-    }
-
     .premium-features {
-        grid-template-columns: 1fr; /* Uma coluna no celular */
+        grid-template-columns: 1fr;
         text-align: left;
     }
     
     .premium-content h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
     
     .btn-premium {
         width: 100%;
     }
     
-    .bot-icon-3d {
+    .bot-icon-neon {
         font-size: 8rem;
         margin-bottom: 30px;
     }
     
     .glowing-circle {
-        width: 250px;
-        height: 250px;
+        width: 220px;
+        height: 220px;
     }
 }
