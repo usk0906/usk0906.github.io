@@ -726,40 +726,82 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
 }
-/* --- NOVA IMAGEM HERO (Ajustada para PC) --- */
-.hero-img-effect {
-    width: auto;          /* Deixa a largura automática para não esticar */
-    max-width: 100%;      /* Garante que não vaze na largura */
-    max-height: 550px;    /* TRAVA A ALTURA NO PC: Assim ela não fica gigante na vertical */
-    border-radius: 20px;
-    
-    /* Efeito de brilho e borda */
-    border: 2px solid rgba(138, 43, 226, 0.5);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
-    
-    /* Animação */
-    animation: floatImage 6s ease-in-out infinite;
-    filter: brightness(0.9) contrast(1.1);
-    transition: 0.5s;
-    
-    /* Centraliza a imagem no bloco dela */
-    display: block;
-    margin: 0 auto; 
+
+/* --- NOVA HERO ATUALIZADA --- */
+
+/* Badge de Novidade (Etiqueta acima do título) */
+.badge-news {
+    display: inline-block;
+    background: rgba(138, 43, 226, 0.15);
+    border: 1px solid var(--purple);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+    animation: floatBadge 3s ease-in-out infinite;
 }
 
-/* Efeito Hover */
-.hero-img-effect:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-    box-shadow: 0 0 50px rgba(138, 43, 226, 0.6);
+.badge-news i {
+    color: #FFD700; /* Cor dourada para a coroa */
+    margin-right: 5px;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Novo Botão VIP (Bot Personalizado) */
+.btn-vip-hero {
+    padding: 15px 30px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Efeito ao passar o mouse no botão VIP */
+.btn-vip-hero:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+/* Ajuste nos botões para ficarem alinhados */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
 /* --- AJUSTE MOBILE --- */
 @media(max-width: 768px) {
-    .hero-img-effect {
-        width: 80%;       /* No celular, ocupa 80% da largura da tela */
-        max-width: 350px; /* Mas não deixa passar de 350px */
-        max-height: none; /* No celular a altura é livre */
-        margin-top: 40px;
+    .badge-news {
+        font-size: 0.75rem; /* Um pouco menor no celular */
+    }
+    
+    .cta-buttons {
+        flex-direction: column; /* Um embaixo do outro no celular */
+        width: 100%;
+    }
+
+    .btn-primary, .btn-vip-hero {
+        width: 100%; /* Botão grandão para facilitar o toque */
+        justify-content: center;
     }
 }
