@@ -705,3 +705,24 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     0% { transform: translateY(0) rotate(0deg); opacity: 1; }
     100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
 }
+
+/* --- FOTO DE PERFIL (Teste Islo) --- */
+.team-photo {
+    width: 100px;         /* Tamanho da foto */
+    height: 100px;
+    border-radius: 50%;   /* Deixa redonda */
+    object-fit: cover;    /* Evita que a foto fique esticada */
+    
+    /* Borda Dourada para o CEO */
+    border: 3px solid #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+.team-member:hover .team-photo {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+}
