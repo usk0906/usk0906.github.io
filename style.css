@@ -726,43 +726,40 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
 }
-
-/* --- NOVA IMAGEM HERO (Substituindo o Cubo) --- */
+/* --- NOVA IMAGEM HERO (Ajustada para PC) --- */
 .hero-img-effect {
-    width: 100%;
-    max-width: 450px; /* Limita o tamanho para não ficar gigante no PC */
-    border-radius: 20px; /* Bordas arredondadas */
+    width: auto;          /* Deixa a largura automática para não esticar */
+    max-width: 100%;      /* Garante que não vaze na largura */
+    max-height: 550px;    /* TRAVA A ALTURA NO PC: Assim ela não fica gigante na vertical */
+    border-radius: 20px;
     
     /* Efeito de brilho e borda */
     border: 2px solid rgba(138, 43, 226, 0.5);
     box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
     
-    /* Animação de flutuar */
+    /* Animação */
     animation: floatImage 6s ease-in-out infinite;
-    
-    /* Filtro leve para misturar com o fundo escuro */
     filter: brightness(0.9) contrast(1.1);
     transition: 0.5s;
+    
+    /* Centraliza a imagem no bloco dela */
+    display: block;
+    margin: 0 auto; 
 }
 
-/* Efeito ao passar o mouse na imagem */
+/* Efeito Hover */
 .hero-img-effect:hover {
     transform: scale(1.05);
     filter: brightness(1.1);
     box-shadow: 0 0 50px rgba(138, 43, 226, 0.6);
 }
 
-/* Animação de Flutuação */
-@keyframes floatImage {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); } /* Sobe um pouquinho */
-    100% { transform: translateY(0px); }
-}
-
-/* Ajuste para Celular */
+/* --- AJUSTE MOBILE --- */
 @media(max-width: 768px) {
     .hero-img-effect {
-        max-width: 300px; /* Menor no celular */
-        margin-top: 30px;
+        width: 80%;       /* No celular, ocupa 80% da largura da tela */
+        max-width: 350px; /* Mas não deixa passar de 350px */
+        max-height: none; /* No celular a altura é livre */
+        margin-top: 40px;
     }
 }
