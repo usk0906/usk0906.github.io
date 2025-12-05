@@ -180,3 +180,11 @@ window.onscroll = function() {
         }
     }
 };
+
+// --- PROTEÇÃO DE MARCA (CONSOLE) ---
+const estiloTitulo = "color: #8a2be2; font-size: 40px; font-weight: bold; -webkit-text-stroke: 1px black; text-shadow: 0 0 10px #8a2be2;";
+const estiloAviso = "color: white; font-size: 16px; font-weight: bold; background: #1a0033; padding: 10px; border-radius: 5px;";
+
+console.log("%c UDESAKEN ", estiloTitulo);
+console.log("%c⚠ PARE! Este código é propriedade intelectual da Udesaken.\nA cópia não autorizada, total ou parcial, é proibida e sujeita a denúncia.", estiloAviso);
+console.log("Dúvidas ou parcerias? Entre em contato: https://udesaken.github.io");
