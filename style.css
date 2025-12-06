@@ -996,55 +996,53 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     color: #000;
     box-shadow: 0 0 25px rgba(0, 242, 234, 0.4);
     transform: translateY(-3px);
-}
+} 
 
-/* --- SELO POWERED BY FIXO --- */
+/* --- SELO POWERED BY (NO RODAPÉ) --- */
 .powered-badge {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
-    left: 20px;
-    z-index: 9999; /* Fica acima de tudo */
+    left: 20px; /* Preso na esquerda */
     
-    background: rgba(0, 0, 0, 0.6); /* Fundo escurinho */
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(138, 43, 226, 0.3); /* Borda roxa sutil */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(138, 43, 226, 0.3);
     border-radius: 50px;
-    
     padding: 8px 15px;
+    
     color: #aaa;
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: 0.3s;
-    
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 8px;
+    transition: 0.3s;
 }
 
-.powered-badge i {
-    color: var(--purple);
-}
+.powered-badge i { color: var(--purple); }
+.powered-badge strong { color: #fff; }
 
-.powered-badge strong {
-    color: #fff;
-}
-
-/* Efeito ao passar o mouse */
 .powered-badge:hover {
     background: var(--purple);
     border-color: var(--purple);
     color: white;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
 }
 
-/* Ajuste para celular não cobrir conteúdo importante */
+/* Ajuste Mobile */
 @media(max-width: 768px) {
+    footer {
+        padding-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
     .powered-badge {
-        bottom: 10px;
-        left: 10px;
-        padding: 6px 12px;
-        font-size: 0.65rem;
+        position: relative; /* Centraliza no celular */
+        bottom: auto;
+        left: auto;
     }
 }
