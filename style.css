@@ -976,3 +976,24 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
         transform: scale(1); /* Tira o zoom no celular pra não quebrar layout */
     }
 }
+
+/* --- BOTÃO DE SITES NO HERO --- */
+.btn-cyan-hero {
+    padding: 15px 30px;
+    background: transparent;
+    border: 2px solid #00f2ea; /* Cor Ciano Neon */
+    color: #00f2ea;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+
+.btn-cyan-hero:hover {
+    background: #00f2ea;
+    color: #000;
+    box-shadow: 0 0 25px rgba(0, 242, 234, 0.4);
+    transform: translateY(-3px);
+}
