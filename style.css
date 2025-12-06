@@ -1046,3 +1046,47 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
         left: auto;
     }
 }
+
+/* --- ESTILOS DO CLUBE VIP (DOURADO) --- */
+
+/* Card VIP Básico */
+.vip-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 0, 0, 0.8));
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.vip-card:hover {
+    border-color: #FFD700;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    transform: translateY(-10px);
+}
+
+/* Efeito Neon Dourado no Hover (Substitui o roxo padrão) */
+.vip-card:hover::before {
+    background: linear-gradient(45deg, #FFD700, #ffaa00, #FFD700);
+    opacity: 0.5;
+}
+
+/* Botão VIP */
+.btn-vip {
+    border: 1px solid #FFD700;
+    color: #FFD700;
+}
+
+.btn-vip:hover {
+    background: #FFD700;
+    color: black; /* Texto preto para contraste no fundo dourado */
+    box-shadow: 0 0 20px #FFD700;
+}
+
+/* Botão com Brilho Constante (Para o plano de 30 dias) */
+.btn-vip.glow-gold {
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.btn-vip.glow-gold:hover {
+    background: #FFD700;
+    color: black;
+    box-shadow: 0 0 40px #FFD700;
+}
