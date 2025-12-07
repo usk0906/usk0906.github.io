@@ -206,3 +206,29 @@ const estiloAviso = "color: white; font-size: 16px; font-weight: bold; backgroun
 console.log("%c UDESAKEN ", estiloTitulo);
 console.log("%c⚠ PARE! Este código é propriedade intelectual da Udesaken.\nA cópia não autorizada, total ou parcial, é proibida e sujeita a denúncia.", estiloAviso);
 console.log("Dúvidas ou parcerias? Entre em contato: https://udesaken.github.io");
+
+// --- SISTEMA DE MÚSICA ---
+// Tornando global para o HTML acessar
+window.toggleMusic = function() {
+    const audio = document.getElementById('bg-audio');
+    const btn = document.querySelector('.music-btn');
+    const icon = document.getElementById('music-icon');
+
+    // Define o volume bem baixinho (10%)
+    audio.volume = 0.1;
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            btn.classList.add('playing');
+            btn.title = "Pausar Música";
+        }).catch(error => {
+            console.log("Interação necessária para tocar áudio:", error);
+            alert("Clique na página primeiro para ativar o som!");
+        });
+    } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        icon.className = 'fas fa-volume-mute'; // Volta ícone de mudo
+        btn.title = "Ligar Som";
+    }
+}
