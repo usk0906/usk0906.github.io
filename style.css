@@ -1157,3 +1157,95 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     0%, 100% { height: 5px; }
     50% { height: 20px; }
 }
+
+/* --- BANNER DE COOKIES --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px); /* Começa escondido embaixo */
+    width: 90%;
+    max-width: 600px;
+    background: rgba(15, 0, 32, 0.95);
+    border: 1px solid var(--purple);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 9999;
+    opacity: 0;
+    transition: 0.5s ease-out;
+}
+
+.cookie-banner.show-cookie {
+    transform: translateX(-50%) translateY(0); /* Sobe suavemente */
+    opacity: 1;
+}
+
+.cookie-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cookie-icon {
+    font-size: 1.8rem;
+    color: #FFD700; /* Dourado */
+    animation: floatCookie 3s ease-in-out infinite;
+}
+
+.cookie-content p {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.cookie-content a {
+    color: var(--purple);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.btn-cookie {
+    background: var(--purple);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.btn-cookie:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 15px white;
+}
+
+@keyframes floatCookie {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Responsivo para celular */
+@media(max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        border-radius: 15px 15px 0 0; /* Arredonda só em cima */
+    }
+    .cookie-content {
+        flex-direction: column;
+    }
+    .btn-cookie {
+        width: 100%;
+    }
+}

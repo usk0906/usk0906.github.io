@@ -252,3 +252,24 @@ document.addEventListener("visibilitychange", function() {
         }
     }
 });
+
+// --- SISTEMA DE COOKIES ---
+window.onload = function() {
+    // Mantém sua função de rolar pro topo que já existia
+    window.scrollTo(0, 0);
+    
+    // Verifica se já aceitou os cookies
+    if (!localStorage.getItem('udesaken_cookies')) {
+        setTimeout(() => {
+            const banner = document.getElementById('cookie-banner');
+            if(banner) banner.classList.add('show-cookie');
+        }, 2000); // Espera 2 segundos para aparecer elegante
+    }
+}
+
+// Função global para o botão chamar
+window.aceitarCookies = function() {
+    localStorage.setItem('udesaken_cookies', 'true'); // Salva no navegador
+    const banner = document.getElementById('cookie-banner');
+    banner.classList.remove('show-cookie'); // Esconde suavemente
+}
