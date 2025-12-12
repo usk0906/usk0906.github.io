@@ -214,8 +214,12 @@ window.toggleMusic = function() {
     const btn = document.querySelector('.music-btn');
     const icon = document.getElementById('music-icon');
 
-    // Define o volume bem baixinho (10%)
-    audio.volume = 0.1;
+    // Tenta definir o volume (funciona no PC/Android, ignora no iPhone)
+    try {
+        audio.volume = 0.1;
+    } catch (e) {
+        console.log("O dispositivo não permite alterar volume via código.");
+    }
 
     if (audio.paused) {
         audio.play().then(() => {
