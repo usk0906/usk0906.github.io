@@ -1309,3 +1309,51 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     color: #ff4444; font-weight: bold; letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
+
+/* =========================================
+   🎄 ESPECIAL DE NATAL UDESAKEN (UPDATE)
+   ========================================= */
+
+/* --- EFEITO DE NEVE --- */
+.snow-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 9999; overflow: hidden;
+}
+.snowflake {
+    position: absolute; top: -10px; color: #fff; font-size: 1em; opacity: 0.8;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
+    100% { transform: translateY(105vh) translateX(20px); opacity: 0.3; }
+}
+
+/* --- TEXTOS E DESTAQUES DE NATAL --- */
+.text-christmas {
+    background: linear-gradient(90deg, #ff2222, #ffce00);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.christmas-badge {
+    background: #d40000; color: white; padding: 5px 15px; border-radius: 50px;
+    font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; display: inline-block;
+    box-shadow: 0 0 15px #ff0000; border: 1px solid #ff5555;
+    animation: pulsePromo 2s infinite;
+}
+
+/* --- PREÇOS PROMOCIONAIS --- */
+.old-price {
+    font-size: 1rem; color: #ff6666; text-decoration: line-through; display: block;
+}
+.new-price {
+    color: #ffce00; font-size: 1.4rem; font-weight: bold;
+}
+.promo-tag {
+    position: absolute; top: -10px; right: -10px; background: #ff0000;
+    color: white; padding: 5px 10px; border-radius: 8px; font-weight: bold;
+    font-size: 0.8rem; transform: rotate(10deg); z-index: 10;
+}
+
+/* Ajuste nos Cards para o Natal */
+.price-card:hover { border-color: #ff0000 !important; }
