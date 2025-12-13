@@ -24,6 +24,16 @@
 </head>
 <body>
 
+    <div class="snow-container">
+    <div class="snowflake" style="left: 10%; animation-duration: 10s; font-size: 1.2rem;">❄</div>
+    <div class="snowflake" style="left: 20%; animation-duration: 12s; font-size: 0.8rem;">❅</div>
+    <div class="snowflake" style="left: 30%; animation-duration: 8s; font-size: 1.5rem;">❆</div>
+    <div class="snowflake" style="left: 50%; animation-duration: 15s; font-size: 1rem;">❄</div>
+    <div class="snowflake" style="left: 70%; animation-duration: 9s; font-size: 1.3rem;">❅</div>
+    <div class="snowflake" style="left: 85%; animation-duration: 11s; font-size: 0.9rem;">❆</div>
+    <div class="snowflake" style="left: 95%; animation-duration: 13s; font-size: 1.1rem;">❄</div>
+</div>
+
 <div class="particles">
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
@@ -135,55 +145,67 @@
         </div>
     </section>
 
-    <section id="planos" class="section-padding">
+  <section id="planos" class="section-padding">
         <div class="section-header hidden">
+            <div class="natal-header"><span class="natal-text">🎄 PROMOÇÃO DE FINAL DE ANO 🎄</span></div>
             <h2>Planos do Bot</h2>
-            <p style="color: #ccc;">Escolha a melhor opção para sua comunidade.</p>
-            <div class="line"></div>
+            <p style="color: #ccc;">Desconto de 40% aplicado automaticamente!</p>
+            <div class="line" style="background: #ff4444; box-shadow: 0 0 10px #ff4444;"></div>
         </div>
         <div class="pricing-grid">
             <div class="price-card hidden">
+                <div class="promo-tag">40% OFF</div>
                 <div class="price-header"><h4>Teste</h4><h2>1 Dia</h2></div>
-                <div class="price-value"><span>R$</span>1,50</div>
+                <div class="price-value">
+                    <span class="old-price">R$ 1,50</span>
+                    <span style="color: #ff4444;">R$</span>0,90
+                </div>
                 <ul class="price-features">
                     <li><i class="fas fa-check"></i> Acesso Total</li>
                     <li><i class="fas fa-bolt"></i> Entrega Imediata</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20testar%20o%20Bot%20por%201%20Dia%20(R$1,50)" target="_blank" class="btn-price">Adquirir</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20aproveitar%20o%20Natal%20e%20testar%20o%20Bot%20(R$0,90)" target="_blank" class="btn-price">Adquirir</a>
             </div>
-            <div class="price-card popular hidden delay-100">
-                <div class="badge">Recomendado</div>
+            <div class="price-card popular hidden delay-100" style="border-color: #ff4444;">
+                <div class="badge" style="background: #ff4444;">Natal Oferta</div>
                 <div class="price-header"><h4>Mensal</h4><h2>30 Dias</h2></div>
-                <div class="price-value"><span>R$</span>7,50</div>
+                <div class="price-value">
+                    <span class="old-price">R$ 7,50</span>
+                    <span style="color: #ff4444;">R$</span>4,50
+                </div>
                 <ul class="price-features">
-                    <li><i class="fas fa-star"></i> Ideal para Comunidades</li>
+                    <li><i class="fas fa-star" style="color: #ff4444;"></i> Ideal para Comunidades</li>
                     <li><i class="fas fa-shield-alt"></i> Moderação Auto</li>
                     <li><i class="fas fa-gamepad"></i> RPG Completo</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20Plano%20Mensal%20(30%20Dias)%20(R$7,50)" target="_blank" class="btn-price btn-glow">Adquirir Agora</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20a%20Promo%20de%20Natal%20Mensal%20(30%20Dias)%20por%20R$4,50" target="_blank" class="btn-price btn-glow" style="background: #960000;">Adquirir Agora</a>
             </div>
             <div class="price-card hidden delay-200">
+                <div class="promo-tag">40% OFF</div>
                 <div class="price-header"><h4>Quinzenal</h4><h2>15 Dias</h2></div>
-                <div class="price-value"><span>R$</span>5,50</div>
+                <div class="price-value">
+                    <span class="old-price">R$ 5,50</span>
+                    <span style="color: #ff4444;">R$</span>3,30
+                </div>
                 <ul class="price-features">
                     <li><i class="fas fa-check"></i> Diversão Garantida</li>
                     <li><i class="fas fa-coins"></i> Economia RPG</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20Plano%20de%2015%20Dias%20(R$5,50)" target="_blank" class="btn-price">Adquirir</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20Plano%20de%2015%20Dias%20com%20desconto%20(R$3,30)" target="_blank" class="btn-price">Adquirir</a>
             </div>
         </div>
     </section>
 
-    <section id="vip" class="section-padding" style="background: linear-gradient(to bottom, transparent, rgba(255, 215, 0, 0.05), transparent);">
+   <section id="vip" class="section-padding" style="background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.1), transparent);">
         <div class="section-header hidden">
-            <h2 style="text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);">Clube VIP & IA</h2>
+            <h2 style="text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);">🎅 Clube VIP & IA</h2>
             
             <p style="color: #ccc; max-width: 600px; margin: 0 auto;">
-                Ferramentas exclusivas (IA e Transcrição) para usar no <strong>PV do Bot</strong>.
+                Ferramentas exclusivas com preço de Papai Noel.
             </p>
             
-            <div style="margin-top: 15px; font-size: 0.9rem; color: #FFD700; background: rgba(255, 215, 0, 0.1); display: inline-block; padding: 8px 20px; border-radius: 50px; border: 1px solid rgba(255, 215, 0, 0.3);">
-                <i class="fas fa-check-circle"></i> Não precisa ter grupo! É para uso pessoal.
+            <div style="margin-top: 15px; font-size: 0.9rem; color: #fff; background: rgba(255, 0, 0, 0.3); display: inline-block; padding: 8px 20px; border-radius: 50px; border: 1px solid rgba(255, 0, 0, 0.5);">
+                <i class="fas fa-gift"></i> Promoção válida até 31/12
             </div>
 
             <div class="line" style="background: #FFD700; box-shadow: 0 0 10px #FFD700; margin-top: 25px;"></div>
@@ -191,37 +213,45 @@
 
         <div class="pricing-grid">
             <div class="price-card vip-card hidden">
+                <div class="promo-tag" style="background: #FFD700; color: black;">PROMO</div>
                 <div class="price-header"><h4>Semanal</h4><h2>7 Dias</h2></div>
-                <div class="price-value" style="color: #FFD700;"><span>R$</span>1,99</div>
+                <div class="price-value" style="color: #FFD700;">
+                    <span class="old-price" style="color: #aaa;">R$ 1,99</span>
+                    <span>R$</span>1,19
+                </div>
                 <ul class="price-features">
                     <li><i class="fas fa-robot" style="color: #FFD700;"></i> Chat com IA (GPT)</li>
                     <li><i class="fas fa-microphone-alt" style="color: #FFD700;"></i> Transcrever Áudios</li>
-                    <li><i class="fas fa-user" style="color: #FFD700;"></i> Uso no Privado</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Semanal%20(7%20Dias)%20por%20R$1,99" target="_blank" class="btn-price btn-vip">Virar VIP</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Semanal%20Natalino%20(R$1,19)" target="_blank" class="btn-price btn-vip">Virar VIP</a>
             </div>
 
             <div class="price-card vip-card hidden delay-100">
+                <div class="promo-tag" style="background: #FFD700; color: black;">PROMO</div>
                 <div class="price-header"><h4>Quinzenal</h4><h2>15 Dias</h2></div>
-                <div class="price-value" style="color: #FFD700;"><span>R$</span>3,50</div>
+                <div class="price-value" style="color: #FFD700;">
+                    <span class="old-price" style="color: #aaa;">R$ 3,50</span>
+                    <span>R$</span>2,10
+                </div>
                 <ul class="price-features">
                     <li><i class="fas fa-robot" style="color: #FFD700;"></i> Chat com IA (GPT)</li>
-                    <li><i class="fas fa-microphone-alt" style="color: #FFD700;"></i> Transcrever Áudios</li>
                     <li><i class="fas fa-bolt" style="color: #FFD700;"></i> Respostas Rápidas</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Quinzenal%20(15%20Dias)%20por%20R$3,50" target="_blank" class="btn-price btn-vip">Virar VIP</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Quinzenal%20Natalino%20(R$2,10)" target="_blank" class="btn-price btn-vip">Virar VIP</a>
             </div>
 
             <div class="price-card vip-card popular hidden delay-200" style="border-color: #FFD700;">
-                <div class="badge" style="background: #FFD700; color: black; box-shadow: 0 0 15px #FFD700;">Melhor Valor</div>
+                <div class="badge" style="background: #FFD700; color: black; box-shadow: 0 0 15px #FFD700;">Mega Oferta</div>
                 <div class="price-header"><h4>Mensal</h4><h2>30 Dias</h2></div>
-                <div class="price-value" style="color: #FFD700;"><span>R$</span>5,00</div>
+                <div class="price-value" style="color: #FFD700;">
+                    <span class="old-price" style="color: #aaa;">R$ 5,00</span>
+                    <span>R$</span>3,00
+                </div>
                 <ul class="price-features">
                     <li><i class="fas fa-crown" style="color: #FFD700;"></i> **Acesso Completo**</li>
                     <li><i class="fas fa-robot" style="color: #FFD700;"></i> IA Ilimitada</li>
-                    <li><i class="fas fa-microphone-alt" style="color: #FFD700;"></i> Transcrição Ilimitada</li>
                 </ul>
-                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Mensal%20(30%20Dias)%20por%20R$5,00" target="_blank" class="btn-price btn-vip glow-gold">Virar VIP Agora</a>
+                <a href="https://wa.me/5521989750722?text=Ola%20Udesaken!%20Quero%20o%20VIP%20Mensal%20de%20Natal%20(R$3,00)" target="_blank" class="btn-price btn-vip glow-gold">Virar VIP Agora</a>
             </div>
         </div>
     </section>
