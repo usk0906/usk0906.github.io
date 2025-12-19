@@ -998,55 +998,71 @@ footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-
     transform: translateY(-3px);
 } 
 
-/* --- SELO POWERED BY (NO RODAPÉ) --- */
+/* --- SELO POWERED BY (MINIMALISTA) --- */
 .powered-badge {
     position: absolute;
     bottom: 20px;
-    left: 20px; /* Preso na esquerda */
+    left: 20px;
     
-    background: rgba(255, 255, 255, 0.05); 
-    border: 1px solid rgba(138, 43, 226, 0.3);
-    border-radius: 50px;
-    padding: 8px 15px;
+    /* Removemos o fundo e borda para não parecer botão */
+    background: transparent; 
+    border: none;
+    padding: 0;
     
-    color: #aaa;
-    font-size: 0.75rem;
+    /* Estilo do Texto */
+    color: #444; /* Cinza bem escuro para ficar discreto */
+    font-size: 0.7rem; /* Menor e mais delicado */
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* Mais espaçamento para elegância */
     text-decoration: none;
+    
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: 0.3s;
+    transition: 0.4s ease;
+    opacity: 0.8;
 }
 
-.powered-badge i { color: var(--purple); }
-.powered-badge strong { color: #fff; }
+.powered-badge i { 
+    color: #555; /* Ícone apagado por padrão */
+    transition: 0.4s;
+    font-size: 0.8rem;
+}
 
+.powered-badge strong { 
+    font-weight: 600; 
+    color: #555; /* Texto Udesaken apagado por padrão */
+    transition: 0.4s;
+}
+
+/* Efeito ao passar o mouse (Acende o Neon) */
 .powered-badge:hover {
-    background: var(--purple);
-    border-color: var(--purple);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    background: transparent; /* Garante que não tenha fundo */
+    box-shadow: none; /* Sem sombra de caixa */
+    transform: translateY(-2px); /* Flutua levemente */
+    opacity: 1;
 }
 
-/* Ajuste Mobile */
+.powered-badge:hover i {
+    color: var(--purple); /* Ícone fica Roxo */
+    text-shadow: 0 0 10px var(--purple); /* Brilho Neon */
+}
+
+.powered-badge:hover strong {
+    color: white; /* Texto fica Branco */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Ajuste Mobile (Mantém centralizado) */
 @media(max-width: 768px) {
-    footer {
-        padding-bottom: 60px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
     .powered-badge {
-        position: relative; /* Centraliza no celular */
+        position: relative;
         bottom: auto;
         left: auto;
+        margin-top: 10px;
+        justify-content: center;
     }
-} /* <--- ADICIONE ESSA CHAVE AQUI PARA FECHAR O MODO MOBILE */
-
+}
 /* --- ESTILOS DO CLUBE VIP (DOURADO) --- */
 
 /* Card VIP Básico */
