@@ -168,14 +168,19 @@ header {
 .gold-line { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
 
 .pricing-grid { 
-    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; 
+    display: flex; 
+    justify-content: center; /* Centraliza os 2 cards */
+    align-items: center;
+    gap: 40px; /* Aumentei o espaço entre os cards para ficar mais elegante */
+    flex-wrap: wrap; 
 }
 
 .price-card {
     background: rgba(255, 255, 255, 0.03); 
     border: 1px solid var(--border-glass);
     padding: 40px 30px; border-radius: 20px; text-align: center;
-    width: 320px; transition: 0.4s; position: relative; 
+    width: 340px; /* Levemente mais largo para impor presença */
+    transition: 0.4s; position: relative; 
     backdrop-filter: blur(10px);
 }
 
@@ -221,20 +226,7 @@ header {
 }
 .badge-gold { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
 
-/* --- SEÇÃO DE SITES --- */
-.web-section {
-    padding: 80px 10%;
-    background: linear-gradient(to bottom, transparent, rgba(0, 242, 234, 0.05), transparent);
-}
-.web-card {
-    border: 1px solid #333; border-radius: 20px; padding: 40px; text-align: center;
-    background: rgba(10, 10, 10, 0.8); transition: 0.4s; position: relative;
-}
-.web-card:hover { border-color: #00f2ea; transform: translateY(-10px); box-shadow: 0 0 30px rgba(0, 242, 234, 0.2); }
-.badge-web { 
-    position: absolute; top: 0; right: 0; background: #00f2ea; color: black; 
-    padding: 5px 15px; border-bottom-left-radius: 15px; font-weight: bold; font-size: 0.8rem; 
-}
+/* --- SEÇÃO WEB REMOVIDA DAQUI --- */
 
 /* --- EQUIPE --- */
 .team-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
