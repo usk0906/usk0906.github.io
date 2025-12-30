@@ -9,8 +9,6 @@
     
     <link rel="stylesheet" href="style.css">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Udesaken - Bem-vindo a 2026">
     <meta name="theme-color" content="#FFD700">
 </head>
 <body>
@@ -27,6 +25,7 @@
         <nav>
             <ul class="nav-links">
                 <div class="close-btn-mobile"><i class="fas fa-times"></i></div>
+                
                 <li><a href="/" class="active">Início</a></li>
                 <li><a href="/planos">Planos Bot</a></li>
                 <li><a href="/vip">Clube VIP</a></li>
@@ -84,7 +83,7 @@
                     <i class="fas fa-robot"></i>
                 </div>
                 <h3 style="color: white; font-size: 1.5rem;">Automação Bot</h3>
-                <p style="margin-bottom: 20px;">Sistemas completos de moderação, diversão e administração para grupos.</p>
+                <p style="margin-bottom: 20px; color: #ddd;">Sistemas completos de moderação, diversão e administração para grupos.</p>
                 <a href="/planos" class="btn-price">Acessar Planos</a>
             </div>
 
@@ -94,7 +93,7 @@
                     <i class="fas fa-crown"></i>
                 </div>
                 <h3 style="color: var(--gold, #FFD700); font-size: 1.5rem;">Clube VIP</h3>
-                <p style="margin-bottom: 20px;">IA Avançada (GPT), Transcrição de áudio e recursos de elite.</p>
+                <p style="margin-bottom: 20px; color: #ddd;">IA Avançada (GPT), Transcrição de áudio e recursos de elite.</p>
                 <a href="/vip" class="btn-price btn-glow-gold" style="border: none;">Entrar no Clube</a>
             </div>
 
@@ -120,7 +119,7 @@
             <div class="footer-col">
                 <div class="logo" style="margin-bottom: 15px;">Udesaken</div>
                 <p style="color: #aaa; line-height: 1.6; font-weight: 300;">
-                    Redefinindo a interação em comunidades digitais. Tecnologia avançada, design premium e o futuro da moderação na palma da sua mão.
+                    Redefinindo a interação em comunidades digitais. Tecnologia avançada, design premium e o futuro da moderação.
                 </p>
             </div>
 
@@ -159,7 +158,7 @@
     <div id="cookieBanner" class="cookie-consent">
         <div class="cookie-text">
             <i class="fas fa-cookie-bite" style="color: #FFD700; margin-right: 10px;"></i>
-            Utilizamos cookies para garantir a melhor experiência em nosso site. Ao continuar navegando, você concorda com nossos <a href="/termos">Termos</a> e <a href="/cookies">Política de Cookies</a>.
+            Utilizamos cookies para garantir a melhor experiência. Ao continuar, você concorda com nossos <a href="/termos">Termos</a>.
         </div>
         <button class="btn-accept" onclick="acceptCookies()">Aceitar e Continuar</button>
     </div>
@@ -174,58 +173,62 @@
         </div>
     </div>
 
-   <script type="module" src="script.js"></script>
+    <script type="module" src="script.js"></script>
 
     <script>
-        // --- 1. LÓGICA DO MENU MOBILE (Corrigida) ---
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const closeBtn = document.querySelector('.close-btn-mobile');
+        // --- 1. MENU MOBILE (FIXO DEFINITIVO) ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const closeBtn = document.querySelector('.close-btn-mobile');
+            const links = document.querySelectorAll('.nav-links a');
 
-        // Função segura para abrir/fechar
-        function toggleMenu() {
-            navLinks.classList.toggle('active');
-        }
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+            }
 
-        if(hamburger) {
-            // Remove listeners antigos para evitar duplo clique
-            hamburger.replaceWith(hamburger.cloneNode(true));
-            const newHamburger = document.querySelector('.hamburger');
-            newHamburger.addEventListener('click', toggleMenu);
-        }
+            function closeMenu() {
+                navLinks.classList.remove('active');
+            }
 
-        if(closeBtn) {
-            closeBtn.addEventListener('click', () => navLinks.classList.remove('active'));
-        }
+            // Remove clones antigos para evitar bugs de clique duplo
+            if(hamburger) {
+                const newHamburger = hamburger.cloneNode(true);
+                hamburger.parentNode.replaceChild(newHamburger, hamburger);
+                newHamburger.addEventListener('click', toggleMenu);
+            }
 
-        // Fechar ao clicar em links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
+            if(closeBtn) {
+                closeBtn.addEventListener('click', closeMenu);
+            }
+
+            // Fechar ao clicar em qualquer link
+            links.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
         });
 
-        // --- 2. SISTEMA DE COOKIES (Agora funciona!) ---
+        // --- 2. COOKIES (GLOBAL PARA O BOTÃO ENXERGAR) ---
         function checkCookies() {
-            // Verifica se já aceitou
             if (!localStorage.getItem('udesaken_cookies')) {
                 setTimeout(() => {
                     const banner = document.getElementById('cookieBanner');
                     if(banner) banner.classList.add('active');
-                }, 1500);
+                }, 2000);
             }
         }
 
-        // Esta função agora está global e o botão vai achá-la
+        // Definindo globalmente para o onclick="" do HTML funcionar
         window.acceptCookies = function() {
             localStorage.setItem('udesaken_cookies', 'accepted');
             const banner = document.getElementById('cookieBanner');
             if(banner) banner.classList.remove('active');
         }
-
+        
         // Inicia verificação
         window.addEventListener('load', checkCookies);
 
-
-        // --- 3. ÁUDIO / MÚSICA ---
+        // --- 3. MÚSICA ---
         window.toggleMusic = function() {
             const audio = document.getElementById('bg-audio');
             const btn = document.querySelector('.music-btn');
@@ -233,15 +236,14 @@
             
             if(!audio) return;
 
-            // Tenta diminuir volume inicial
             try { audio.volume = 0.3; } catch (e) {}
 
             if (audio.paused) {
                 audio.play().then(() => {
                     btn.classList.add('playing');
                     btn.title = "Pausar";
-                    if(icon) icon.className = ''; // Remove ícone de mudo
-                }).catch(e => console.log("Interação necessária para tocar"));
+                    if(icon) icon.className = ''; 
+                }).catch(e => console.log("Toque na tela necessário para áudio"));
             } else {
                 audio.pause();
                 btn.classList.remove('playing');
@@ -250,7 +252,7 @@
             }
         }
 
-        // --- 4. ANIMAÇÕES DE SCROLL ---
+        // --- 4. ANIMAÇÃO DE SCROLL ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) entry.target.classList.add('show');
