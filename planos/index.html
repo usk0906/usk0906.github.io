@@ -6,26 +6,63 @@
     <title>Planos Bot — Udesaken 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../style.css">
+
     <meta name="theme-color" content="#8a2be2">
     
     <style>
+        /* --- CORREÇÃO DE ALINHAMENTO (Igual fizemos na VIP) --- */
+        .pricing-grid {
+            align-items: stretch; 
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .price-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Empurra o botão para o final */
+            height: auto;
+            min-height: 480px; /* Altura mínima igual para todos */
+            width: 320px;
+        }
+
+        /* Ajustes específicos de Preço */
         .old-price {
-            font-size: 1.1rem;
-            color: #888;
-            text-decoration: line-through;
-            display: block;
-            margin-bottom: -15px; /* Cola no preço novo */
+            font-size: 1rem; color: #888; text-decoration: line-through;
+            display: block; margin-bottom: -5px;
         }
         .discount-badge {
-            background: #2ecc71; /* Verde Sucesso */
-            color: black;
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            vertical-align: middle;
-            margin-left: 10px;
+            background: #2ecc71; /* Verde Neon para diferenciar do VIP */
+            color: black; font-size: 0.7rem; padding: 2px 8px;
+            border-radius: 4px; font-weight: bold; vertical-align: middle;
+            margin-left: 5px; box-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
+        }
+
+        /* Destaque do Card Mensal (Roxo) */
+        .price-card.popular {
+            transform: scale(1.05);
+            z-index: 2;
+            border-color: #8a2be2; /* Roxo */
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        /* Botão Roxo Brilhante */
+        .btn-glow-purple {
+            background: linear-gradient(45deg, #8a2be2, #9b59b6);
+            border: none; color: white !important;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+        }
+        .btn-glow-purple:hover {
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.7);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .price-card { width: 100%; min-height: auto; }
+            .price-card.popular { transform: scale(1); }
         }
     </style>
 </head>
@@ -44,7 +81,7 @@
             <ul class="nav-links">
                 <div class="close-btn-mobile"><i class="fas fa-times"></i></div>
                 <li><a href="/">Início</a></li>
-                <li><a href="/planos" class="active">Planos Bot</a></li>
+                <li><a href="/planos" class="active" style="color: #8a2be2;">Planos Bot</a></li>
                 <li><a href="/vip">Clube VIP</a></li>
                 <li><a href="https://wa.me/447907210802" class="btn-header"><i class="fab fa-whatsapp"></i> Suporte</a></li>
             </ul>
@@ -54,20 +91,19 @@
         </nav>
     </header>
 
-    <section class="hero" style="min-height: 60vh; padding-top: 100px;">
-        <div class="hero-content" style="text-align: center; width: 100%;">
-            <div class="badge-news" style="margin: 0 auto 20px auto;">
+    <section class="hero" style="min-height: 50vh; padding-top: 120px; padding-bottom: 40px;">
+        <div class="hero-content" style="text-align: center; width: 100%; max-width: 800px; margin: 0 auto;">
+            <div class="badge-news" style="margin: 0 auto 20px auto; border-color: #8a2be2; color: #d8b4fe;">
                 <i class="fas fa-tag"></i> Oferta de Ano Novo
             </div>
             
-            <h1 class="hidden delay-100">
+            <h1 class="hidden delay-100" style="font-size: 2.5rem;">
                 40% OFF em todo o<br>
-                <span style="color: var(--purple); text-shadow: 0 0 20px var(--purple);">SISTEMA.</span>
+                <span style="color: #8a2be2; text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);">SISTEMA.</span>
             </h1>
             
-            <p class="hidden delay-200" style="margin: 0 auto 30px auto;">
-                Aproveite os preços promocionais para começar 2026 com tudo.<br>
-                A promoção é por tempo limitado.
+            <p class="hidden delay-200" style="margin: 0 auto; color: #ccc; max-width: 600px;">
+                Aproveite os preços promocionais para começar 2026 com tudo. Moderação, diversão e segurança para seu grupo.
             </p>
         </div>
     </section>
@@ -76,59 +112,65 @@
         <div class="pricing-grid">
             
             <div class="price-card hidden delay-100">
-                <div class="price-header">
-                    <h4>Teste Rápido <span class="discount-badge">-40%</span></h4>
-                    <h2>1 Dia</h2>
+                <div>
+                    <div class="price-header">
+                        <h4 style="color:#ccc;">Teste Rápido <span class="discount-badge">-40%</span></h4>
+                        <h2 style="font-size: 1.8rem; margin: 10px 0;">1 Dia</h2>
+                    </div>
+                    <div class="price-value" style="color: #fff; margin-bottom: 20px;">
+                        <span class="old-price">R$ 1,50</span>
+                        <span style="font-size: 2rem; font-weight: bold;">R$ 0,90</span>
+                    </div>
+                    <ul class="price-features" style="text-align: left; padding-left: 10px; color: #ddd;">
+                        <li><i class="fas fa-check" style="color: #2ecc71;"></i> Acesso Total às funções</li>
+                        <li><i class="fas fa-bolt" style="color: #2ecc71;"></i> Entrega Imediata</li>
+                        <li><i class="fas fa-times" style="color:#555;"></i> Sem fidelidade</li>
+                    </ul>
                 </div>
-                <div class="price-value">
-                    <span class="old-price">R$ 1,50</span><br>
-                    <span class="currency">R$</span>0,90
-                </div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Acesso Total às funções</li>
-                    <li><i class="fas fa-bolt"></i> Entrega Imediata</li>
-                    <li><i class="fas fa-times" style="color:#555;"></i> Sem fidelidade</li>
-                </ul>
                 <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Teste%20(1%20Dia)" target="_blank" class="btn-price">
                     Testar Agora
                 </a>
             </div>
             
-            <div class="price-card popular hidden delay-200" style="border-color: var(--purple); box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);">
-                <div class="badge" style="background: var(--purple);">Oferta 2026</div>
-                <div class="price-header">
-                    <h4>Mensal <span class="discount-badge">-40%</span></h4>
-                    <h2>30 Dias</h2>
+            <div class="price-card popular hidden delay-200" style="background: linear-gradient(145deg, #1a0033, #0d001a);">
+                <div class="badge" style="background: #8a2be2; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); padding: 5px 20px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 0 10px #8a2be2;">Oferta 2026</div>
+                <div>
+                    <div class="price-header">
+                        <h4 style="color: #d8b4fe;">Mensal <span class="discount-badge">-40%</span></h4>
+                        <h2 style="font-size: 1.8rem; margin: 10px 0;">30 Dias</h2>
+                    </div>
+                    <div class="price-value" style="color: #a64dff; margin-bottom: 20px;">
+                        <span class="old-price">R$ 7,50</span>
+                        <span style="font-size: 2rem; font-weight: bold;">R$ 4,50</span>
+                    </div>
+                    <ul class="price-features" style="text-align: left; padding-left: 10px;">
+                        <li><i class="fas fa-star" style="color: #a64dff;"></i> <strong>Melhor Custo-Benefício</strong></li>
+                        <li><i class="fas fa-shield-alt" style="color: #a64dff;"></i> Moderação 24/7</li>
+                        <li><i class="fas fa-gamepad" style="color: #a64dff;"></i> RPG & Diversão Completa</li>
+                        <li><i class="fas fa-headset" style="color: #a64dff;"></i> Suporte Prioritário</li>
+                    </ul>
                 </div>
-                <div class="price-value">
-                    <span class="old-price">R$ 7,50</span><br>
-                    <span class="currency">R$</span>4,50
-                </div>
-                <ul class="price-features">
-                    <li><i class="fas fa-star" style="color: var(--purple);"></i> <strong>Melhor Custo-Benefício</strong></li>
-                    <li><i class="fas fa-shield-alt"></i> Moderação 24/7</li>
-                    <li><i class="fas fa-gamepad"></i> RPG & Diversão Completa</li>
-                    <li><i class="fas fa-headset"></i> Suporte Prioritário</li>
-                </ul>
-                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Mensal" target="_blank" class="btn-price btn-glow" style="background: var(--purple); border: none;">
+                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Mensal" target="_blank" class="btn-price btn-glow-purple">
                     Garantir Mensal
                 </a>
             </div>
 
             <div class="price-card hidden delay-300">
-                <div class="price-header">
-                    <h4>Quinzenal <span class="discount-badge">-40%</span></h4>
-                    <h2>15 Dias</h2>
+                <div>
+                    <div class="price-header">
+                        <h4 style="color:#ccc;">Quinzenal <span class="discount-badge">-40%</span></h4>
+                        <h2 style="font-size: 1.8rem; margin: 10px 0;">15 Dias</h2>
+                    </div>
+                    <div class="price-value" style="color: #fff; margin-bottom: 20px;">
+                        <span class="old-price">R$ 5,50</span>
+                        <span style="font-size: 2rem; font-weight: bold;">R$ 3,30</span>
+                    </div>
+                    <ul class="price-features" style="text-align: left; padding-left: 10px; color: #ddd;">
+                        <li><i class="fas fa-check" style="color: #2ecc71;"></i> Diversão Garantida</li>
+                        <li><i class="fas fa-coins" style="color: #2ecc71;"></i> Economia RPG</li>
+                        <li><i class="fas fa-clock" style="color: #2ecc71;"></i> Renovação Flexível</li>
+                    </ul>
                 </div>
-                <div class="price-value">
-                    <span class="old-price">R$ 5,50</span><br>
-                    <span class="currency">R$</span>3,30
-                </div>
-                <ul class="price-features">
-                    <li><i class="fas fa-check"></i> Diversão Garantida</li>
-                    <li><i class="fas fa-coins"></i> Economia RPG</li>
-                    <li><i class="fas fa-clock"></i> Renovação Flexível</li>
-                </ul>
                 <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Quinzenal" target="_blank" class="btn-price">
                     Assinar Quinzenal
                 </a>
@@ -137,31 +179,71 @@
         </div>
     </section>
 
-    <section class="section-padding" style="background: rgba(0,0,0,0.4);">
+    <section class="section-padding" style="background: rgba(0,0,0,0.4); margin-top: 50px;">
         <div class="section-header hidden">
-            <h2>Dúvidas Comuns</h2>
-            <div class="line"></div>
+            <h2 style="color: #fff;">Dúvidas Comuns</h2>
+            <div class="line" style="background: #8a2be2;"></div>
         </div>
         <div style="max-width: 800px; margin: 0 auto; color: #ccc;">
-            <div class="faq-item hidden" style="margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
-                <h4 style="color: white; margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Como funciona a entrega?</h4>
-                <p>Assim que o pagamento é confirmado, você recebe o acesso ao bot e o tutorial de ativação diretamente no seu WhatsApp.</p>
+            <div class="faq-item hidden" style="margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                <h4 style="color: #d8b4fe; margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Como funciona a entrega?</h4>
+                <p>Assim que o pagamento é confirmado, você recebe o acesso ao bot e o tutorial de ativação diretamente no seu WhatsApp. É instantâneo.</p>
             </div>
-            <div class="faq-item hidden delay-100" style="margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
-                <h4 style="color: white; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> O desconto é vitalício?</h4>
-                <p>O desconto de 40% é válido para a contratação atual. Aproveite para garantir períodos mais longos agora!</p>
+            <div class="faq-item hidden delay-100" style="margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);">
+                <h4 style="color: #d8b4fe; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> O desconto é vitalício?</h4>
+                <p>O desconto de 40% é válido para a contratação atual. Se você garantir o mensal agora, paga o preço promocional por esses 30 dias.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <p>Udesaken Group &copy; 2026.</p>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">Udesaken</div>
+                <p style="color: #aaa; line-height: 1.6; font-weight: 300;">
+                    Redefinindo a interação em comunidades digitais. Tecnologia avançada, design premium e o futuro da moderação.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal & Suporte</h4>
+                <ul class="footer-links">
+                    <li><a href="/termos"><i class="fas fa-file-contract"></i> Termos de Uso</a></li>
+                    <li><a href="/cookies"><i class="fas fa-cookie-bite"></i> Política de Cookies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Siga a Udesaken</h4>
+                <div class="social-grid">
+                    <a href="https://instagram.com/udesakenofc" target="_blank" class="social-btn" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@udesakenofc" target="_blank" class="social-btn" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VbBkK4U5kg77KBDyLC0a" target="_blank" class="social-btn" title="Canal WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <a href="/" class="powered-badge">
-            <i class="fas fa-bolt"></i> Voltar ao <strong>Início</strong>
-        </a>
+
+        <div class="copyright">
+            <p>Udesaken Group &copy; 2026. Todos os direitos reservados.</p>
+            <a href="/" class="powered-badge" style="margin-top: 10px; display: inline-block;">
+                <i class="fas fa-bolt"></i> Powered by <strong>Udesaken</strong>
+            </a>
+        </div>
     </footer>
+
+    <div id="cookieBanner" class="cookie-consent">
+        <div class="cookie-text">
+            <i class="fas fa-cookie-bite" style="color: #FFD700; margin-right: 10px;"></i>
+            Utilizamos cookies para garantir a melhor experiência. Ao continuar, você concorda com nossos <a href="/termos">Termos</a>.
+        </div>
+        <button id="btnAccept" class="btn-accept">Aceitar e Continuar</button>
+    </div>
 
     <div class="music-widget">
         <audio id="bg-audio" loop>
@@ -174,16 +256,69 @@
     </div>
 
     <script type="module" src="../script.js"></script>
+
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const closeBtn = document.querySelector('.close-btn-mobile');
-        if(hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-        if(closeBtn) closeBtn.addEventListener('click', () => navLinks.classList.remove('active'));
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. MENU MOBILE
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const closeBtn = document.querySelector('.close-btn-mobile');
+            const links = document.querySelectorAll('.nav-links a');
+
+            function toggleMenu() { navLinks.classList.toggle('active'); }
+            function closeMenu() { navLinks.classList.remove('active'); }
+
+            if(hamburger) {
+                const newHamburger = hamburger.cloneNode(true);
+                hamburger.parentNode.replaceChild(newHamburger, hamburger);
+                newHamburger.addEventListener('click', toggleMenu);
+            }
+            if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+            links.forEach(link => link.addEventListener('click', closeMenu));
+
+            // 2. COOKIES
+            const cookieBanner = document.getElementById('cookieBanner');
+            const btnAccept = document.getElementById('btnAccept');
+
+            if (!localStorage.getItem('udesaken_cookies')) {
+                setTimeout(() => { if(cookieBanner) cookieBanner.classList.add('active'); }, 2000);
+            }
+            if(btnAccept) {
+                btnAccept.addEventListener('click', () => {
+                    localStorage.setItem('udesaken_cookies', 'accepted');
+                    if(cookieBanner) cookieBanner.classList.remove('active');
+                });
+            }
+
+            // 3. ANIMAÇÃO SCROLL
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+            });
+            document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
         });
-        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+
+        // 4. MÚSICA (GLOBAL)
+        window.toggleMusic = function() {
+            const audio = document.getElementById('bg-audio');
+            const btn = document.querySelector('.music-btn');
+            const icon = document.getElementById('music-icon');
+            if(!audio) return;
+            try { audio.volume = 0.3; } catch (e) {}
+
+            if (audio.paused) {
+                audio.play().then(() => {
+                    btn.classList.add('playing');
+                    btn.title = "Pausar";
+                    if(icon) icon.className = ''; 
+                }).catch(e => console.log("Toque necessário"));
+            } else {
+                audio.pause();
+                btn.classList.remove('playing');
+                btn.title = "Tocar";
+                if(icon) icon.className = 'fas fa-volume-mute';
+            }
+        }
     </script>
 </body>
 </html>
