@@ -363,3 +363,44 @@ footer {
     .cookie-text { font-size: 0.85rem; margin-bottom: 0; }
     .btn-accept { width: 100%; padding: 12px; }
 }
+/* --- CORES DAS REDES SOCIAIS --- */
+
+/* Remove a borda padrão para usar as cores cheias */
+.social-btn {
+    border: none !important; 
+    color: white !important; /* Ícone sempre branco para contraste */
+}
+
+/* Instagram: Gradiente oficial */
+.social-btn.insta {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 0 10px rgba(214, 36, 159, 0.3);
+}
+.social-btn.insta:hover {
+    box-shadow: 0 0 20px rgba(214, 36, 159, 0.6);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+}
+
+/* TikTok: Preto com efeito de sombra "glitch" (ciano e vermelho) */
+.social-btn.tiktok {
+    background: #000000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid #333 !important; /* Borda sutil para não sumir no fundo preto */
+}
+.social-btn.tiktok:hover {
+    background: #000000 !important;
+    /* Efeito de sombra vermelha e azul típicas do TikTok */
+    text-shadow: 2px 2px 0px #25F4EE, -2px -2px 0px #FE2C55;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    border-color: #fff !important;
+}
+
+/* WhatsApp: Verde oficial */
+.social-btn.whats {
+    background: #25D366;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+}
+.social-btn.whats:hover {
+    background: #20BA56 !important;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+}
