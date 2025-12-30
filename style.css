@@ -243,18 +243,28 @@ footer {
 }
 
 /* --- BANNER COOKIES --- */
+/* No arquivo style.css */
+
 .cookie-consent {
-    position: fixed; bottom: -100px; left: 0; width: 100%;
-    background: rgba(10, 10, 10, 0.95); border-top: 1px solid #FFD700;
-    padding: 20px; z-index: 2000; display: flex; justify-content: center;
-    align-items: center; gap: 20px; transition: bottom 0.5s ease;
+    position: fixed;
+    /* bottom: -100px;  <-- APAGUE ESSA LINHA */
+    bottom: 0;       /* <-- COLOQUE ESSA: Fixa ele na base da tela */
+    left: 0; 
+    width: 100%;
+    /* ... mantenha o resto (background, border, etc) ... */
+    
+    /* ADICIONE ESSA LINHA ABAIXO: */
+    transform: translateY(100%); /* Isso empurra ele 100% para baixo (esconde totalmente) */
+    
+    transition: transform 0.5s ease; /* Mude 'bottom' para 'transform' na transição */
+    z-index: 2000;
 }
-.cookie-consent.active { bottom: 0; }
-.cookie-text { color: #fff; font-size: 0.9rem; max-width: 800px; }
-.cookie-text a { color: #FFD700; text-decoration: underline; }
-.btn-accept {
-    background: #FFD700; color: #000; border: none; padding: 10px 25px;
-    border-radius: 5px; cursor: pointer; font-weight: bold;
+
+.cookie-consent.active {
+    /* bottom: 0; <-- APAGUE ESSA LINHA */
+    
+    /* ADICIONE ESSA LINHA ABAIXO: */
+    transform: translateY(0); /* Traz ele de volta para a posição visível */
 }
 
 /* --- WIDGET MÚSICA (RESTAURADO) --- */
