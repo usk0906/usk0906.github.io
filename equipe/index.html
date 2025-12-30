@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe — Udesaken</title>
+    
+    <meta property="og:title" content="Equipe Udesaken">
+    <meta property="og:description" content="Conheça a liderança por trás da tecnologia.">
+    <meta property="og:image" content="https://udesaken.site/hero-poster.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="../hero-poster.png">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta name="theme-color" content="#FFD700">
+    
+    <style>
+        /* Ajuste fino para o Glassmorphism do cartão de equipe */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05); /* Vidro mais leve */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 20px;
+            transition: 0.4s ease;
+        }
+        .glass-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="new-year-particles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <header>
+        <div class="logo">
+            Udesaken <span style="color:#FFD700; font-size:0.8rem; border:1px solid #FFD700; padding: 2px 5px; border-radius: 4px;">2026</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <div class="close-btn-mobile"><i class="fas fa-times"></i></div>
+                <li><a href="../">Início</a></li>
+                <li><a href="../planos">Planos Bot</a></li>
+                <li><a href="../vip">Clube VIP</a></li>
+                <li><a href="#" class="active">Equipe</a></li>
+                <li><a href="https://wa.me/447907210802" class="btn-header"><i class="fab fa-whatsapp"></i> Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" style="min-height: 40vh; padding-top: 120px; flex-direction: column; justify-content: center; text-align: center;">
+        <div class="hero-content" style="max-width: 800px;">
+            <h1 class="hidden delay-100" style="font-size: 3rem;">
+                Quem faz a <span class="text-gold">MÁGICA</span>
+            </h1>
+            <p class="hidden delay-200" style="margin-top: 10px; color: #ccc;">
+                A mente criativa por trás da tecnologia Udesaken.
+            </p>
+        </div> 
+    </section>
+
+    <section class="section-padding" style="padding-top: 0; padding-bottom: 100px;">
+        <div class="team-wrapper" style="justify-content: center;">
+            
+            <div class="glass-card hidden delay-300" style="width: 320px; padding: 40px 30px; text-align: center;">
+                <div class="team-member">
+                    <img src="../islo.jpg" alt="CEO Islo" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);">
+                    
+                    <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Isloch</h2>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 20px; text-transform: uppercase;">
+                        CEO, Fundador & Developer
+                    </p>
+                    
+                    <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto 20px;"></div>
+
+                    <div class="social-grid" style="gap: 15px;">
+                        
+                        <a href="https://instagram.com/isloch_" target="_blank" class="social-btn insta" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        
+                        <a href="https://tiktok.com/@isloch_" target="_blank" class="social-btn tiktok" title="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+
+                        <a href="https://wa.me/447907210802" target="_blank" class="social-btn whats" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo">Udesaken</div>
+                <p style="color: #aaa; margin-top: 10px;">O Futuro da moderação.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul class="footer-links">
+                    <li><a href="../">Voltar ao Início</a></li>
+                    <li><a href="../termos">Termos de Uso</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Udesaken Group &copy; 2026.</p>
+        </div>
+    </footer>
+
+    <div class="music-widget">
+        <audio id="bg-audio" loop><source src="../musicusk.mp3" type="audio/mpeg"></audio>
+        <div class="music-btn" onclick="toggleMusic()">
+            <div class="waves"><span></span><span></span><span></span><span></span></div>
+            <i class="fas fa-volume-mute" id="music-icon"></i>
+        </div>
+    </div>
+
+    <script type="module" src="../script.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const closeBtn = document.querySelector('.close-btn-mobile');
+            
+            function toggleMenu() { navLinks.classList.toggle('active'); }
+            if(hamburger) hamburger.addEventListener('click', toggleMenu);
+            if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) entry.target.classList.add('show');
+                });
+            });
+            document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+        });
+
+        window.toggleMusic = function() {
+            const audio = document.getElementById('bg-audio');
+            const btn = document.querySelector('.music-btn');
+            const icon = document.getElementById('music-icon');
+            if(audio.paused) {
+                audio.play(); btn.classList.add('playing'); icon.className = '';
+            } else {
+                audio.pause(); btn.classList.remove('playing'); icon.className = 'fas fa-volume-mute';
+            }
+        }
+    </script>
+</body>
+</html>
