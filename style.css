@@ -1,32 +1,31 @@
 /* ==========================================================================
-    POWERED BY UDESAKEN ®
+    UDESAKEN 2026 ® - FUTURE GOLD EDITION
     Desenvolvido por: Isloch & Equipe Udesaken
-    Direitos Autorais: 2022-2025
-    
-    Atenção: A cópia deste layout sem autorização é monitorada.
-    Quer um site igual? Contrate a gente!
-   ==========================================================================
-*/
+    Tema: Ano Novo / Futuro / Luxo
+   ========================================================================== */
 
-/* --- CONFIGURAÇÕES BASE --- */
 :root {
     --purple: #8a2be2;
-    --dark-purple: #240046;
+    --dark-purple: #1a0033;
+    --gold: #FFD700;       /* Ouro Puro */
+    --gold-glow: #ffaa00;  /* Brilho Dourado */
     --black: #050505;
     --text: #f0f0f0;
-    --glass: rgba(255, 255, 255, 0.05);
-    --border-glass: rgba(138, 43, 226, 0.3);
+    --glass: rgba(255, 255, 255, 0.03);
+    --border-glass: rgba(255, 255, 255, 0.1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
 body { 
-    background: linear-gradient(-45deg, #020202, #1a0033, #0f0020, #000000);
+    /* Fundo Profundo e Luxuoso */
+    background: linear-gradient(135deg, #000000, #0f0020, #050505);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     color: var(--text); 
     overflow-x: hidden; 
 }
+
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -36,1351 +35,287 @@ body {
 a { text-decoration: none; color: white; transition: 0.3s; }
 ul { list-style: none; }
 
-/* --- HEADER --- */
+/* --- TIPOGRAFIA DOURADA & EFEITOS --- */
+.text-gold { 
+    color: var(--gold); 
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); 
+}
+
+.text-gradient-gold {
+    background: linear-gradient(90deg, #fff, var(--gold), #fff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* --- PARTÍCULAS 2026 (CHAMPAGNE/STARS) --- */
+.new-year-particles {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1;
+}
+.new-year-particles span {
+    position: absolute; display: block;
+    width: 4px; height: 4px; background: var(--gold);
+    border-radius: 50%; box-shadow: 0 0 10px var(--gold);
+    animation: riseUp 15s linear infinite; bottom: -50px;
+}
+.new-year-particles span:nth-child(even) { background: white; box-shadow: 0 0 10px white; }
+
+/* Posições aleatórias das partículas */
+.new-year-particles span:nth-child(1) { left: 10%; animation-duration: 10s; }
+.new-year-particles span:nth-child(2) { left: 20%; animation-duration: 12s; width: 6px; height: 6px; }
+.new-year-particles span:nth-child(3) { left: 40%; animation-duration: 8s; }
+.new-year-particles span:nth-child(4) { left: 60%; animation-duration: 14s; width: 5px; height: 5px; }
+.new-year-particles span:nth-child(5) { left: 80%; animation-duration: 11s; }
+.new-year-particles span:nth-child(6) { left: 90%; animation-duration: 9s; }
+.new-year-particles span:nth-child(7) { left: 35%; animation-duration: 16s; }
+.new-year-particles span:nth-child(8) { left: 55%; animation-duration: 13s; width: 3px; height: 3px;}
+
+@keyframes riseUp {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1); opacity: 0; }
+}
+
+/* --- HEADER & NAVEGAÇÃO --- */
 header {
     position: fixed; top: 0; width: 100%; padding: 20px 5%;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(20px);
-    z-index: 1000; border-bottom: 1px solid var(--border-glass);
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px);
+    z-index: 1000; border-bottom: 1px solid rgba(255, 215, 0, 0.1);
 }
-.logo { font-size: 1.5rem; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 2px; }
 
-.nav-links { display: flex; gap: 30px; }
-.nav-links a:hover { color: var(--purple); text-shadow: 0 0 10px var(--purple); }
-.hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: white; transition: 0.3s; }
+.logo a { 
+    font-size: 1.5rem; font-weight: 700; color: white; 
+    text-transform: uppercase; letter-spacing: 2px; 
+}
 
-/* --- HERO --- */
+.nav-links { display: flex; gap: 30px; align-items: center;}
+.nav-links a { font-size: 0.95rem; color: #ccc; font-weight: 500; }
+.nav-links a:hover, .nav-links a.active { color: white; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+
+/* Botão Especial no Header */
+.btn-header {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px; border-radius: 50px;
+    transition: 0.3s;
+}
+.btn-header:hover { background: white; color: black !important; }
+
+.hamburger { display: none; font-size: 1.5rem; color: white; cursor: pointer; }
+
+/* --- HERO SECTION --- */
 .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
     padding: 0 10%; position: relative;
 }
-.hero-content { z-index: 2; }
-.hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
-.text-gradient {
-    background: linear-gradient(90deg, #fff, var(--purple));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+.hero-content { z-index: 2; max-width: 600px; }
+.hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: white; }
+.hero-content p { color: #bbb; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6; }
+
+/* Imagem Hero com Borda Dourada */
+.hero-visual { perspective: 1000px; }
+.hero-img-effect {
+    max-width: 400px; width: 100%; border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: floatImage 6s ease-in-out infinite;
 }
-.hero-content p { max-width: 500px; color: #ccc; margin-bottom: 30px; }
+.gold-border { border-color: var(--gold) !important; box-shadow: 0 0 30px rgba(255, 215, 0, 0.2) !important; }
+
+@keyframes floatImage {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Badge (Etiqueta) */
+.badge-news {
+    display: inline-block;
+    padding: 8px 16px; border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 20px; color: #ddd;
+}
+
+/* --- BOTÕES GERAIS --- */
 .cta-buttons { display: flex; gap: 15px; }
 
 .btn-primary {
     padding: 15px 35px; background: var(--purple); color: white; border: none;
     border-radius: 50px; font-weight: bold; cursor: pointer;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); transition: 0.3s;
+    display: inline-flex; align-items: center; gap: 10px;
 }
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--purple); }
+
 .btn-secondary {
-    padding: 15px 35px; background: transparent; border: 2px solid white; color: white;
-    border-radius: 50px; font-weight: bold; cursor: pointer;
+    padding: 15px 35px; background: transparent; border: 1px solid white; color: white;
+    border-radius: 50px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
 }
 .btn-secondary:hover { background: white; color: black; }
 
-/* --- CUBO 3D --- */
-.hero-visual { perspective: 1000px; }
-.cube-container { width: 200px; height: 200px; transform-style: preserve-3d; animation: spin 12s infinite linear; }
-.cube div {
-    position: absolute; width: 200px; height: 200px;
-    background: #15002b; border: 2px solid var(--purple);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; font-weight: bold; 
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4) inset;
-    backface-visibility: hidden;
+/* Botão Glow Dourado */
+.btn-gold-glow {
+    background: linear-gradient(45deg, var(--gold), #b8860b);
+    color: black; border: none;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
-.front { transform: translateZ(100px); }
-.back { transform: rotateY(180deg) translateZ(100px); }
-.right { transform: rotateY(90deg) translateZ(100px); }
-.left { transform: rotateY(-90deg) translateZ(100px); }
-.top { transform: rotateX(90deg) translateZ(100px); }
-.bottom { transform: rotateX(-90deg) translateZ(100px); }
-@keyframes spin { from { transform: rotateX(0) rotateY(0); } to { transform: rotateX(360deg) rotateY(360deg); } }
+.btn-gold-glow:hover { box-shadow: 0 0 40px var(--gold); color: black; }
 
-/* --- SEÇÕES GERAIS --- */
+/* --- CARDS & GRID (HUB) --- */
 .section-padding { padding: 80px 10%; }
-.section-header { text-align: center; margin-bottom: 60px; }
-.line { width: 60px; height: 4px; background: var(--purple); margin: 15px auto; border-radius: 2px; box-shadow: 0 0 10px var(--purple); }
+.section-header { text-align: center; margin-bottom: 50px; }
+.line { width: 60px; height: 4px; background: var(--purple); margin: 15px auto; border-radius: 2px; }
+.gold-line { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
 
-/* STATS */
-.stats-bar {
-    display: flex; justify-content: space-around; padding: 50px 10%;
-    background: rgba(10, 10, 10, 0.5); border-top: 1px solid #222; border-bottom: 1px solid #222; 
-    flex-wrap: wrap; gap: 30px; backdrop-filter: blur(5px);
+.pricing-grid { 
+    display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; 
 }
-.stat { text-align: center; }
-.stat h3 { font-size: 2.8rem; color: var(--purple); font-weight: 700; text-shadow: 0 0 10px rgba(138,43,226,0.5); }
-.stat p { font-size: 1.1rem; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
 
-/* CARDS & SERVIÇOS */
-.glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); padding: 50px; border-radius: 20px; border: 1px solid var(--border-glass); max-width: 900px; text-align: center; margin: 0 auto; }
-.grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-.service-box { background: var(--glass); border: 1px solid #333; padding: 40px; border-radius: 20px; text-align: center; transition: 0.4s; position: relative; overflow: hidden; }
-.service-box:hover { border-color: var(--purple); transform: translateY(-10px); }
-.icon { font-size: 3rem; margin-bottom: 20px; color: var(--purple); }
-.btn-link { color: var(--purple); font-weight: bold; margin-top: 15px; display: inline-block; }
-
-/* PRICING */
-.pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; align-items: center; }
 .price-card {
-    background: var(--glass); border: 1px solid var(--border-glass);
+    background: rgba(255, 255, 255, 0.03); 
+    border: 1px solid var(--border-glass);
     padding: 40px 30px; border-radius: 20px; text-align: center;
-    width: 300px; transition: 0.4s; position: relative; backdrop-filter: blur(10px);
+    width: 320px; transition: 0.4s; position: relative; 
+    backdrop-filter: blur(10px);
 }
-.price-card:hover { transform: translateY(-15px); border-color: var(--purple); box-shadow: 0 10px 40px rgba(138, 43, 226, 0.2); }
-.price-card.popular { transform: scale(1.05); border: 2px solid var(--purple); box-shadow: 0 0 30px rgba(138, 43, 226, 0.2); z-index: 2; }
-.badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--purple); padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+
+.price-card:hover { 
+    transform: translateY(-10px); 
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tema Dourado (VIP) */
+.price-card.gold-theme {
+    border: 1px solid var(--gold);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0,0,0,0.8));
+}
+.price-card.gold-theme:hover {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+}
+
+.price-header h4 { color: #aaa; font-weight: 400; font-size: 0.9rem; text-transform: uppercase; }
+.price-header h2 { font-size: 1.8rem; margin: 5px 0; }
 .price-value { font-size: 3rem; font-weight: 700; margin: 20px 0; color: white; }
-.price-value span { font-size: 1.2rem; color: var(--purple); }
-.price-features { margin-bottom: 30px; text-align: left; }
-.price-features li { margin-bottom: 12px; color: #ddd; display: flex; gap: 10px; }
-.btn-price { display: block; width: 100%; padding: 15px; border-radius: 12px; border: 1px solid var(--purple); color: white; font-weight: bold; transition: 0.3s; position: relative;
-    overflow: hidden;
+.currency { font-size: 1.2rem; vertical-align: top; margin-right: 5px; }
+
+.price-features { margin-bottom: 30px; text-align: left; list-style: none; }
+.price-features li { margin-bottom: 12px; color: #ccc; display: flex; gap: 10px; align-items: center; font-size: 0.95rem; }
+.price-features li i { width: 20px; text-align: center; }
+
+.btn-price { 
+    display: block; width: 100%; padding: 15px; border-radius: 12px; 
+    border: 1px solid #444; color: white; font-weight: bold; 
+    transition: 0.3s; margin-top: 20px; 
 }
-.btn-price:hover { background: var(--purple); box-shadow: 0 0 20px var(--purple); }
-.btn-glow { background: var(--purple); border: none; }
-.btn-price::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
+.btn-price:hover { background: white; color: black; border-color: white; }
+
+.btn-vip { border-color: var(--gold); color: var(--gold); }
+.btn-vip:hover { background: var(--gold); color: black; box-shadow: 0 0 20px var(--gold); }
+
+/* Badge (Mais Vendido) */
+.badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--purple); color: white; padding: 5px 20px; 
+    border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+}
+.badge-gold { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
+
+/* --- SEÇÃO DE SITES --- */
+.web-section {
+    padding: 80px 10%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 242, 234, 0.05), transparent);
+}
+.web-card {
+    border: 1px solid #333; border-radius: 20px; padding: 40px; text-align: center;
+    background: rgba(10, 10, 10, 0.8); transition: 0.4s; position: relative;
+}
+.web-card:hover { border-color: #00f2ea; transform: translateY(-10px); box-shadow: 0 0 30px rgba(0, 242, 234, 0.2); }
+.badge-web { 
+    position: absolute; top: 0; right: 0; background: #00f2ea; color: black; 
+    padding: 5px 15px; border-bottom-left-radius: 15px; font-weight: bold; font-size: 0.8rem; 
 }
 
-.btn-price:hover::after {
-    left: 100%;
-    transition: 0.5s;
-}
-/* TEAM */
+/* --- EQUIPE --- */
 .team-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-.team-member { background: var(--glass); padding: 30px; border-radius: 20px; width: 220px; text-align: center; border: 1px solid #222; transition: 0.3s; }
-.team-member:hover { border-color: var(--purple); transform: scale(1.05); }
-.avatar { font-size: 3rem; margin-bottom: 15px; }
-.role { color: var(--purple); font-size: 0.8rem; font-weight: bold; display: block; margin-top: 5px; text-transform: uppercase; }
-
-/* CONTACT & FOOTER */
-.contact-box { text-align: center; padding: 40px; background: var(--glass); border-radius: 20px; border: 1px solid var(--border-glass); max-width: 800px; margin: 0 auto; }
-.social-links { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
-.social-btn { padding: 12px 30px; border: 1px solid #444; border-radius: 50px; display: flex; align-items: center; gap: 10px; transition: 0.3s; background: rgba(0,0,0,0.5); }
-.social-btn:hover { border-color: var(--purple); background: var(--purple); color: white; box-shadow: 0 0 20px var(--purple); transform: translateY(-3px); }
-
-footer { padding: 40px; text-align: center; background: rgba(0,0,0,0.8); border-top: 1px solid #222; color: #666; position: relative; }
-.admin-link { position: absolute; bottom: 20px; right: 20px; color: #333; font-size: 0.8rem; cursor: pointer; transition: 0.3s; }
-.admin-link:hover { color: var(--purple); }
-
-/* MODAL */
-.modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9); z-index: 2000; display: none; align-items: center; justify-content: center;
-    backdrop-filter: blur(10px); opacity: 0; transition: 0.5s;
+.team-member { text-align: center; }
+.team-photo { 
+    width: 120px; height: 120px; border-radius: 50%; object-fit: cover; 
+    border: 3px solid var(--gold); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    margin-bottom: 15px; transition: 0.3s;
 }
-.modal-overlay.active { display: flex; opacity: 1; }
-.login-box {
-    background: #0f0020; padding: 40px; border-radius: 20px; border: 1px solid var(--purple); width: 100%; max-width: 400px;
-    text-align: center; box-shadow: 0 0 50px rgba(138,43,226,0.3); transform: scale(0.8); transition: 0.3s;
-}
-.modal-overlay.active .login-box { transform: scale(1); }
-.input-group { margin-bottom: 20px; text-align: left; }
-.input-group label { color: #aaa; font-size: 0.9rem; display: block; margin-bottom: 5px; }
-.input-group input { width: 100%; padding: 12px; background: #050505; border: 1px solid #333; color: white; border-radius: 8px; outline: none; transition: 0.3s; }
-.input-group input:focus { border-color: var(--purple); box-shadow: 0 0 10px rgba(138,43,226,0.2); }
-.btn-login { width: 100%; padding: 12px; background: var(--purple); border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; }
-.close-modal { margin-top: 20px; color: #666; cursor: pointer; font-size: 0.9rem; }
-.close-modal:hover { color: white; }
+.team-member:hover .team-photo { transform: scale(1.1); box-shadow: 0 0 30px var(--gold); }
 
-/* ANIMAÇÕES */
-.hidden { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+/* --- RODAPÉ --- */
+footer {
+    padding: 50px 10%; text-align: center; 
+    border-top: 1px solid #222; background: rgba(0,0,0,0.5);
+    color: #666;
+}
+.powered-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
+    margin-top: 20px; transition: 0.3s;
+}
+.powered-badge:hover { color: white; text-shadow: 0 0 10px white; }
+
+/* --- WIDGET DE MÚSICA --- */
+.music-widget { position: fixed; bottom: 30px; left: 30px; z-index: 2000; }
+.music-btn {
+    width: 50px; height: 50px; background: rgba(0,0,0,0.6);
+    border: 2px solid var(--purple); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--purple); transition: 0.3s;
+    backdrop-filter: blur(5px);
+}
+.music-btn:hover { background: var(--purple); color: white; box-shadow: 0 0 20px var(--purple); }
+.waves { display: none; align-items: flex-end; gap: 3px; height: 20px; }
+.music-btn.playing .waves { display: flex; }
+.music-btn.playing i { display: none; }
+.waves span { width: 3px; background: #00fffc; animation: waveAnim 1s ease-in-out infinite; }
+.waves span:nth-child(1) { height: 10px; } .waves span:nth-child(2) { height: 20px; } .waves span:nth-child(3) { height: 15px; }
+@keyframes waveAnim { 0%, 100% { height: 5px; } 50% { height: 20px; } }
+
+/* --- ANIMAÇÕES VISUAIS --- */
+.hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .show { opacity: 1; transform: translateY(0); }
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
 
-/* MOBILE */
+/* --- RESPONSIVO (MOBILE) --- */
+.close-btn-mobile { display: none; }
+
 @media(max-width: 768px) {
-    .hamburger { display: block; z-index: 1001; }
+    .hamburger { display: block; }
     .nav-links {
-        position: fixed; top: 0; right: 0; height: 100vh; width: 70%;
-        background: #050505; flex-direction: column; align-items: center; justify-content: center;
-        transform: translateX(100%); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-left: 1px solid var(--purple);
+        position: fixed; top: 0; right: 0; height: 100vh; width: 75%;
+        background: rgba(5, 5, 5, 0.95); backdrop-filter: blur(20px);
+        flex-direction: column; justify-content: center;
+        transform: translateX(100%); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-left: 1px solid var(--gold);
     }
-    .nav-links.active { transform: translateX(0); box-shadow: -10px 0 50px rgba(0,0,0,0.8); }
-    .hero { flex-direction: column; text-align: center; padding-top: 120px; padding-bottom: 60px; justify-content: center; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .stats-bar { padding: 30px 5%; gap: 40px; }
-    .stat h3 { font-size: 2.2rem; }
-}
-
-/* --- PAINEL DE ADMINISTRAÇÃO (DASHBOARD) --- */
-.dashboard-section {
-    display: none; /* Escondido por padrão */
-    padding: 100px 10%;
-    background: #0f0020;
-    border-top: 2px solid var(--purple);
-    border-bottom: 2px solid var(--purple);
-    box-shadow: 0 0 50px rgba(138,43,226,0.2) inset;
-}
-
-.dashboard-section.active {
-    display: block; /* Aparece quando tem a classe active */
-    animation: fadeIn 0.5s ease;
-}
-
-.dashboard-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;
-}
-.dash-title { display: flex; gap: 15px; align-items: center; }
-.dash-title i { font-size: 2.5rem; color: var(--purple); }
-.dash-title h2 { font-size: 2rem; margin: 0; }
-.dash-title p { color: #aaa; margin: 0; }
-
-.btn-logout {
-    background: transparent; border: 1px solid #ff4444; color: #ff4444;
-    padding: 10px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;
-}
-.btn-logout:hover { background: #ff4444; color: white; }
-
-/* Grid dos Cards */
-.dashboard-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
-}
-
-.dash-card {
-    background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px;
-    border: 1px solid #333; transition: 0.3s; position: relative;
-}
-.dash-card:hover { transform: translateY(-5px); border-color: var(--purple); }
-
-.card-icon { font-size: 2rem; color: var(--purple); margin-bottom: 15px; }
-.dash-card h3 { font-size: 1rem; color: #ccc; margin-bottom: 10px; }
-.dash-card h2 { font-size: 2.5rem; margin-bottom: 5px; }
-.live-indicator { font-size: 0.8rem; color: #ff4444; font-weight: bold; animation: pulse 2s infinite; }
-
-/* Botões dentro do card */
-.btn-dash {
-    width: 100%; padding: 12px; margin-top: 10px; background: #222;
-    border: 1px solid #444; color: white; border-radius: 8px; cursor: pointer; text-align: left;
-}
-.btn-dash:hover { background: var(--purple); border-color: var(--purple); }
-
-@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Botão de fechar (X) - Padrão invisível no PC */
-.close-btn-mobile {
-    display: none;
-}
-
-/* Apenas no Mobile */
-@media(max-width: 768px) {
-    .close-btn-mobile {
-        display: block;
-        position: absolute;
-        top: 25px;
-        right: 30px;
-        font-size: 2rem;
-        color: var(--purple); /* Usando sua cor roxa */
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .close-btn-mobile:hover {
-        color: white;
-        transform: rotate(90deg); /* Um charminho na animação */
-    }
-}
-/* --- 1. EFEITO GLITCH NO TÍTULO (HERO) --- */
-.hero-content h1 {
-    position: relative;
-    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-                 0.025em 0.04em 0 #fffc00;
-    animation: glitch 725ms infinite;
-}
-
-.hero-content h1 span {
-    background: none; /* Remove o gradiente antigo para o glitch funcionar melhor */
-    -webkit-text-fill-color: initial;
-    color: white;
-}
-
-@keyframes glitch {
-    0% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-                     0.025em 0.04em 0 #fffc00; }
-    15% { text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
-                     0.025em 0.04em 0 #fffc00; }
-    16% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
-                     -0.05em -0.05em 0 #fffc00; }
-    49% { text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
-                     -0.05em -0.05em 0 #fffc00; }
-    50% { text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
-                     0 -0.04em 0 #fffc00; }
-    99% { text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
-                     0 -0.04em 0 #fffc00; }
-    100% { text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
-                     -0.04em -0.025em 0 #fffc00; }
-}
-/* --- 2. CARDS COM EFEITO NEON POWER (HOVER) --- */
-.service-box, .price-card {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-/* Cria um brilho roxo forte atrás do card ao passar o mouse */
-.service-box::before, .price-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border-radius: 20px;
-    padding: 2px;
-    background: linear-gradient(45deg, transparent, var(--purple), transparent);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.3;
-    transition: 0.5s;
-    
-    /* ADICIONE ESTA LINHA ABAIXO: */
-    pointer-events: none; 
-}
-
-.service-box:hover, .price-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
-    background: rgba(20, 0, 40, 0.8); /* Fica mais escuro e sólido */
-}
-
-.service-box:hover::before, .price-card:hover::before {
-    opacity: 1;
-    background: linear-gradient(45deg, #00ffff, var(--purple), #ff00ff);
-}
-
-/* --- 3. BACKGROUND GRID (FUNDO TECNOLÓGICO) --- */
-@media (min-width: 1024px) {
-    body::after {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background-image: 
-            linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
-        background-size: 50px 50px; /* Tamanho dos quadrados */
-        z-index: -1;
-        pointer-events: none;
-        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-    }
-}
-
-/* --- 4. SCROLLBAR PERSONALIZADA --- */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: #050505; 
-}
-::-webkit-scrollbar-thumb {
-    background: var(--purple); 
-    border-radius: 10px;
-    border: 2px solid #050505; /* Cria um espaço ao redor */
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #a64dff; 
-    box-shadow: 0 0 10px var(--purple);
-}
-
-/* --- MELHORIAS VISUAIS MOBILE (PREMIUM) --- */
-@media(max-width: 768px) {
-    
-    /* 1. Menu Mobile com Efeito "Glass" (Vidro Fosco) */
-    .nav-links {
-        background: rgba(10, 0, 20, 0.85) !important; /* Fundo semi-transparente */
-        backdrop-filter: blur(15px) !important; /* Desfoque forte atrás */
-        border-left: 1px solid rgba(138, 43, 226, 0.3); /* Borda brilhante fina */
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
-    }
-
-    /* 2. Efeito "Toque Neon" nos Cards */
-    /* Como não tem mouse, quando clicar no card ele brilha e afunda levemente */
-    .service-box:active, .price-card:active, .team-member:active {
-        transform: scale(0.96); /* Diminui um pouco ao tocar */
-        border-color: var(--purple);
-        background: rgba(138, 43, 226, 0.15); /* Fundo acende levemente */
-        box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
-        transition: 0.1s;
-    }
-
-    /* 3. Título Principal Ajustado */
-    /* Deixa o "Tecnologia & Inovação" mais legível no celular */
-    .hero-content h1 {
-        font-size: 2.2rem;
-        text-shadow: 0 0 15px rgba(138, 43, 226, 0.5); /* Brilho extra no texto */
-    }
-
-    /* 4. Botões mais "Clicáveis" */
-    .cta-buttons {
-        flex-direction: column; /* Um botão embaixo do outro */
-        gap: 15px;
-        width: 100%;
-    }
-    .btn-primary, .btn-secondary {
-        width: 100%; /* Botão ocupa a largura toda pra facilitar o clique */
-        text-align: center;
-        padding: 18px; /* Mais gordinho para o dedo */
+    .nav-links.active { transform: translateX(0); }
+    .close-btn-mobile { 
+        display: block; position: absolute; top: 25px; right: 25px; 
+        font-size: 1.5rem; color: var(--gold); cursor: pointer; 
     }
     
-    /* 5. Fundo animado suave no Mobile */
-    /* Já que tiramos o Grid do PC, vamos dar uma cor mais viva no fundo mobile */
-    body {
-        background-size: 200% 200%; /* Aumenta o zoom do gradiente */
-    }
-}
-
-/* --- CORREÇÃO DO SELO RECOMENDADO --- */
-.price-card {
-    overflow: visible !important; /* Permite que o selo saia da caixa sem ser cortado */
-}
-
-.badge {
-    z-index: 10; /* Garante que o selo fique acima do efeito de brilho */
-    box-shadow: 0 0 10px var(--purple); /* Um brilho extra no selo pra destacar */
-}
-
-/* --- CORES DAS REDES SOCIAIS --- */
-
-/* TikTok - Efeito Preto com Sombra Ciano/Rosa */
-.social-btn.tiktok:hover {
-    background: #000;
-    border-color: #00f2ea;
-    box-shadow: 3px 3px 0 #ff0050, -3px -3px 0 #00f2ea; /* Efeito Glitch do TikTok */
-    color: white;
-    transform: translateY(-5px);
-}
-
-/* Instagram - Degradê Clássico */
-.social-btn.instagram:hover {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    border-color: #d6249f;
-    box-shadow: 0 0 20px rgba(214, 36, 159, 0.6);
-}
-
-/* WhatsApp (Grupos) - Verde */
-.social-btn.whatsapp-group:hover, .social-btn.whatsapp-info:hover {
-    background: #25D366;
-    border-color: #25D366;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
-}
-
-/* Ajuste para alinhar os botões no mobile se tiver muitos */
-@media(max-width: 768px) {
-    .social-links {
-        flex-direction: column; /* Um embaixo do outro no celular */
-        width: 100%;
-    }
-    .social-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* --- SEÇÃO PREMIUM (CYBER PURPLE) --- */
-.premium-section {
-    padding: 100px 5%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    /* Removemos o fundo preto sólido para deixar o grid do site aparecer levemente */
-    overflow: hidden;
-    margin-top: 50px;
-}
-
-.premium-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1100px;
+    .hero { flex-direction: column; text-align: center; padding-top: 130px; }
+    .cta-buttons { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     
-    /* Fundo Roxo Bem Escuro com Transparência (Glassmorphism) */
-    background: linear-gradient(135deg, rgba(20, 0, 40, 0.9), rgba(5, 5, 5, 0.95));
+    .hero-img-effect { width: 80%; max-width: 300px; margin-top: 40px; }
     
-    /* Borda Brilhante Roxa */
-    border: 1px solid rgba(138, 43, 226, 0.5);
-    box-shadow: 0 0 40px rgba(138, 43, 226, 0.15), inset 0 0 20px rgba(138, 43, 226, 0.1);
-    backdrop-filter: blur(10px);
+    .pricing-grid { flex-direction: column; }
+    .price-card { width: 100%; }
     
-    border-radius: 30px;
-    padding: 60px;
-    position: relative;
-    z-index: 2;
-}
-
-.premium-content {
-    flex: 1.5;
-    z-index: 2;
-    text-align: left;
-}
-
-/* Selo VIP Roxo */
-.premium-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(138, 43, 226, 0.2);
-    border: 1px solid var(--purple);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-}
-
-.premium-content h2 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: white;
-}
-
-/* Texto Neon Pulsante */
-.neon-text {
-    color: #fff;
-    text-shadow: 
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #8a2be2,
-        0 0 40px #8a2be2;
-}
-
-.premium-content p {
-    color: #ccc;
-    font-size: 1rem;
-    margin-bottom: 30px;
-    max-width: 90%;
-    line-height: 1.6;
-}
-
-/* Lista de Benefícios */
-.premium-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.premium-features li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #e0e0e0;
-    background: rgba(138, 43, 226, 0.05); /* Fundo roxo muito leve */
-    padding: 10px;
-    border-radius: 8px;
-    border-left: 2px solid var(--purple);
-}
-
-.premium-features li i {
-    color: var(--purple);
-}
-
-/* Botão Neon */
-.btn-premium {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 18px 45px;
-    background: var(--purple);
-    color: white;
-    font-weight: 800;
-    text-transform: uppercase;
-    border-radius: 50px;
-    font-size: 1rem;
-    transition: 0.3s;
-    border: 1px solid transparent;
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
-}
-
-.btn-premium:hover {
-    background: transparent;
-    border-color: var(--purple);
-    box-shadow: 0 0 40px rgba(138, 43, 226, 0.8);
-    transform: translateY(-3px);
-}
-
-/* Área Visual do Robô */
-.premium-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.bot-icon-neon {
-    font-size: 10rem;
-    color: white;
-    /* Sombra Neon Roxa no ícone */
-    filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
-    animation: floatBot 4s ease-in-out infinite;
-    z-index: 2;
-}
-
-.glowing-circle {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border: 2px dashed rgba(138, 43, 226, 0.3);
-    border-radius: 50%;
-    animation: spinSlow 20s linear infinite;
-}
-
-/* Responsivo */
-@media(max-width: 900px) {
-    .premium-container {
-        flex-direction: column-reverse;
-        padding: 40px 20px;
-        text-align: center;
-    }
-    
-    .premium-features {
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
-    
-    .premium-content h2 {
-        font-size: 2.2rem;
-    }
-    
-    .btn-premium {
-        width: 100%;
-    }
-    
-    .bot-icon-neon {
-        font-size: 8rem;
-        margin-bottom: 30px;
-    }
-    
-   .glowing-circle {
-        width: 220px;
-        height: 220px;
-    }
-} /* <--- ADICIONE ESTA CHAVE AQUI PARA FECHAR O MODO MOBILE/TABLET */
-/* --- EFEITO DE PARTÍCULAS (FIREFLIES) --- */
-/* Agora isso vale para PC e Mobile */
-.particles {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    overflow: hidden;
-    z-index: -1; 
-    pointer-events: none;
-}
-
-.particles span {
-    position: absolute;
-    display: block;
-    list-style: none;
-    width: 8px;
-    height: 8px;
-    background: rgba(138, 43, 226, 0.4); /* Roxo Udesaken */
-    animation: floatUp 25s linear infinite;
-    bottom: -150px;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
-}
-
-.particles span:nth-child(1) { left: 25%; width: 10px; height: 10px; animation-delay: 0s; }
-.particles span:nth-child(2) { left: 10%; width: 5px; height: 5px; animation-delay: 2s; animation-duration: 12s; }
-.particles span:nth-child(3) { left: 70%; width: 8px; height: 8px; animation-delay: 4s; }
-.particles span:nth-child(4) { left: 40%; width: 12px; height: 12px; animation-delay: 0s; animation-duration: 18s; }
-.particles span:nth-child(5) { left: 65%; width: 6px; height: 6px; animation-delay: 0s; }
-.particles span:nth-child(6) { left: 75%; width: 8px; height: 8px; animation-delay: 3s; }
-.particles span:nth-child(7) { left: 35%; width: 10px; height: 10px; animation-delay: 7s; }
-.particles span:nth-child(8) { left: 50%; width: 6px; height: 6px; animation-delay: 15s; animation-duration: 45s; }
-.particles span:nth-child(9) { left: 20%; width: 5px; height: 5px; animation-delay: 2s; animation-duration: 35s; }
-.particles span:nth-child(10) { left: 85%; width: 10px; height: 10px; animation-delay: 0s; animation-duration: 11s; }
-
-@keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; }
-}
-
-/* --- FOTO DE PERFIL (Teste Islo) --- */
-.team-photo {
-    width: 100px;         /* Tamanho da foto agora será aplicado no PC também */
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    
-    /* Borda Dourada para o CEO */
-    border: 3px solid #FFD700;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-    
-    margin-bottom: 15px;
-    transition: 0.3s;
-}
-
-/* Efeito ao passar o mouse */
-.team-member:hover .team-photo {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-}
-
-/* --- NOVA IMAGEM HERO (Correção de Tamanho) --- */
-.hero-img-effect {
-    /* Trava os tamanhos para não estourar */
-    width: auto;            /* Respeita a proporção da imagem */
-    max-width: 450px;       /* LARGURA MÁXIMA: Não deixa passar de 450px */
-    max-height: 550px;      /* ALTURA MÁXIMA: Não deixa ficar maior que a tela */
-    
-    display: block;
-    margin: 0 auto;         /* Centraliza */
-    border-radius: 20px;
-    
-    /* Estilos Visuais */
-    border: 2px solid rgba(138, 43, 226, 0.5);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
-    
-    /* Animação */
-    animation: floatImage 6s ease-in-out infinite;
-    transition: 0.5s;
-}
-
-/* Efeito ao passar o mouse */
-.hero-img-effect:hover {
-    transform: scale(1.03); /* Zoom leve */
-    box-shadow: 0 0 50px rgba(138, 43, 226, 0.6);
-}
-
-/* --- AJUSTE PARA CELULAR (IMPORTANTE) --- */
-@media(max-width: 768px) {
-    .hero-img-effect {
-        width: 80%;       /* No celular ocupa 80% da largura */
-        max-width: 320px; /* Limite menor */
-        max-height: none; /* Altura livre no celular */
-        margin-top: 40px;
-    }
-}
-/* Badge de Novidade (Etiqueta acima do título) */
-.badge-news {
-    display: inline-block;
-    background: rgba(138, 43, 226, 0.15);
-    border: 1px solid var(--purple);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
-    animation: floatBadge 3s ease-in-out infinite;
-}
-
-.badge-news i {
-    color: #FFD700; /* Cor dourada para a coroa */
-    margin-right: 5px;
-}
-
-@keyframes floatBadge {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-/* Novo Botão VIP (Bot Personalizado) */
-.btn-vip-hero {
-    padding: 15px 30px;
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Efeito ao passar o mouse no botão VIP */
-.btn-vip-hero:hover {
-    background: white;
-    color: black;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-    transform: translateY(-3px);
-}
-
-/* Ajuste nos botões para ficarem alinhados */
-.cta-buttons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-/* --- AJUSTE MOBILE --- */
-@media(max-width: 768px) {
-    .badge-news {
-        font-size: 0.75rem; /* Um pouco menor no celular */
-    }
-    
-    .cta-buttons {
-        flex-direction: column; /* Um embaixo do outro no celular */
-        width: 100%;
-    }
-
-    .btn-primary, .btn-vip-hero {
-        width: 100%; /* Botão grandão para facilitar o toque */
-        justify-content: center;
-    }
-}
-
-/* --- SEÇÃO DE SITES (WEB DESIGN STUDIO) --- */
-.web-section {
-    padding: 80px 10%;
-    position: relative;
-    /* Um fundo sutilmente diferente para destacar */
-    background: linear-gradient(to bottom, transparent, rgba(0, 242, 234, 0.05), transparent);
-}
-
-.web-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.web-card {
-    background: rgba(10, 10, 10, 0.8);
-    border: 1px solid #333;
-    border-radius: 20px;
-    padding: 40px 30px;
-    width: 320px;
-    text-align: center;
-    position: relative;
-    transition: 0.4s;
-    backdrop-filter: blur(10px);
-    overflow: hidden;
-}
-
-/* Efeito Hover do Card */
-.web-card:hover {
-    transform: translateY(-10px);
-    border-color: #00f2ea; /* Ciano Neon */
-    box-shadow: 0 0 30px rgba(0, 242, 234, 0.2);
-}
-
-/* Card em Destaque (Meio) */
-.web-card.featured {
-    border: 1px solid #00f2ea;
-    box-shadow: 0 0 20px rgba(0, 242, 234, 0.1);
-    transform: scale(1.05);
-    z-index: 2;
-}
-.web-card.featured:hover {
-    transform: scale(1.05) translateY(-10px);
-    box-shadow: 0 0 40px rgba(0, 242, 234, 0.4);
-}
-
-/* Badge "Mais Pedido" */
-.badge-web {
-    position: absolute;
-    top: 0; right: 0;
-    background: #00f2ea;
-    color: #000;
-    padding: 5px 15px;
-    border-bottom-left-radius: 15px;
-    font-weight: bold;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-.web-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #00f2ea;
-    text-shadow: 0 0 15px rgba(0, 242, 234, 0.6);
-}
-
-.web-card h3 {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 15px;
-}
-
-.web-card p {
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-/* Lista de Features */
-.web-features {
-    text-align: left;
-    margin-bottom: 30px;
-    border-top: 1px solid #222;
-    padding-top: 20px;
-}
-
-.web-features li {
-    margin-bottom: 10px;
-    color: #ddd;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-}
-
-.web-features li i {
-    color: #00f2ea;
-}
-
-/* Botão do Card */
-.btn-web {
-    display: inline-block;
-    padding: 12px 30px;
-    border: 1px solid #00f2ea;
-    color: #00f2ea;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: 0.3s;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    width: 100%;
-}
-
-.btn-web:hover {
-    background: #00f2ea;
-    color: black;
-    box-shadow: 0 0 20px #00f2ea;
-}
-
-/* Botão Glow (Destaque) */
-.btn-web.glow {
-    background: rgba(0, 242, 234, 0.1);
-    box-shadow: 0 0 15px rgba(0, 242, 234, 0.2);
-}
-.btn-web.glow:hover {
-    background: #00f2ea;
-    box-shadow: 0 0 30px #00f2ea;
-}
-
-/* Responsivo */
-@media(max-width: 768px) {
-    .web-card.featured {
-        transform: scale(1); /* Tira o zoom no celular pra não quebrar layout */
-    }
-}
-
-/* --- BOTÃO DE SITES NO HERO --- */
-.btn-cyan-hero {
-    padding: 15px 30px;
-    background: transparent;
-    border: 2px solid #00f2ea; /* Cor Ciano Neon */
-    color: #00f2ea;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: 0.3s;
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-}
-
-.btn-cyan-hero:hover {
-    background: #00f2ea;
-    color: #000;
-    box-shadow: 0 0 25px rgba(0, 242, 234, 0.4);
-    transform: translateY(-3px);
-} 
-
-/* --- SELO POWERED BY (MINIMALISTA) --- */
-.powered-badge {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    
-    /* Removemos o fundo e borda para não parecer botão */
-    background: transparent; 
-    border: none;
-    padding: 0;
-    
-    /* Estilo do Texto */
-    color: #444; /* Cinza bem escuro para ficar discreto */
-    font-size: 0.7rem; /* Menor e mais delicado */
-    text-transform: uppercase;
-    letter-spacing: 1.5px; /* Mais espaçamento para elegância */
-    text-decoration: none;
-    
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: 0.4s ease;
-    opacity: 0.8;
-}
-
-.powered-badge i { 
-    color: #555; /* Ícone apagado por padrão */
-    transition: 0.4s;
-    font-size: 0.8rem;
-}
-
-.powered-badge strong { 
-    font-weight: 600; 
-    color: #555; /* Texto Udesaken apagado por padrão */
-    transition: 0.4s;
-}
-
-/* Efeito ao passar o mouse (Acende o Neon) */
-.powered-badge:hover {
-    background: transparent; /* Garante que não tenha fundo */
-    box-shadow: none; /* Sem sombra de caixa */
-    transform: translateY(-2px); /* Flutua levemente */
-    opacity: 1;
-}
-
-.powered-badge:hover i {
-    color: var(--purple); /* Ícone fica Roxo */
-    text-shadow: 0 0 10px var(--purple); /* Brilho Neon */
-}
-
-.powered-badge:hover strong {
-    color: white; /* Texto fica Branco */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Ajuste Mobile (Mantém centralizado) */
-@media(max-width: 768px) {
-    .powered-badge {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        margin-top: 10px;
-        justify-content: center;
-    }
-}
-/* --- ESTILOS DO CLUBE VIP (DOURADO) --- */
-
-/* Card VIP Básico */
-.vip-card {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(0, 0, 0, 0.8));
-    border: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.vip-card:hover {
-    border-color: #FFD700;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-    transform: translateY(-10px);
-}
-
-/* Efeito Neon Dourado no Hover (Substitui o roxo padrão) */
-.vip-card:hover::before {
-    background: linear-gradient(45deg, #FFD700, #ffaa00, #FFD700);
-    opacity: 0.5;
-}
-
-/* Botão VIP */
-.btn-vip {
-    border: 1px solid #FFD700;
-    color: #FFD700;
-}
-
-.btn-vip:hover {
-    background: #FFD700;
-    color: black; /* Texto preto para contraste no fundo dourado */
-    box-shadow: 0 0 20px #FFD700;
-}
-
-/* Botão com Brilho Constante (Para o plano de 30 dias) */
-.btn-vip.glow-gold {
-    background: rgba(255, 215, 0, 0.1);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-}
-
-.btn-vip.glow-gold:hover {
-    background: #FFD700;
-    color: black;
-    box-shadow: 0 0 40px #FFD700;
-}
-
-/* --- PLAYER DE MÚSICA NEON --- */
-.music-widget {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    z-index: 20000; /* GANHA do cookie */
-}
-
-.music-btn {
-    width: 50px;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid var(--purple);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--purple);
-    font-size: 1.2rem;
-    transition: 0.3s;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-    position: relative;
-    overflow: hidden;
-}
-
-.music-btn:hover {
-    background: var(--purple);
-    color: white;
-    box-shadow: 0 0 30px var(--purple);
-    transform: scale(1.1);
-}
-
-/* Animação das ondas (Equalizador visual) */
-.waves {
-    position: absolute;
-    display: none; /* Escondido quando mutado */
-    align-items: flex-end;
-    gap: 3px;
-    height: 20px;
-}
-
-.music-btn.playing .waves {
-    display: flex;
-}
-
-.music-btn.playing i {
-    display: none; /* Esconde o ícone quando toca e mostra as ondas */
-}
-
-.waves span {
-    width: 3px;
-    background: #00fffc; /* Ciano para contrastar */
-    animation: waveAnim 1s ease-in-out infinite;
-}
-
-.waves span:nth-child(1) { height: 10px; animation-duration: 0.6s; }
-.waves span:nth-child(2) { height: 20px; animation-duration: 0.8s; }
-.waves span:nth-child(3) { height: 15px; animation-duration: 0.5s; }
-.waves span:nth-child(4) { height: 10px; animation-duration: 0.7s; }
-
-@keyframes waveAnim {
-    0%, 100% { height: 5px; }
-    50% { height: 20px; }
-}
-
-/* --- BANNER DE COOKIES --- */
-.cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px); /* Começa escondido embaixo */
-    width: 90%;
-    max-width: 600px;
-    background: rgba(15, 0, 32, 0.95);
-    border: 1px solid var(--purple);
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    z-index: 9999;
-    opacity: 0;
-    transition: 0.5s ease-out;
-}
-
-.cookie-banner.show-cookie {
-    transform: translateX(-50%) translateY(0); /* Sobe suavemente */
-    opacity: 1;
-}
-
-.cookie-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.cookie-icon {
-    font-size: 1.8rem;
-    color: #FFD700; /* Dourado */
-    animation: floatCookie 3s ease-in-out infinite;
-}
-
-.cookie-content p {
-    font-size: 0.85rem;
-    color: #ccc;
-    line-height: 1.4;
-}
-
-.cookie-content a {
-    color: var(--purple);
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.btn-cookie {
-    background: var(--purple);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: 0.3s;
-}
-
-.btn-cookie:hover {
-    background: white;
-    color: black;
-    box-shadow: 0 0 15px white;
-}
-
-@keyframes floatCookie {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(10deg); }
-}
-
-/* Responsivo para celular */
-@media(max-width: 600px) {
-    .cookie-banner {
-        flex-direction: column;
-        text-align: center;
-        bottom: 0;
-        width: 100%;
-        border-radius: 15px 15px 0 0; /* Arredonda só em cima */
-    }
-    .cookie-content {
-        flex-direction: column;
-    }
-    .btn-cookie {
-        width: 100%;
-    }
-}
-
-/* =========================================
-   🎄 ESPECIAL DE NATAL UDESAKEN (ADD-ON)
-   ========================================= */
-
-/* --- EFEITO DE NEVE --- */
-.snow-container {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 9999;
-    overflow: hidden;
-}
-
-.snowflake {
-    position: absolute; top: -10px;
-    color: #fff; font-size: 1em; opacity: 0.8;
-    /* Adicionei '10s' abaixo para o navegador saber que tem que se mexer */
-    animation: fall 10s linear infinite; 
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
-    100% { transform: translateY(105vh) translateX(20px); opacity: 0.3; }
-}
-
-/* --- ESTILO DE PREÇO PROMOCIONAL --- */
-.old-price {
-    display: block; font-size: 1rem; color: #ff4444;
-    text-decoration: line-through; opacity: 0.8; margin-bottom: -5px;
-}
-
-.promo-tag {
-    position: absolute; top: -15px; right: -10px;
-    background: #ff0000; color: white;
-    padding: 5px 10px; border-radius: 10px;
-    font-size: 0.7rem; font-weight: bold;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    transform: rotate(15deg); z-index: 20;
-    animation: pulsePromo 2s infinite;
-}
-/* Correção: Animação RETA, apenas pulsando sem girar */
-@keyframes pulsePromo {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-/* Ajuste Natalino nos Botões e Destaques */
-.btn-price:hover, .btn-vip:hover {
-    box-shadow: 0 0 20px #ff0000 !important; /* Brilho vermelho */
-    border-color: #ff0000 !important;
-}
-
-/* Badge de Natal no Topo */
-.natal-header {
-    text-align: center; margin-bottom: 20px;
-}
-.natal-text {
-    color: #ff4444; font-weight: bold; letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
-/* =========================================
-   🎄 ESPECIAL DE NATAL UDESAKEN (CORRIGIDO)
-   ========================================= */
-
-/* --- EFEITO DE NEVE --- */
-.snow-container {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: 9999; overflow: hidden;
-}
-
-.snowflake {
-    position: absolute; 
-    top: -20px; 
-    color: #fff; 
-    font-size: 1em; 
-    opacity: 0.8;
-    /* O segredo está aqui: 10s de tempo */
-    animation: fall 10s linear infinite; 
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh) translateX(0); opacity: 1; }
-    100% { transform: translateY(105vh) translateX(20px); opacity: 0.3; }
-}
-
-/* --- TEXTOS E DESTAQUES DE NATAL --- */
-.text-christmas {
-    background: linear-gradient(90deg, #ff2222, #ffce00);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-}
-
-.christmas-badge {
-    background: #d40000; color: white; padding: 5px 15px; border-radius: 50px;
-    font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; display: inline-block;
-    box-shadow: 0 0 15px #ff0000; border: 1px solid #ff5555;
-    animation: pulsePromo 2s infinite;
-}
-
-/* --- PREÇOS PROMOCIONAIS --- */
-.old-price {
-    font-size: 1rem; color: #ff6666; text-decoration: line-through; display: block;
-}
-.new-price {
-    color: #ffce00; font-size: 1.4rem; font-weight: bold;
-}
-.promo-tag {
-    position: absolute; top: -10px; right: -10px; background: #ff0000;
-    color: white; padding: 5px 10px; border-radius: 8px; font-weight: bold;
-    font-size: 0.8rem; transform: rotate(10deg); z-index: 10;
-}
-.price-card:hover { border-color: #ff0000 !important; }
-
-/* Badge de Natal no Topo (Seção Planos) */
-.natal-header { text-align: center; margin-bottom: 20px; }
-.natal-text {
-    color: #ff4444; font-weight: bold; letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-}
+    /* Melhora o toque no celular */
+    .price-card:active, .btn-primary:active { transform: scale(0.98); }
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple); }
