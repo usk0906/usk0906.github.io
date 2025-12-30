@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
     <meta name="theme-color" content="#8a2be2">
+    
+    <style>
+        .old-price {
+            font-size: 1.1rem;
+            color: #888;
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: -15px; /* Cola no preço novo */
+        }
+        .discount-badge {
+            background: #2ecc71; /* Verde Sucesso */
+            color: black;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,7 +46,6 @@
                 <li><a href="/">Início</a></li>
                 <li><a href="/planos" class="active">Planos Bot</a></li>
                 <li><a href="/vip">Clube VIP</a></li>
-                <li><a href="/sites">Sites</a></li>
                 <li><a href="https://wa.me/447907210802" class="btn-header"><i class="fab fa-whatsapp"></i> Suporte</a></li>
             </ul>
             <div class="hamburger">
@@ -38,17 +57,17 @@
     <section class="hero" style="min-height: 60vh; padding-top: 100px;">
         <div class="hero-content" style="text-align: center; width: 100%;">
             <div class="badge-news" style="margin: 0 auto 20px auto;">
-                <i class="fas fa-robot"></i> Automação 2026
+                <i class="fas fa-tag"></i> Oferta de Ano Novo
             </div>
             
             <h1 class="hidden delay-100">
-                Potencialize seu<br>
-                <span style="color: var(--purple); text-shadow: 0 0 20px var(--purple);">GRUPO.</span>
+                40% OFF em todo o<br>
+                <span style="color: var(--purple); text-shadow: 0 0 20px var(--purple);">SISTEMA.</span>
             </h1>
             
             <p class="hidden delay-200" style="margin: 0 auto 30px auto;">
-                Sistemas de moderação, RPG, diversão e administração automática.<br>
-                Escolha o período ideal para sua comunidade.
+                Aproveite os preços promocionais para começar 2026 com tudo.<br>
+                A promoção é por tempo limitado.
             </p>
         </div>
     </section>
@@ -58,10 +77,11 @@
             
             <div class="price-card hidden delay-100">
                 <div class="price-header">
-                    <h4>Teste Rápido</h4>
+                    <h4>Teste Rápido <span class="discount-badge">-40%</span></h4>
                     <h2>1 Dia</h2>
                 </div>
                 <div class="price-value">
+                    <span class="old-price">R$ 1,50</span><br>
                     <span class="currency">R$</span>0,90
                 </div>
                 <ul class="price-features">
@@ -69,18 +89,19 @@
                     <li><i class="fas fa-bolt"></i> Entrega Imediata</li>
                     <li><i class="fas fa-times" style="color:#555;"></i> Sem fidelidade</li>
                 </ul>
-                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20testar%20o%20Bot%20(1%20Dia)" target="_blank" class="btn-price">
+                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Teste%20(1%20Dia)" target="_blank" class="btn-price">
                     Testar Agora
                 </a>
             </div>
             
             <div class="price-card popular hidden delay-200" style="border-color: var(--purple); box-shadow: 0 0 30px rgba(138, 43, 226, 0.2);">
-                <div class="badge" style="background: var(--purple);">Mais Vendido</div>
+                <div class="badge" style="background: var(--purple);">Oferta 2026</div>
                 <div class="price-header">
-                    <h4>Mensal</h4>
+                    <h4>Mensal <span class="discount-badge">-40%</span></h4>
                     <h2>30 Dias</h2>
                 </div>
                 <div class="price-value">
+                    <span class="old-price">R$ 7,50</span><br>
                     <span class="currency">R$</span>4,50
                 </div>
                 <ul class="price-features">
@@ -89,17 +110,18 @@
                     <li><i class="fas fa-gamepad"></i> RPG & Diversão Completa</li>
                     <li><i class="fas fa-headset"></i> Suporte Prioritário</li>
                 </ul>
-                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20o%20Plano%20Mensal%20(30%20Dias)" target="_blank" class="btn-price btn-glow" style="background: var(--purple); border: none;">
+                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Mensal" target="_blank" class="btn-price btn-glow" style="background: var(--purple); border: none;">
                     Garantir Mensal
                 </a>
             </div>
 
             <div class="price-card hidden delay-300">
                 <div class="price-header">
-                    <h4>Quinzenal</h4>
+                    <h4>Quinzenal <span class="discount-badge">-40%</span></h4>
                     <h2>15 Dias</h2>
                 </div>
                 <div class="price-value">
+                    <span class="old-price">R$ 5,50</span><br>
                     <span class="currency">R$</span>3,30
                 </div>
                 <ul class="price-features">
@@ -107,7 +129,7 @@
                     <li><i class="fas fa-coins"></i> Economia RPG</li>
                     <li><i class="fas fa-clock"></i> Renovação Flexível</li>
                 </ul>
-                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20o%20Plano%20Quinzenal%20(15%20Dias)" target="_blank" class="btn-price">
+                <a href="https://wa.me/447907210802?text=Ola%20Udesaken!%20Quero%20aproveitar%20os%2040%25%20OFF%20no%20Quinzenal" target="_blank" class="btn-price">
                     Assinar Quinzenal
                 </a>
             </div>
@@ -126,8 +148,8 @@
                 <p>Assim que o pagamento é confirmado, você recebe o acesso ao bot e o tutorial de ativação diretamente no seu WhatsApp.</p>
             </div>
             <div class="faq-item hidden delay-100" style="margin-bottom: 20px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 10px;">
-                <h4 style="color: white; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> O bot protege contra travas?</h4>
-                <p>Sim! Nosso sistema possui filtros de segurança básicos para manter a ordem no seu grupo, removendo links e spam.</p>
+                <h4 style="color: white; margin-bottom: 10px;"><i class="fas fa-shield-alt"></i> O desconto é vitalício?</h4>
+                <p>O desconto de 40% é válido para a contratação atual. Aproveite para garantir períodos mais longos agora!</p>
             </div>
         </div>
     </section>
