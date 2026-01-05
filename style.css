@@ -1,5 +1,5 @@
 /* ==========================================================================
-    UDESAKEN 2026 ® - CSS DEFINITIVO & CORRIGIDO
+    UDESAKEN 2026 ® - CSS DEFINITIVO & CLEAN (Pós-Evento)
    ========================================================================== */
 
 :root {
@@ -34,29 +34,6 @@ ul { list-style: none; }
     background: linear-gradient(90deg, #fff, var(--gold), #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-}
-
-/* --- PARTÍCULAS --- */
-.new-year-particles {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: -1;
-}
-.new-year-particles span {
-    position: absolute; display: block;
-    width: 4px; height: 4px; background: var(--gold);
-    border-radius: 50%; box-shadow: 0 0 10px var(--gold);
-    animation: riseUp 15s linear infinite; bottom: -50px;
-}
-.new-year-particles span:nth-child(even) { background: white; box-shadow: 0 0 10px white; }
-.new-year-particles span:nth-child(1) { left: 10%; animation-duration: 10s; }
-.new-year-particles span:nth-child(2) { left: 20%; animation-duration: 12s; width: 6px; }
-.new-year-particles span:nth-child(3) { left: 40%; animation-duration: 8s; }
-.new-year-particles span:nth-child(4) { left: 60%; animation-duration: 14s; width: 5px; }
-.new-year-particles span:nth-child(5) { left: 80%; animation-duration: 11s; }
-
-@keyframes riseUp {
-    0% { transform: translateY(0) scale(0.5); opacity: 0; }
-    100% { transform: translateY(-120vh) scale(1); opacity: 0; }
 }
 
 /* --- HEADER & NAV --- */
@@ -243,32 +220,25 @@ footer {
 }
 
 /* --- BANNER COOKIES --- */
-/* No arquivo style.css */
-
-/* --- BANNER COOKIES (PC E GERAL) --- */
 .cookie-consent {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(15, 15, 20, 0.95); /* Fundo escuro quase sólido */
-    backdrop-filter: blur(10px); /* Efeito de vidro */
-    border-top: 1px solid var(--purple); /* Linha roxa no topo para combinar */
+    background: rgba(15, 15, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--purple);
     padding: 15px 5%;
     display: flex;
-    justify-content: space-between; /* Texto na esq, botão na dir */
+    justify-content: space-between;
     align-items: center;
     z-index: 2000;
-    
-    /* Animação de entrada */
     transform: translateY(100%);
     transition: transform 0.5s ease-out;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
 }
 
-.cookie-consent.active {
-    transform: translateY(0); /* Faz aparecer */
-}
+.cookie-consent.active { transform: translateY(0); }
 
 .cookie-text {
     color: #e0e0e0;
@@ -281,9 +251,7 @@ footer {
     font-weight: bold;
     text-decoration: none;
 }
-.cookie-text a:hover {
-    text-decoration: underline;
-}
+.cookie-text a:hover { text-decoration: underline; }
 
 .btn-accept {
     background: var(--gold);
@@ -304,25 +272,12 @@ footer {
     transform: scale(1.05);
 }
 
-/* --- AJUSTE MOBILE (Mantenha ou atualize o que está no final do arquivo) --- */
-/* Certifique-se que dentro do @media (max-width: 768px) tenha isso: */
-@media (max-width: 768px) {
-    .cookie-consent {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        padding: 20px;
-    }
-    .cookie-text { max-width: 100%; }
-    .btn-accept { width: 100%; }
-}
-
-/* --- WIDGET MÚSICA (RESTAURADO) --- */
+/* --- WIDGET MÚSICA --- */
 .music-widget {
     position: fixed;
     bottom: 30px;
     left: 30px;
-    z-index: 2001; /* Fica EM CIMA do cookie banner (2000) */
+    z-index: 2001; 
 }
 
 .music-btn {
@@ -343,7 +298,7 @@ footer {
     box-shadow: 0 0 15px rgba(0, 255, 252, 0.4);
 }
 
-/* Ondas de som (animação) */
+/* Ondas de som */
 .waves { display: none; align-items: flex-end; gap: 3px; height: 20px; }
 .music-btn.playing .waves { display: flex; }
 .music-btn.playing i { display: none; }
@@ -359,14 +314,14 @@ footer {
 
 @keyframes waveAnim { 0%, 100% { height: 5px; } 50% { height: 20px; } }
 
-/* --- ANIMAÇÕES --- */
+/* --- ANIMAÇÕES GERAIS --- */
 .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .show { opacity: 1; transform: translateY(0); }
 .delay-100 { transition-delay: 0.1s; }
 .delay-200 { transition-delay: 0.2s; }
 .delay-300 { transition-delay: 0.3s; }
 
-/* --- RESPONSIVIDADE (CELULAR) - FINAL DO ARQUIVO --- */
+/* --- RESPONSIVIDADE (CELULAR) --- */
 @media (max-width: 768px) {
     body { overflow-x: hidden; }
     .section-padding { padding: 60px 5%; }
@@ -376,7 +331,6 @@ footer {
     .cta-buttons { flex-direction: column; width: 100%; }
     .hero-visual { margin-top: 50px; }
     
-    /* Menu Hambúrguer */
     .hamburger { display: block; z-index: 1001; }
     .nav-links {
         position: fixed; top: 0; right: 0; height: 100vh; width: 85%;
@@ -387,41 +341,28 @@ footer {
     .nav-links.active { transform: translateX(0); }
     .close-btn-mobile { display: block; position: absolute; top: 30px; right: 30px; font-size: 1.8rem; color: #FFD700; }
 
-    /* Cards e Footer */
     .pricing-grid { flex-direction: column; gap: 30px; }
     .price-card { width: 100%; max-width: 100%; margin-bottom: 20px; }
     .footer-container { flex-direction: column; gap: 40px; }
     .footer-col { width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 20px; }
     .footer-col:last-child { border-bottom: none; }
     
-    /* --- CORREÇÃO DO CONFLITO VISUAL --- */
-    
-    /* 1. MÚSICA: Sobe bastante para não bater no banner */
-    .music-widget { 
-        bottom: 180px; /* Altura segura para ficar livre do banner */
-        left: 20px; 
-    }
+    .music-widget { bottom: 180px; left: 20px; }
 
-    /* 2. COOKIES: Ajuste para ficar bonito e legível no rodapé */
     .cookie-consent { 
         padding: 20px 25px; 
         flex-direction: column; 
         text-align: center; 
         gap: 15px; 
-        background: rgba(5, 5, 5, 0.98); /* Fundo bem escuro para ler o texto */
+        background: rgba(5, 5, 5, 0.98);
     }
-    .cookie-text { font-size: 0.85rem; margin-bottom: 0; }
+    .cookie-text { font-size: 0.85rem; margin-bottom: 0; max-width: 100%; }
     .btn-accept { width: 100%; padding: 12px; }
 }
-/* --- CORES DAS REDES SOCIAIS --- */
 
-/* Remove a borda padrão para usar as cores cheias */
-.social-btn {
-    border: none !important; 
-    color: white !important; /* Ícone sempre branco para contraste */
-}
+/* --- CORES REDES SOCIAIS --- */
+.social-btn { border: none !important; color: white !important; }
 
-/* Instagram: Gradiente oficial */
 .social-btn.insta {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     box-shadow: 0 0 10px rgba(214, 36, 159, 0.3);
@@ -431,21 +372,18 @@ footer {
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
 }
 
-/* TikTok: Preto com efeito de sombra "glitch" (ciano e vermelho) */
 .social-btn.tiktok {
     background: #000000;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    border: 1px solid #333 !important; /* Borda sutil para não sumir no fundo preto */
+    border: 1px solid #333 !important;
 }
 .social-btn.tiktok:hover {
     background: #000000 !important;
-    /* Efeito de sombra vermelha e azul típicas do TikTok */
     text-shadow: 2px 2px 0px #25F4EE, -2px -2px 0px #FE2C55;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     border-color: #fff !important;
 }
 
-/* WhatsApp: Verde oficial */
 .social-btn.whats {
     background: #25D366;
     box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
@@ -455,26 +393,24 @@ footer {
     box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
 }
 
-/* --- BOTÃO DESTAQUE EQUIPE --- */
 .btn-team {
-    color: var(--gold) !important; /* Texto Dourado */
-    border: 1px solid var(--gold); /* Borda Dourada */
-    padding: 8px 25px; /* Tamanho do botão */
+    color: var(--gold) !important;
+    border: 1px solid var(--gold);
+    padding: 8px 25px;
     border-radius: 50px;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); /* Brilho leve */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
 }
-
 .btn-team:hover {
-    background: var(--gold); /* Fundo preenche de dourado */
-    color: #000 !important; /* Texto fica preto para contraste */
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5); /* Brilho forte */
-    transform: translateY(-3px); /* Sobe um pouquinho */
+    background: var(--gold);
+    color: #000 !important;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+    transform: translateY(-3px);
 }
