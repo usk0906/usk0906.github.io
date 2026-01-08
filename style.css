@@ -414,3 +414,21 @@ footer {
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
     transform: translateY(-3px);
 }
+/* --- NOVAS BADGES (Adicionar ao style.css) --- */
+.badge-tag.eco { 
+    background: rgba(0, 255, 127, 0.15); 
+    color: #00ff7f; 
+    border: 1px solid rgba(0, 255, 127, 0.3); 
+}
+
+.badge-tag.sys { 
+    background: rgba(0, 191, 255, 0.15); 
+    color: #00bfff; 
+    border: 1px solid rgba(0, 191, 255, 0.3); 
+}
+
+.badge-tag.fun { 
+    background: rgba(255, 105, 180, 0.15); 
+    color: #ff69b4; 
+    border: 1px solid rgba(255, 105, 180, 0.3); 
+}
