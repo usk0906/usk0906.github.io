@@ -71,12 +71,26 @@ header {
 
 .hero-visual { perspective: 1000px; }
 .hero-img-effect {
-    max-width: 400px; width: 100%; border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    max-width: 400px; 
+    width: 100%; 
+    /* Removemos o border-radius, border e box-shadow quadrados */
+    border: none; 
+    box-shadow: none;
+    
+    /* Animação de flutuar continua */
     animation: floatImage 6s ease-in-out infinite;
+    
+    /* Transição suave para o efeito de brilho */
+    transition: filter 0.3s ease;
 }
-.gold-border { border-color: var(--gold) !important; box-shadow: 0 0 30px rgba(255, 215, 0, 0.2) !important; }
+
+.gold-border {
+    /* Aqui está a mágica: desenha o brilho Dourado (Gold) em volta do desenho exato */
+    filter: 
+        drop-shadow(0 0 2px var(--gold)) 
+        drop-shadow(0 0 5px var(--gold)) 
+        drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+}
 
 @keyframes floatImage {
     0%, 100% { transform: translateY(0); }
