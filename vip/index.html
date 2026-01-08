@@ -13,26 +13,48 @@
     <link rel="stylesheet" href="../style.css">
 
     <style>
-        /* ESTILO ESPECÍFICO BASEADO NO PRINT (ADAPTADO PARA GOLD) */
+        /* --- ESTILOS GERAIS --- */
+        
+        /* Correção de Centralização do Topo */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centraliza horizontalmente */
+            justify-content: center; /* Centraliza verticalmente */
+            text-align: center;
+            width: 100%;
+            min-height: 50vh;
+            padding-top: 100px;
+            padding-bottom: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px; /* Limita a largura para não esticar demais */
+            margin: 0 auto;
+        }
+
+        /* --- ESTILOS DOS CARDS (Estilo Print) --- */
         .pricing-section {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .plan-card {
-            background: #0a0a0a; /* Fundo bem escuro como no print */
+            background: #0a0a0a;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 30px 20px;
-            width: 300px;
+            padding: 35px 25px;
+            width: 320px;
             text-align: center;
             position: relative;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .plan-card:hover {
@@ -40,10 +62,10 @@
             border-color: rgba(255, 215, 0, 0.3);
         }
 
-        /* Card Central em Destaque */
+        /* Destaque Central */
         .plan-card.featured {
             border: 1px solid #FFD700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
             z-index: 2;
             transform: scale(1.05);
         }
@@ -52,16 +74,16 @@
             transform: scale(1.08);
         }
 
-        /* Tag "Recomendado" flutuante */
+        /* Badge Recomendado */
         .badge-recommended {
             background: linear-gradient(90deg, #FFD700, #FDB931);
             color: #000;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 5px 20px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 6px 20px;
             border-radius: 20px;
             position: absolute;
-            top: -15px;
+            top: -14px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
@@ -71,13 +93,13 @@
 
         .plan-title {
             color: #ccc;
-            font-size: 1rem;
+            font-size: 1.1rem;
             margin-bottom: 5px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .plan-duration {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: white;
             margin-bottom: 10px;
@@ -85,43 +107,53 @@
 
         .plan-price {
             font-size: 2.2rem;
-            font-weight: 700;
-            color: #FFD700; /* Gold */
-            margin-bottom: 25px;
+            font-weight: 800;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
         .plan-features {
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             flex-grow: 1;
             padding-left: 10px;
         }
 
         .plan-features li {
             list-style: none;
-            color: #ccc;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
+            color: #ddd;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
         }
 
-        .plan-features li i {
-            color: #FFD700; /* Check verde do print vira Gold aqui */
-            margin-right: 10px;
-            font-size: 0.8rem;
+        /* Estilo dos "Emojis" */
+        .icon-emoji {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
         }
+        
+        .c-green { color: #4ade80; } /* Verde do check */
+        .c-gold { color: #FFD700; }  /* Dourado do raio/estrela */
+        .c-purple { color: #a855f7; } /* Roxo para diferenciar */
 
-        /* Botões Estilo Print */
+        /* Botões */
         .btn-plan {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
         }
 
         .btn-outline {
@@ -133,17 +165,19 @@
         .btn-outline:hover {
             border-color: #FFD700;
             color: #FFD700;
+            background: rgba(255, 215, 0, 0.05);
         }
 
         .btn-fill {
             background: linear-gradient(90deg, #FFD700, #FDB931);
             border: none;
             color: #000;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.25);
         }
 
         .btn-fill:hover {
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
         }
 
     </style>
@@ -166,13 +200,17 @@
         </nav>
     </header>
 
-    <section class="hero" style="min-height: 50vh; padding-top: 120px; padding-bottom: 20px;">
-        <div class="hero-content" style="text-align: center; width: 100%;">
-            <div class="badge-news" style="margin: 0 auto 20px auto; border-color: #FFD700; color: #FFD700;">
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge-news" style="margin: 0 auto 20px auto; border-color: #FFD700; color: #FFD700; width: fit-content;">
                 <i class="fas fa-crown"></i> Área Premium
             </div>
-            <h1 class="hidden delay-100">Benefícios de <span class="text-gold">Outro Nível</span></h1>
-            <p class="hidden delay-200" style="color: #999;">Imunidade, XP Bônus e Comandos Exclusivos.</p>
+            <h1 class="hidden delay-100" style="margin-bottom: 15px;">
+                Benefícios de <span class="text-gold" style="text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);">Outro Nível</span>
+            </h1>
+            <p class="hidden delay-200" style="color: #bbb; font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                Desbloqueie Imunidade, XP Bônus, IA Ilimitada e Comandos Exclusivos.
+            </p>
         </div>
     </section>
 
@@ -184,10 +222,10 @@
             <div class="plan-price">R$ 2,00</div>
             
             <ul class="plan-features">
-                <li><i class="fas fa-check"></i> Imune a Vote Ban</li>
-                <li><i class="fas fa-check"></i> Comandos VIP</li>
-                <li><i class="fas fa-check"></i> Bônus de XP</li>
-                <li style="opacity: 0.5; text-decoration: line-through;"><i class="fas fa-times" style="color:#555;"></i> Modo "Só ADM"</li>
+                <li><span class="icon-emoji c-green">✔</span> Imune a Vote Ban</li>
+                <li><span class="icon-emoji c-gold">⚡</span> Entrega Imediata</li>
+                <li><span class="icon-emoji c-green">✔</span> Acesso à IA (GPT)</li>
+                <li style="opacity: 0.5;"><span class="icon-emoji">❌</span> Modo "Só ADM"</li>
             </ul>
 
             <a href="https://wa.me/447907210802?text=Quero%20VIP%20Semanal" class="btn-plan btn-outline">
@@ -203,11 +241,11 @@
             <div class="plan-price">R$ 5,00</div>
             
             <ul class="plan-features">
-                <li><i class="fas fa-check"></i> <strong>Imunidade Total</strong></li>
-                <li><i class="fas fa-check"></i> Burlar Modo "Só ADM"</li>
-                <li><i class="fas fa-check"></i> Mute Reduzido (5m)</li>
-                <li><i class="fas fa-check"></i> Limite Maior de ADV</li>
-                <li><i class="fas fa-check"></i> Bônus Máximo de XP</li>
+                <li><span class="icon-emoji c-gold">★</span> <strong>Melhor Custo-Benefício</strong></li>
+                <li><span class="icon-emoji c-green">✔</span> Imunidade Total</li>
+                <li><span class="icon-emoji c-green">✔</span> Burlar Modo "Só ADM"</li>
+                <li><span class="icon-emoji c-gold">⚡</span> IA Ilimitada & Transcrição</li>
+                <li><span class="icon-emoji c-green">✔</span> Bônus Máximo de XP</li>
             </ul>
 
             <a href="https://wa.me/447907210802?text=Quero%20VIP%20Mensal" class="btn-plan btn-fill">
@@ -221,10 +259,10 @@
             <div class="plan-price">R$ 3,50</div>
             
             <ul class="plan-features">
-                <li><i class="fas fa-check"></i> Imune a Vote Ban</li>
-                <li><i class="fas fa-check"></i> Comandos VIP</li>
-                <li><i class="fas fa-check"></i> Bônus de XP</li>
-                <li><i class="fas fa-check"></i> Prioridade Média</li>
+                <li><span class="icon-emoji c-green">✔</span> Imune a Vote Ban</li>
+                <li><span class="icon-emoji c-green">✔</span> Prioridade Média</li>
+                <li><span class="icon-emoji c-gold">⚡</span> Mute Reduzido</li>
+                <li><span class="icon-emoji c-green">✔</span> Acesso à IA (GPT)</li>
             </ul>
 
             <a href="https://wa.me/447907210802?text=Quero%20VIP%20Quinzenal" class="btn-plan btn-outline">
@@ -234,41 +272,42 @@
 
     </section>
 
-    <section class="section-padding" style="background: rgba(0,0,0,0.4);">
-        <div class="section-header hidden">
-            <h2 class="text-gold" style="font-size: 1.5rem;">Todas as Vantagens</h2>
+    <section class="section-padding" style="background: rgba(0,0,0,0.4); margin-top: 20px;">
+        <div class="section-header hidden" style="text-align: center; margin-bottom: 40px;">
+            <h2 class="text-gold" style="font-size: 1.8rem;">Todas as Vantagens</h2>
+            <div class="line gold-line" style="margin: 10px auto;"></div>
         </div>
         
-        <div class="premium-features" style="max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div class="premium-features" style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 0 20px;">
             
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
                 <i class="fas fa-shield-alt text-gold"></i> <strong>Imune a Vote Ban</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Blindagem total contra banimentos por votação.</span>
+                <span style="font-size: 0.85rem; color: #aaa;">Blindagem total contra banimentos por votação.</span>
             </li>
 
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
+                <i class="fas fa-robot text-gold"></i> <strong>Inteligência Artificial</strong><br>
+                <span style="font-size: 0.85rem; color: #aaa;">Acesso total ao GPT-4o e transcrição de áudio.</span>
+            </li>
+
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
                 <i class="fas fa-hourglass-half text-gold"></i> <strong>Mute Reduzido</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Seu tempo de mute nunca passa de 5 minutos.</span>
+                <span style="font-size: 0.85rem; color: #aaa;">Seu tempo de mute nunca passa de 5 minutos.</span>
             </li>
 
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
                 <i class="fas fa-lock-open text-gold"></i> <strong>Modo "Só ADM"</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Pode falar no grupo mesmo quando fechado.</span>
+                <span style="font-size: 0.85rem; color: #aaa;">Pode falar no grupo mesmo quando fechado.</span>
             </li>
 
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
                 <i class="fas fa-bolt text-gold"></i> <strong>Bônus de XP</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Upe de nível muito mais rápido no ranking.</span>
+                <span style="font-size: 0.85rem; color: #aaa;">Upe de nível muito mais rápido no ranking.</span>
             </li>
 
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
+            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 0 10px 10px 0;">
                 <i class="fas fa-exclamation-circle text-gold"></i> <strong>Limite Maior de ADV</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Maior tolerância antes de receber punições.</span>
-            </li>
-
-            <li style="border-left: 3px solid #FFD700; padding: 15px; background: #0f0f0f; list-style: none; border-radius: 8px;">
-                <i class="fas fa-terminal text-gold"></i> <strong>Comandos VIP</strong><br>
-                <span style="font-size: 0.8rem; color: #aaa;">Menu exclusivo de comandos premium.</span>
+                <span style="font-size: 0.85rem; color: #aaa;">Maior tolerância antes de receber punições.</span>
             </li>
 
         </div>
@@ -302,7 +341,7 @@
 
     <script type="module" src="../script.js"></script>
     <script>
-        // Scripts mantidos (Menu, Animação, Música)
+        // Scripts mantidos
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         const closeBtn = document.querySelector('.close-btn-mobile');
