@@ -10,98 +10,151 @@
 </head>
 <body>
 
-    <header style="position: relative; background: transparent; border: none;">
-        <div class="logo">Udesaken <span style="font-size: 0.5em; color: #ccc;">Termos</span></div>
+    <header style="position: relative; background: transparent; border: none; padding-bottom: 0;">
+        <div class="logo">Udesaken <span style="font-size: 0.5em; color: var(--gold);">Termos</span></div>
         <nav>
-            <a href="/" class="btn-primary" style="padding: 10px 20px; text-decoration: none;">
+            <a href="/" class="btn-primary" style="padding: 10px 20px; text-decoration: none; font-size: 0.9rem;">
                 <i class="fas fa-arrow-left"></i> Voltar ao Início
             </a>
         </nav>
     </header>
 
     <section class="section-padding" style="padding-top: 50px;">
-        <div class="glass-card full-width" style="text-align: left; max-width: 1000px; margin: 0 auto;">
+        <div class="glass-card full-width" style="text-align: left; max-width: 900px; margin: 0 auto; border: 1px solid rgba(138, 43, 226, 0.3);">
             
-            <h1 style="color: var(--purple); margin-bottom: 30px;">Termos de Uso Oficiais</h1>
+            <div style="text-align: center; margin-bottom: 40px;">
+                <i class="fas fa-book-open" style="font-size: 3rem; color: var(--purple); margin-bottom: 15px; text-shadow: 0 0 15px var(--purple);"></i>
+                <h1 style="color: white; margin-bottom: 10px;">Termos de Uso Oficiais</h1>
+                <p style="color: #888; font-size: 0.9rem;">
+                    <i class="far fa-clock"></i> Última atualização: <span style="color: var(--gold);">15/01/2026</span>
+                </p>
+            </div>
             
-            <p style="color: #ccc; margin-bottom: 20px;">
-                Ao contratar, adquirir ou utilizar qualquer plano, VIP ou serviço do Udesaken Bot, o cliente declara que leu, compreendeu e concorda integralmente com todos os termos abaixo.
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 15px; border-radius: 8px; border-left: 3px solid var(--gold); margin-bottom: 40px;">
+                <p style="color: #ccc; font-size: 0.95rem; margin: 0;">
+                    Ao contratar, adquirir ou utilizar qualquer plano, VIP ou serviço do Udesaken Bot, o cliente declara que leu, compreendeu e concorda integralmente com os termos descritos abaixo (Em conformidade com o CDC).
+                </p>
+            </div>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-id-card"></i> 1. Licença, Acesso e Titularidade
+            </h3>
+            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 10px; border-left: 1px solid #333;">
+                <li style="margin-bottom: 10px;"><strong style="color: white;">1.1.</strong> O acesso é concedido via licença de uso <strong>individual e intransferível</strong>.</li>
+                <li style="margin-bottom: 10px;"><strong style="color: white;">1.2.</strong> É estritamente proibida a revenda, cessão, aluguel ou compartilhamento de acesso sem autorização expressa.</li>
+                <li><strong style="color: white;">1.3.</strong> O uso fica limitado aos grupos ou números autorizados no ato da contratação.</li>
+            </ul>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-hourglass-half"></i> 2. Vigência do Plano
+            </h3>
+            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 10px; border-left: 1px solid #333;">
+                <li style="margin-bottom: 10px;"><strong style="color: white;">2.1.</strong> A vigência inicia-se imediatamente após a confirmação do pagamento e ativação.</li>
+                <li><strong style="color: white;">2.2.</strong> A contagem é feita em <strong>dias corridos</strong>, não sendo pausada por ausência de uso ou decisão do cliente.</li>
+            </ul>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-server"></i> 3. Disponibilidade e Garantia
+            </h3>
+            <ul style="color: #ccc; margin-bottom: 20px; line-height: 1.6; list-style: none; padding-left: 10px; border-left: 1px solid #333;">
+                <li style="margin-bottom: 10px;"><strong style="color: white;">3.1.</strong> O serviço depende do WhatsApp/Meta e internet, estando sujeito a oscilações naturais.</li>
+                <li style="margin-bottom: 10px;"><strong style="color: white;">3.2.</strong> Pequenas manutenções ou instabilidades momentâneas não geram indenização.</li>
+            </ul>
+            <div style="background: rgba(138, 43, 226, 0.15); padding: 15px; border-radius: 8px; border: 1px solid var(--purple); margin-bottom: 30px;">
+                <strong style="color: #fff;"><i class="fas fa-shield-alt"></i> 3.3. Garantia de Estabilidade:</strong><br>
+                <span style="color: #ddd; font-size: 0.9rem;">Caso o bot fique totalmente inoperante por <strong>mais de 24 horas consecutivas</strong> por falha técnica nossa, faremos a reposição automática desses dias ao final do seu plano.</span>
+            </div>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-hand-holding-dollar"></i> 4. Política de Reembolso
+            </h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div style="background: rgba(0, 255, 127, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(0, 255, 127, 0.2);">
+                    <strong style="color: #00ff7f;">4.1. Direito de Arrependimento (7 Dias)</strong>
+                    <p style="font-size: 0.85rem; color: #ccc; margin-top: 5px;">
+                        Conforme Art. 49 do CDC, você tem 7 dias corridos após a contratação para solicitar reembolso integral (100%), desde que não tenha violado regras de uso.
+                    </p>
+                </div>
+                <div style="background: rgba(255, 99, 71, 0.05); padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 99, 71, 0.2);">
+                    <strong style="color: #ff6347;">4.2. Sem Reembolso se:</strong>
+                    <ul style="font-size: 0.85rem; color: #ccc; margin-top: 5px; list-style: circle; padding-left: 20px;">
+                        <li>Seu número pessoal for banido pelo WhatsApp.</li>
+                        <li>Desistência após 7 dias.</li>
+                        <li>Banimento por uso indevido (ataques/spam).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-robot"></i> 5. Queda do Número do Bot
+            </h3>
+            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 10px; border-left: 1px solid #333;">
+                <li style="margin-bottom: 10px;"><strong style="color: white;">5.1.</strong> Caso o número oficial caia, migraremos para um novo o mais breve possível.</li>
+                <li><strong style="color: white;">5.2.</strong> O tempo de paralisação durante a troca será <strong>acrescido ao final do seu plano</strong> como compensação.</li>
+            </ul>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 class="text-gold" style="margin-bottom: 15px; font-size: 1.1rem;"><i class="fas fa-coins"></i> 6. Taxas Administrativas</h3>
+                    <ul style="color: #ccc; list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;">
+                            Migração de Grupo: <strong style="color: #fff; float: right;">R$ 1,00</strong>
+                        </li>
+                        <li style="margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;">
+                            Transferência de VIP: <strong style="color: #fff; float: right;">R$ 1,00</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 class="text-gold" style="margin-bottom: 15px; font-size: 1.1rem;"><i class="fas fa-tags"></i> 7. Descontos Progressivos</h3>
+                    <ul style="color: #ccc; list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;">
+                            2 Grupos Simultâneos: <strong style="color: var(--gold); float: right;">5% OFF</strong>
+                        </li>
+                        <li style="margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;">
+                            3 Grupos Simultâneos: <strong style="color: var(--gold); float: right;">10% OFF</strong>
+                        </li>
+                        <li style="font-size: 0.8rem; color: #888; margin-top: 5px;">*Solicitar no ato da contratação.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-user-shield"></i> 8. Privacidade
+            </h3>
+            <p style="color: #ccc; margin-bottom: 30px;">
+                O Udesaken Bot <strong>não armazena</strong> conversas, mídias ou dados sensíveis. Processamos apenas dados técnicos estritamente necessários para a execução de comandos.
             </p>
-            <p style="color: #888; font-size: 0.9rem; margin-bottom: 30px;">Última atualização: 27/12/2025</p>
+
+            <h3 class="text-gold" style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-triangle-exclamation"></i> 9. Uso Indevido e Penalidades
+            </h3>
+            <ul style="color: #ccc; margin-bottom: 20px; line-height: 1.6; list-style: none; padding-left: 10px; border-left: 1px solid #333;">
+                <li style="margin-bottom: 10px;"><strong style="color: white;">9.1.</strong> Proibido: spam, travas, discursos de ódio, práticas ilegais ou engenharia reversa.</li>
+                <li style="margin-bottom: 10px;"><strong style="color: white;">9.2. Bug Abuse:</strong> É proibido explorar falhas do sistema para obter vantagem. Reporte bugs ao suporte.</li>
+            </ul>
             
-            <hr style="border-color: rgba(255, 255, 255, 0.1); margin-bottom: 40px;">
+            <div style="background: rgba(255, 0, 0, 0.1); padding: 15px; border-radius: 8px; border: 1px solid rgba(255, 0, 0, 0.3); margin-bottom: 40px; display: flex; gap: 15px; align-items: center;">
+                <i class="fas fa-gavel" style="font-size: 1.5rem; color: #ff5555;"></i>
+                <div>
+                    <strong style="color: #ff5555;">PENALIDADE GRAVE</strong>
+                    <p style="color: #ddd; font-size: 0.9rem; margin: 0;">
+                        Exploração maliciosa de bugs que cause prejuízo técnico/financeiro resultará em banimento e 
+                        <strong>Multa de Reparação de até R$ 50,00</strong>.
+                    </p>
+                </div>
+            </div>
 
-            <h3 style="color: #FFD700; margin-bottom: 15px;">1. Licença, Acesso e Titularidade</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>1.1.</strong> O acesso ao Udesaken Bot é concedido por licença individual, vinculada exclusivamente à pessoa contratante (VIP por pessoa).</li>
-                <li style="margin-bottom: 10px;"><strong>1.2.</strong> A licença não é coletiva, não é compartilhável e não pode ser revendida, cedida ou transferida sem autorização prévia da equipe Udesaken.</li>
-                <li><strong>1.3.</strong> O uso do bot fica limitado ao(s) grupo(s) autorizado(s) no momento da contratação.</li>
-            </ul>
+            <hr style="border-color: rgba(255, 255, 255, 0.1); margin-bottom: 30px;">
 
-            <h3 style="color: #FFD700; margin-bottom: 15px;">2. Vigência do Plano</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>2.1.</strong> A vigência do plano inicia-se imediatamente após a ativação do bot.</li>
-                <li><strong>2.2.</strong> A contagem de dias é contínua, não sendo pausada por ausência de uso do cliente.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">3. Instabilidades e Manutenção</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>3.1.</strong> O cliente está ciente de que o bot pode apresentar instabilidades, quedas, manutenções ou ficar temporariamente offline.</li>
-                <li style="margin-bottom: 10px;"><strong>3.2.</strong> Períodos de indisponibilidade não geram direito a reembolso, cancelamento, abatimento ou indenização.</li>
-                <li><strong>3.3.</strong> Pedidos ou comandos que aguardarem enquanto o bot estiver offline não geram qualquer tipo de compensação.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">4. Política de Reembolso</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>4.1.</strong> <span style="color: #ff6b6b;">Não realizamos reembolso em nenhuma hipótese.</span></li>
-                <li><strong>4.2.</strong> Não há reembolso por arrependimento, mau uso, instabilidades, limitações da plataforma WhatsApp ou erro operacional, inclusive erro da própria equipe Udesaken.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">5. Banimento ou Bloqueio do Número</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>5.1.</strong> Caso o número oficial do bot seja banido ou bloqueado pelo WhatsApp, o serviço poderá ser migrado para outro número, sem garantia de prazo.</li>
-                <li><strong>5.2.</strong> Tal ocorrência não gera reembolso, cancelamento ou compensação financeira.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">6. Taxas e Serviços Adicionais</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>6.1.</strong> Migração do bot para outro grupo: taxa fixa de <strong>R$ 1,00</strong>.</li>
-                <li style="margin-bottom: 10px;"><strong>6.2.</strong> Transferência de VIP para outro usuário ou número: taxa fixa de <strong>R$ 1,00</strong>, mantendo-se o mesmo período restante.</li>
-                <li><strong>6.3.</strong> As taxas não são reembolsáveis em nenhuma hipótese.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">7. Descontos por Múltiplos Grupos</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>7.1.</strong> Contratação simultânea de 2 grupos: desconto de <strong>5%</strong> sobre o valor total.</li>
-                <li style="margin-bottom: 10px;"><strong>7.2.</strong> Contratação simultânea de 3 grupos: desconto de <strong>10%</strong> sobre o valor total.</li>
-                <li style="margin-bottom: 10px;"><strong>7.3.</strong> Os descontos não são automáticos e devem ser solicitados explicitamente no momento da contratação.</li>
-                <li><strong>7.4.</strong> A Udesaken não se responsabiliza por descontos não solicitados.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">8. Privacidade e Dados</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>8.1.</strong> O Udesaken Bot não armazena conversas, mídias ou dados pessoais sensíveis.</li>
-                <li><strong>8.2.</strong> São utilizados apenas dados mínimos necessários para o funcionamento dos comandos.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">9. Uso Indevido e Penalidades</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>9.1.</strong> É proibido utilizar o bot para práticas ilegais, spam, engenharia reversa, clonagem ou qualquer atividade prejudicial.</li>
-                <li><strong>9.2.</strong> O descumprimento resultará em bloqueio imediato do acesso, sem reembolso.</li>
-            </ul>
-
-            <h3 style="color: #FFD700; margin-bottom: 15px;">10. Limitações e Disposições Finais</h3>
-            <ul style="color: #ccc; margin-bottom: 30px; line-height: 1.6; list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px;"><strong>10.1.</strong> O cliente reconhece que o serviço depende de terceiros (WhatsApp) e está sujeito a limitações externas.</li>
-                <li style="margin-bottom: 10px;"><strong>11.1.</strong> O suporte é oferecido durante a vigência do plano, dentro dos limites operacionais da equipe.</li>
-                <li style="margin-bottom: 10px;"><strong>12.1.</strong> A Udesaken pode alterar estes termos a qualquer momento, sem aviso prévio.</li>
-                <li><strong>12.2.</strong> A continuidade do uso implica concordância automática com eventuais atualizações.</li>
-            </ul>
-
-            <br>
-            <div style="background: rgba(138, 43, 226, 0.1); padding: 20px; border-radius: 10px; border-left: 4px solid var(--purple);">
-                <strong>Dúvidas?</strong><br>
-                Entre em contato com o suporte oficial antes de realizar a contratação.
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; color: #666; font-size: 0.85rem;">
+                <div>
+                    <strong>11. Alterações:</strong> Termos podem ser atualizados. Avisaremos em mudanças significativas.<br>
+                    <strong>12. Keys:</strong> Cuide da sua chave de acesso. Não repomos keys perdidas/roubadas.
+                </div>
+                <div style="text-align: right;">
+                    Dúvidas? <a href="#" style="color: var(--gold);">Contate o Suporte</a>.
+                </div>
             </div>
 
         </div>
@@ -109,7 +162,7 @@
 
     <footer>
         <p>Udesaken Group &copy; 2026. Todos os direitos reservados.</p>
-        <a href="/" class="powered-badge" style="margin-top: 10px; display: inline-block; color: #666; text-decoration: none;">
+        <a href="/" class="powered-badge" style="margin-top: 10px; display: inline-block; color: #666; text-decoration: none; transition: 0.3s;">
             <i class="fas fa-bolt"></i> Voltar ao <strong>Início</strong>
         </a>
     </footer>
