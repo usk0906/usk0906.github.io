@@ -235,30 +235,6 @@
         });
 
         
-
-        // --- 4. MÚSICA (GLOBAL) ---
-        window.toggleMusic = function() {
-            const audio = document.getElementById('bg-audio');
-            const btn = document.querySelector('.music-btn');
-            const icon = document.getElementById('music-icon');
-            
-            if(!audio) return;
-
-            try { audio.volume = 0.3; } catch (e) {}
-
-            if (audio.paused) {
-                audio.play().then(() => {
-                    btn.classList.add('playing');
-                    btn.title = "Pausar";
-                    if(icon) icon.className = ''; 
-                }).catch(e => console.log("Toque na tela necessário para áudio"));
-            } else {
-                audio.pause();
-                btn.classList.remove('playing');
-                btn.title = "Tocar";
-                if(icon) icon.className = 'fas fa-volume-mute';
-            }
-        }
     </script>
 </body>
 </html>

@@ -54,10 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector('.music-btn');
     const icon = document.getElementById('music-icon');
 
+    // 1. AJUSTE DE VOLUME (AMBIENTE DE MERCADO)
+    if(audio) {
+        audio.volume = 0.05; // 5% de volume (bem baixinho)
+    }
+
     // Função global para o botão funcionar
     window.toggleMusic = function() {
         if(!audio) return;
-        try { audio.volume = 0.3; } catch (e) {}
+        // Garante que o volume continue baixo ao clicar
+        try { audio.volume = 0.05; } catch (e) {} 
 
         if (audio.paused) {
             audio.play().then(() => {
@@ -84,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 1. RECUPERAR ONDE PAROU
+    // 2. RECUPERAR ONDE PAROU
     if (audio) {
         const savedTime = localStorage.getItem('udesaken_music_time');
         const status = localStorage.getItem('udesaken_music_status');
@@ -100,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. SALVAR ANTES DE SAIR DA PÁGINA
+    // 3. SALVAR ANTES DE SAIR DA PÁGINA
     window.addEventListener('beforeunload', () => {
         if (audio && !audio.paused) {
             localStorage.setItem('udesaken_music_time', audio.currentTime);
