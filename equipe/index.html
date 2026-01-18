@@ -331,24 +331,7 @@
             }
         });
 
-        // MÚSICA
-        window.toggleMusic = function() {
-            const audio = document.getElementById('bg-audio');
-            const btn = document.querySelector('.music-btn');
-            const icon = document.getElementById('music-icon');
-            
-            audio.volume = 0.3;
-
-            if(audio.paused) {
-                audio.play(); 
-                btn.classList.add('playing'); 
-                icon.className = '';
-            } else {
-                audio.pause(); 
-                btn.classList.remove('playing'); 
-                icon.className = 'fas fa-volume-mute';
-            }
-        }
+       
     </script>
 </body>
 </html>
