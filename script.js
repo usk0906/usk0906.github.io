@@ -47,3 +47,66 @@ function atualizarTela(numero) {
 }
 
 carregarEstatisticas();
+
+// --- LÓGICA DE MÚSICA CONTÍNUA (RESUME) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bg-audio');
+    const btn = document.querySelector('.music-btn');
+    const icon = document.getElementById('music-icon');
+
+    // Função global para o botão funcionar
+    window.toggleMusic = function() {
+        if(!audio) return;
+        try { audio.volume = 0.3; } catch (e) {}
+
+        if (audio.paused) {
+            audio.play().then(() => {
+                atualizarIcone(true);
+                localStorage.setItem('udesaken_music_status', 'playing');
+            }).catch(e => console.log("Interação necessária"));
+        } else {
+            audio.pause();
+            atualizarIcone(false);
+            localStorage.setItem('udesaken_music_status', 'paused');
+        }
+    }
+
+    function atualizarIcone(tocando) {
+        if(!btn || !icon) return;
+        if (tocando) {
+            btn.classList.add('playing');
+            btn.title = "Pausar";
+            icon.className = ''; 
+        } else {
+            btn.classList.remove('playing');
+            btn.title = "Tocar";
+            icon.className = 'fas fa-volume-mute';
+        }
+    }
+
+    // 1. RECUPERAR ONDE PAROU
+    if (audio) {
+        const savedTime = localStorage.getItem('udesaken_music_time');
+        const status = localStorage.getItem('udesaken_music_status');
+
+        if (savedTime) audio.currentTime = parseFloat(savedTime);
+
+        if (status === 'playing') {
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => atualizarIcone(true))
+                .catch(() => console.log("Autoplay bloqueado pelo navegador"));
+            }
+        }
+    }
+
+    // 2. SALVAR ANTES DE SAIR DA PÁGINA
+    window.addEventListener('beforeunload', () => {
+        if (audio && !audio.paused) {
+            localStorage.setItem('udesaken_music_time', audio.currentTime);
+            localStorage.setItem('udesaken_music_status', 'playing');
+        } else if (audio) {
+            localStorage.setItem('udesaken_music_status', 'paused');
+        }
+    });
+});
