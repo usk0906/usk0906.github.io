@@ -1,5 +1,5 @@
 /* ==========================================================================
-    UDESAKEN - LUXURY SERIF EDITION (Bold & Italic)
+    UDESAKEN - MODERN BLACK EDITION (Clean Sans-Serif)
    ========================================================================== */
 
 :root {
@@ -13,32 +13,30 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* --- A MÁGICA DO ESTILO SERIFADO --- */
+/* --- A VOLTA DO VISUAL CLEAN (POPPINS) --- */
 body { 
-    /* Fonte Serifada, Itálica e Pesada (Estilo Luxo/Fashion) */
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 700; 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular, como pedido */
+    font-style: normal; /* Sem itálico forçado */
     
     background-color: var(--bg-dark);
-    /* Gradiente sutil para não ficar chapado */
     background-image: radial-gradient(circle at 50% 10%, #1a0510 0%, #000000 70%);
     color: var(--text); 
     overflow-x: hidden; 
 }
 
-a { text-decoration: none; color: white; transition: all 0.4s ease; }
+a { text-decoration: none; color: white; transition: all 0.3s ease; }
 ul { list-style: none; }
 
-/* Tipografia Ajustada (Letras mais juntinhas para elegância) */
-h1 { letter-spacing: -2px; line-height: 0.95; }
-h2, h3 { letter-spacing: -1px; }
+/* Tipografia */
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.5px; } /* Títulos em Bold para destaque */
+h1 { line-height: 1.1; }
+
 p { 
-    font-weight: 500; 
-    font-family: 'Playfair Display', serif; 
+    font-weight: 400; /* Texto corrido em Regular */
     opacity: 0.8; 
-    letter-spacing: 0.5px; 
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 /* --- EFEITOS NEON --- */
@@ -49,74 +47,67 @@ p {
 .text-gradient-pink {
     background: linear-gradient(90deg, #fff, var(--hk-pink), #fff);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 25px rgba(255, 20, 147, 0.5);
+    text-shadow: 0 0 25px rgba(255, 20, 147, 0.4);
 }
 
-/* --- ANIMAÇÕES GERAIS --- */
-
-/* 1. Flutuação (Imagens e Ícones) */
+/* --- ANIMAÇÕES --- */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
 
-/* 2. Pulso Neon (Botões) */
 @keyframes pulseGlow {
     0% { box-shadow: 0 0 10px var(--hk-neon); }
     50% { box-shadow: 0 0 30px var(--hk-pink), 0 0 60px var(--hk-neon); }
     100% { box-shadow: 0 0 10px var(--hk-neon); }
 }
 
-/* 3. Classes de Entrada (Scroll Reveal) */
-/* Os elementos começam invisíveis e deslocados */
+/* Scroll Reveal Classes */
 .reveal-left, .reveal-right, .reveal-bottom, .reveal-zoom, .reveal-fade {
     opacity: 0; 
-    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); /* Movimento suave */
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.reveal-left { transform: translateX(-50px); }
-.reveal-right { transform: translateX(50px); }
-.reveal-bottom { transform: translateY(50px); }
-.reveal-zoom { transform: scale(0.8); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-bottom { transform: translateY(40px); }
+.reveal-zoom { transform: scale(0.9); }
 
-/* Classe que o JS adiciona quando o elemento aparece na tela */
 .active-reveal { 
     opacity: 1; 
     transform: translate(0) scale(1); 
 }
 
-/* Atrasos para criar efeito "escadinha" */
 .delay-200 { transition-delay: 0.2s; }
 .delay-400 { transition-delay: 0.4s; }
 
 /* --- HEADER --- */
 header {
-    position: fixed; top: 0; width: 100%; padding: 25px 5%;
+    position: fixed; top: 0; width: 100%; padding: 20px 5%;
     display: flex; justify-content: space-between; align-items: center;
     background: rgba(0,0,0,0.85); backdrop-filter: blur(15px);
     z-index: 1000; border-bottom: 1px solid rgba(255, 105, 180, 0.1);
 }
-.logo { font-size: 1.8rem; letter-spacing: -1px; }
-.logo span { color: var(--hk-pink); font-style: italic; text-shadow: 0 0 10px var(--hk-neon); }
+.logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+.logo span { color: var(--hk-pink); font-weight: 400; border: 1px solid var(--hk-pink); padding: 2px 6px; border-radius: 4px; font-size: 0.9rem;}
 
 .nav-links { display: flex; gap: 30px; align-items: center; }
-.nav-links a { font-size: 1.1rem; opacity: 0.7; }
+.nav-links a { font-size: 0.95rem; font-weight: 500; opacity: 0.8; }
 .nav-links a:hover, .nav-links a.active { 
     opacity: 1; color: var(--hk-pink); 
-    transform: skewX(-10deg); /* Leve inclinação no hover */
-    text-shadow: 0 0 15px var(--hk-pink);
+    text-shadow: 0 0 10px var(--hk-pink);
 }
 
 .btn-header {
-    border: 1px solid var(--hk-pink); padding: 10px 25px; 
-    border-radius: 50px; color: var(--hk-pink) !important;
+    border: 1px solid var(--hk-pink); padding: 8px 25px; 
+    border-radius: 50px; color: var(--hk-pink) !important; font-weight: 600;
 }
 .btn-header:hover { 
     background: var(--hk-pink); color: white !important; 
-    box-shadow: 0 0 25px var(--hk-neon);
+    box-shadow: 0 0 20px var(--hk-neon);
 }
 
-.hamburger { display: none; font-size: 1.8rem; color: var(--hk-pink); cursor: pointer; }
+.hamburger { display: none; font-size: 1.5rem; color: var(--hk-pink); cursor: pointer; }
 .close-btn-mobile { display: none; }
 
 /* --- HERO SECTION --- */
@@ -125,343 +116,199 @@ header {
     padding: 0 10%; position: relative; z-index: 2; overflow: hidden;
 }
 .hero-content { z-index: 2; max-width: 650px; }
-.hero-content h1 { font-size: 4.5rem; margin-bottom: 25px; color: white; }
-.hero-content p { font-size: 1.3rem; margin-bottom: 45px; color: #ccc; }
+.hero-content h1 { font-size: 4rem; margin-bottom: 25px; color: white; }
+.hero-content p { font-size: 1.1rem; margin-bottom: 40px; color: #ccc; }
 
 .hero-img-effect {
     max-width: 450px; width: 100%; 
     animation: float 5s ease-in-out infinite;
-    filter: drop-shadow(0 0 20px var(--hk-neon));
+    filter: drop-shadow(0 0 15px var(--hk-neon));
 }
 
 .badge-news {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 10px 25px; border-radius: 50px;
+    padding: 8px 20px; border-radius: 50px;
     background: rgba(255, 105, 180, 0.1); border: 1px solid var(--hk-pink);
-    font-size: 0.9rem; margin-bottom: 25px; color: var(--hk-pink);
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.15);
+    font-size: 0.85rem; margin-bottom: 25px; color: var(--hk-pink); font-weight: 600;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.1);
 }
 
 /* --- BOTÕES --- */
-.cta-buttons { display: flex; gap: 20px; }
+.cta-buttons { display: flex; gap: 15px; }
 
 .btn-primary {
-    padding: 18px 45px; background: white; color: black; border: none;
-    border-radius: 50px; font-size: 1.1rem; cursor: pointer;
-    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    padding: 15px 40px; background: white; color: black; border: none;
+    border-radius: 50px; font-size: 1rem; cursor: pointer; font-weight: 600;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
     display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 0 50px white; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px white; }
 
 .btn-secondary {
-    padding: 18px 45px; background: transparent; border: 1px solid white; color: white;
-    border-radius: 50px; font-size: 1.1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 40px; background: transparent; border: 1px solid white; color: white;
+    border-radius: 50px; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-weight: 600;
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
 
-/* Botão Pink Glow Pulsante */
+/* Botão Pink Glow */
 .btn-pink-glow {
     background: var(--hk-pink) !important; color: white !important; border: none;
     animation: pulseGlow 3s infinite;
 }
-.btn-pink-glow:hover { animation: none; box-shadow: 0 0 70px var(--hk-neon); transform: scale(1.1); }
+.btn-pink-glow:hover { animation: none; box-shadow: 0 0 50px var(--hk-neon); transform: scale(1.05); }
 
 /* --- CARDS --- */
-.section-padding { padding: 120px 10%; position: relative; z-index: 2; }
-.section-header { text-align: center; margin-bottom: 70px; }
-.section-header h2 { font-size: 3.5rem; }
-.pink-line { width: 100px; height: 3px; background: var(--hk-pink); margin: 25px auto; box-shadow: 0 0 15px var(--hk-neon); }
+.section-padding { padding: 100px 10%; position: relative; z-index: 2; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 3rem; }
+.pink-line { width: 80px; height: 4px; background: var(--hk-pink); margin: 20px auto; border-radius: 2px; box-shadow: 0 0 10px var(--hk-neon); }
 
-.pricing-grid { display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; }
+.pricing-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
 
 .price-card {
-    background: var(--bg-card); border: 1px solid #151515;
-    padding: 60px 30px; border-radius: 40px; text-align: center;
-    width: 380px; position: relative; transition: 0.5s;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    background: var(--bg-card); border: 1px solid #222;
+    padding: 50px 30px; border-radius: 20px; text-align: center;
+    width: 350px; position: relative; transition: 0.4s;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 .price-card:hover {
-    transform: translateY(-20px); border-color: var(--hk-pink);
-    box-shadow: 0 30px 80px rgba(255, 105, 180, 0.25);
+    transform: translateY(-10px); border-color: var(--hk-pink);
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.2);
 }
-.card-icon { font-size: 4rem; margin-bottom: 30px; color: white; transition: 0.3s; }
-.price-card:hover .card-icon { transform: scale(1.2); text-shadow: 0 0 20px white; }
+.card-icon { font-size: 3.5rem; margin-bottom: 25px; color: white; transition: 0.3s; }
 
 .price-card.popular.pink-theme {
-    background: linear-gradient(160deg, #1f000e, #000000);
+    background: linear-gradient(160deg, #15000a, #000000);
     border: 1px solid var(--hk-pink);
 }
 
 .btn-price { 
-    display: block; width: 100%; padding: 18px; border-radius: 20px; 
-    border: 1px solid #333; color: white; margin-top: 40px; font-size: 1.2rem;
+    display: block; width: 100%; padding: 15px; border-radius: 12px; 
+    border: 1px solid #333; color: white; margin-top: 30px; font-size: 1rem; font-weight: 600;
 }
 .btn-price:hover { background: white; color: black; border-color: white; }
 
 .badge-pink {
-    position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
-    background: var(--hk-pink); color: white; padding: 10px 30px; 
-    border-radius: 50px; font-size: 0.9rem; box-shadow: 0 0 25px var(--hk-neon);
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--hk-pink); color: white; padding: 5px 20px; 
+    border-radius: 50px; font-size: 0.8rem; font-weight: 700; box-shadow: 0 0 15px var(--hk-neon);
 }
 
-/* --- FOOTER (REVITALIZADO) --- */
+/* --- FOOTER --- */
 footer { 
-    background: linear-gradient(to top, #000000, #0a0a0a); /* Gradiente sutil */
-    border-top: 1px solid rgba(255, 105, 180, 0.2); /* Linha rosa sutil */
-    padding: 100px 20px 40px; 
-    margin-top: 100px; 
-    position: relative;
-    /* Brilho rosa bem fraquinho no topo do footer para "acender" a área */
-    box-shadow: 0 -10px 50px rgba(255, 105, 180, 0.05);
+    background: #020202; border-top: 1px solid #222; 
+    padding: 80px 20px 40px; margin-top: 100px; 
+    box-shadow: 0 -10px 30px rgba(255, 105, 180, 0.02);
 }
+.footer-container { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; text-align: center; }
 
-.footer-container { 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 50px; 
-    justify-content: center; 
-    text-align: center; 
-}
-
-.footer-col h4 { 
-    color: white; 
-    margin-bottom: 30px; 
-    font-size: 1.5rem; 
-    text-shadow: 0 0 15px rgba(255,255,255,0.2); /* Brilho no título */
-}
-
-/* Links mais claros e visíveis */
-.footer-links li { margin-bottom: 15px; }
-.footer-links a { 
-    color: #ccc; /* Cinza claro em vez de escuro */
-    font-size: 1.1rem;
-    transition: 0.3s;
-}
-.footer-links a:hover { 
-    color: var(--hk-pink); 
-    margin-left: 5px; 
-    text-shadow: 0 0 15px var(--hk-neon); 
-}
+.footer-col h4 { color: white; margin-bottom: 25px; font-size: 1.2rem; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { color: #888; transition: 0.3s; }
+.footer-links a:hover { color: var(--hk-pink); margin-left: 5px; }
 
 .social-btn {
-    width: 55px; height: 55px; 
-    background: #111; 
-    border: 1px solid #333;
-    border-radius: 50%; 
-    display: inline-flex; align-items: center; justify-content: center;
-    color: #fff; margin: 0 8px; 
-    font-size: 1.3rem; transition: 0.4s;
+    width: 50px; height: 50px; background: #111; border: 1px solid #222;
+    border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; margin: 0 5px; font-size: 1.2rem; transition: 0.3s;
 }
-.social-btn:hover { 
-    background: var(--hk-pink); 
-    color: white; 
-    transform: rotate(360deg) scale(1.1); 
-    box-shadow: 0 0 40px var(--hk-neon); 
-}
+.social-btn:hover { background: var(--hk-pink); color: white; transform: translateY(-3px); box-shadow: 0 0 20px var(--hk-neon); }
 
-/* Copyright e Powered By */
-.copyright { 
-    margin-top: 70px; 
-    padding-top: 30px; 
-    border-top: 1px solid #222; 
-    text-align: center; 
-}
+.copyright { margin-top: 60px; padding-top: 20px; border-top: 1px solid #222; text-align: center; }
+.copyright p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
 
-.copyright p { 
-    color: #888; /* Texto mais claro */
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-}
-
-/* Estilo do Powered By */
 .powered-by {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    transition: 0.4s;
-    border: 1px solid transparent; /* Reserva espaço para borda */
+    display: inline-flex; align-items: center; gap: 8px;
+    color: #555; font-size: 0.85rem; text-transform: uppercase;
+    padding: 6px 15px; border-radius: 50px; transition: 0.3s;
+}
+.powered-by span { color: var(--hk-pink); font-weight: 700; }
+.powered-by:hover { color: white; background: rgba(255,255,255,0.05); }
+
+/* --- WIDGETS --- */
+.hk-particle {
+    position: fixed; background: white; border-radius: 50%; pointer-events: none;
+    z-index: 0; box-shadow: 0 0 5px var(--hk-pink); opacity: 0;
+}
+.hk-particle.bow {
+    width: 20px !important; height: 20px !important; background: transparent; border-radius: 0; box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3E%3Cpath d='M22,12c0-1.1-0.9-2-2-2c-0.6,0-1.1,0.2-1.5,0.6c-0.5-0.9-1.3-1.6-2.3-2c0.6-0.8,1-1.8,1-2.9c0-2.8-2.2-5-5-5 c-1.7,0-3.2,0.8-4.1,2.1C7.2,1.8,5.7,1,4,1C1.2,1-1,3.2-1,6c0,1.1,0.4,2.1,1,2.9c-1,0.5-1.8,1.2-2.3,2.1C-2.7,12.6-3,13.3-3,14 c0,2.2,1.8,4,4,4c1.5,0,2.9-0.9,3.5-2.2c0.6,1.4,2,2.2,3.5,2.2c2.2,0,4-1.8,4-4c0-0.7-0.2-1.4-0.6-1.9C11.9,12.2,12.4,12,13,12 H22z'/%3E%3C/svg%3E");
+    background-size: contain; background-repeat: no-repeat; filter: drop-shadow(0 0 5px var(--hk-neon));
+}
+@keyframes floatUp {
+    0% { transform: translateY(110vh) translateX(0) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-10vh) translateX(30px) rotate(360deg); opacity: 0; }
 }
 
-.powered-by span {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 800;
-    color: var(--hk-pink);
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+.cookie-consent {
+    position: fixed; bottom: 0; left: 0; width: 100%; z-index: 2000;
+    background: rgba(10,10,10,0.95); border-top: 1px solid var(--hk-pink);
+    padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+    transform: translateY(100%); transition: transform 0.5s ease;
 }
+.cookie-consent.active { transform: translateY(0); }
+.btn-accept { background: var(--hk-pink); color: white; border: none; padding: 8px 25px; border-radius: 50px; font-size: 0.9rem; cursor: pointer; font-weight: 600; }
 
-.powered-by i { color: var(--hk-pink); }
-
-/* Efeito ao passar o mouse no Powered By */
-.powered-by:hover {
-    color: white;
-    background: rgba(255, 105, 180, 0.05);
-    border-color: rgba(255, 105, 180, 0.3);
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.1);
-    transform: translateY(-3px);
+.music-widget { position: fixed; bottom: 30px; left: 30px; z-index: 2001; }
+.music-btn {
+    width: 50px; height: 50px; background: rgba(0,0,0,0.8);
+    border: 2px solid var(--hk-pink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: var(--hk-pink); box-shadow: 0 0 10px var(--hk-pink);
+    transition: 0.3s;
 }
-.powered-by:hover span {
-    text-shadow: 0 0 20px var(--hk-neon);
-}
+.music-btn:hover { transform: scale(1.1); box-shadow: 0 0 20px var(--hk-neon); }
+.waves { display: none; align-items: flex-end; gap: 3px; height: 20px; }
+.music-btn.playing .waves { display: flex; }
+.music-btn.playing i { display: none; }
+.waves span { width: 3px; background: var(--hk-pink); animation: wave 1s infinite; }
+@keyframes wave { 0%,100% {height: 5px;} 50% {height: 20px;} }
 
 
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE CORRIGIDO + FONTE GRANDE)
-   ========================================================================== */
-/* ==========================================================================
-   RESPONSIVIDADE - MENU MOBILE LUXO (Corrigido)
+   RESPONSIVIDADE (CLEAN MOBILE)
    ========================================================================== */
 @media (max-width: 992px) {
-    
-    /* Ícone Hambúrguer (3 traços) */
-    .hamburger { 
-        display: block; 
-        z-index: 1002; 
-        font-size: 1.8rem; 
-        color: var(--hk-pink); 
-        cursor: pointer; 
-        transition: 0.3s; 
-    }
-    
-    /* O Menu em si (Gaveta) */
-    .nav-links {
-        position: fixed; 
-        top: 0; 
-        right: -100%; /* Começa escondido */
-        width: 100%;  /* Ocupa a tela toda para mais imersão (efeito Overlay) */
-        height: 100vh;
-        
-        /* Fundo desfocado e translúcido (Glassmorphism Dark) */
-        background: rgba(0, 0, 0, 0.92); 
-        backdrop-filter: blur(15px);
-        
-        /* Removemos a borda lateral grossa e deixamos limpo */
-        border-left: none; 
-        
-        flex-direction: column; 
-        justify-content: center; 
-        align-items: center;
-        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); 
-        z-index: 1001;
-    }
-
-    .nav-links.active { right: 0; }
-
-    /* Itens da Lista */
-    .nav-links li { 
-        margin: 10px 0; /* Menos espaçamento entre itens */
-        width: 100%; 
-        text-align: center;
-        opacity: 0; 
-        animation: slideIn 0.5s forwards; /* Efeito de entrada */
-        animation-delay: 0.2s;
-    }
-
-    /* Links (Texto) - Menor e mais elegante */
-    .nav-links a { 
-        font-size: 1.5rem; /* Tamanho reduzido (antes estava gigante) */
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-weight: 700;
-        display: block; 
-        padding: 10px; 
-        color: #fff;
-        text-shadow: none; /* Remove brilho excessivo padrão */
-    }
-    
-    /* Destaque no link ativo ou hover */
-    .nav-links a.active, .nav-links a:hover {
-        color: var(--hk-pink);
-        transform: scale(1.1);
-        text-shadow: 0 0 15px var(--hk-neon);
-    }
-
-    /* Botão Fechar (X) */
-    .close-btn-mobile { 
-        display: block; 
-        position: absolute; 
-        top: 30px; 
-        right: 30px; 
-        font-size: 2.2rem; 
-        color: var(--hk-pink); 
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .close-btn-mobile:hover { transform: rotate(90deg); }
-
-    /* Botões Especiais dentro do menu (Equipe/Contato) */
-    .btn-header { 
-        width: auto; 
-        display: inline-block; 
-        margin-top: 15px; 
-        font-size: 1rem;
-        padding: 10px 30px;
-    }
-
-    /* Ajustes Gerais do Layout Mobile */
-    .hero { 
-        flex-direction: column; 
-        padding: 140px 5% 60px; 
-        text-align: center; 
-        justify-content: flex-start; 
-    }
-    .hero-content h1 { font-size: 3rem; line-height: 1.1; }
-    .hero-content p { font-size: 1rem; padding: 0 15px; }
-    
-    .hero-visual { margin-top: 40px; }
-    .hero-img-effect { max-width: 260px; }
-
-    .cta-buttons { width: 100%; padding: 0 30px; }
-    
-    .section-padding { padding: 60px 5%; }
-    .price-card { width: 100%; margin-bottom: 40px; }
-    
-    .cookie-consent { flex-direction: column; gap: 15px; padding: 20px; text-align: center;}
-    .music-widget { bottom: 120px; left: 20px; transform: scale(0.85); }
-}
-
-/* Animação extra para os itens do menu aparecerem suavemente */
-@keyframes slideIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}@media (max-width: 992px) {
     .hamburger { display: block; z-index: 1002; transition: 0.3s; }
-    .hamburger:hover { transform: scale(1.2); }
     
     .nav-links {
-        position: fixed; top: 0; right: -100%; width: 85%; height: 100vh;
-        background: rgba(0,0,0,0.98); border-left: 2px solid var(--hk-pink);
-        flex-direction: column; justify-content: center; transition: 0.5s cubic-bezier(0.77,0,0.175,1); z-index: 1001;
-        box-shadow: -20px 0 80px rgba(255, 105, 180, 0.2);
+        position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
+        background: rgba(0,0,0,0.95); /* Fundo limpo */
+        flex-direction: column; justify-content: center; align-items: center;
+        transition: right 0.4s ease; z-index: 1001;
+        backdrop-filter: blur(10px);
     }
     .nav-links.active { right: 0; }
-    .nav-links a { font-size: 1.6rem; display: block; padding: 20px; text-align: center;}
-    .close-btn-mobile { display: block; position: absolute; top: 30px; right: 30px; font-size: 2.5rem; color: var(--hk-pink); cursor: pointer; }
+    
+    /* Links do Menu - Fontes Normais */
+    .nav-links a { 
+        font-size: 1.4rem; 
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        display: block; padding: 15px; 
+        color: white;
+    }
+    .nav-links a.active { color: var(--hk-pink); }
+    
+    .close-btn-mobile { display: block; position: absolute; top: 30px; right: 30px; font-size: 2.2rem; color: var(--hk-pink); cursor: pointer; }
 
-    /* Ajuste para Hero Mobile com a nova fonte */
     .hero { flex-direction: column; padding: 130px 5% 60px; text-align: center; justify-content: flex-start; }
-    .hero-content h1 { font-size: 3.2rem; line-height: 1; } 
-    .hero-content p { font-size: 1.1rem; padding: 0 10px; }
+    .hero-content h1 { font-size: 2.8rem; line-height: 1.2; } 
+    .hero-content p { font-size: 1rem; padding: 0 10px; }
     
     .hero-visual { margin-top: 40px; }
-    .hero-img-effect { max-width: 300px; }
+    .hero-img-effect { max-width: 280px; }
 
-    .cta-buttons { flex-direction: column; gap: 20px; width: 100%; padding: 0 20px; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 20px; }
+    .cta-buttons { flex-direction: column; gap: 15px; width: 100%; padding: 0 20px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 15px; }
 
-    .section-padding { padding: 80px 5%; }
-    .price-card { width: 100%; margin-bottom: 50px; }
+    .section-padding { padding: 60px 5%; }
+    .price-card { width: 100%; margin-bottom: 30px; }
     
-    .cookie-consent { flex-direction: column; gap: 15px; text-align: center; padding: 30px 20px; }
-    .btn-accept { width: 100%; padding: 15px; }
+    .cookie-consent { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
+    .btn-accept { width: 100%; }
     
-    .music-widget { bottom: 150px; left: 20px; transform: scale(0.9); }
+    .music-widget { bottom: 120px; left: 20px; transform: scale(0.9); }
 }
