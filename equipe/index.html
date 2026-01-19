@@ -7,12 +7,12 @@
     
     <meta property="og:title" content="Equipe Udesaken">
     <meta property="og:description" content="Conheça a liderança por trás da tecnologia.">
-    <meta property="og:image" content="https://udesaken.site/hero-poster.png">
+    <meta property="og:image" content="https://udesaken.site/uskcoroa.png">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <link rel="icon" type="image/png" href="../hero-poster.png">
+    <link rel="icon" type="image/png" href="/uskcoroa.png">
     
     <link rel="stylesheet" href="../style.css">
 
@@ -33,6 +33,8 @@
             align-items: center;
             height: 100%;
             width: 100%;
+            position: relative;
+            overflow: visible; /* Importante para o laço não cortar */
         }
         .glass-card:hover {
             border-color: var(--gold);
@@ -53,7 +55,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
+            gap: 40px; /* Aumentei o gap para caber os laços */
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -64,47 +66,65 @@
             max-width: 100%;
         }
 
-        /* --- ESTILO PARA MEMBRO SEM FOTO (RICK) --- */
-        .avatar-placeholder {
+        /* --- NOVO ESTILO DOS LAÇOS (RIBBONS) --- */
+        .photo-wrapper {
+            position: relative;
             width: 140px;
             height: 140px;
             margin-bottom: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .bow-icon {
+            position: absolute;
+            bottom: 0;
+            right: -5px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #111;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.3);
-            color: #ccc;
-            font-size: 3.5rem;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            z-index: 5;
         }
 
-        /* Lógica para o Líder (Isloch) no topo centralizado em telas maiores */
+        /* Cores dos Laços */
+        .bow-pink {
+            color: #ff69b4; /* Rosa */
+            border: 2px solid #ff69b4;
+        }
+        .bow-blue {
+            color: #00bfff; /* Azul */
+            border: 2px solid #00bfff;
+        }
+
+        /* Lógica para o Líder (Isloch) */
         @media (min-width: 900px) {
             .member-container.leader {
                 flex: 0 0 100%;
                 display: flex;
                 justify-content: center;
-                margin-bottom: 10px;
+                margin-bottom: 20px;
             }
-            .member-container.leader .glass-card {
-                width: 350px; 
-            }
+            .member-container.leader .glass-card { width: 350px; }
         }
 
-        /* Estilos Sociais */
         .social-btn.twitter:hover { background: #000; color: #fff; border-color: #fff; }
         .social-btn.insta:hover { background: #E1306C; color: #fff; border-color: #E1306C; }
-        .social-btn.tiktok:hover { background: #000; color: #fff; border-color: #00f2ea; } /* Efeito neon tiktok */
+        .social-btn.tiktok:hover { background: #000; color: #fff; border-color: #00f2ea; }
     </style>
 </head>
 <body>
-
-    <div class="new-year-particles">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-    </div>
 
     <header>
         <div class="logo">
@@ -124,7 +144,7 @@
                     </a>
                 </li>
                 
-                <li><a href="https://wa.me/447907210802" class="btn-header"><i class="fab fa-whatsapp"></i> Contato</a></li>
+                <li><a href="https://wa.me/447562847091" class="btn-header"><i class="fab fa-whatsapp"></i> Contato</a></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -148,7 +168,10 @@
             
             <div class="member-container leader hidden delay-300">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <img src="../islo.jpg" alt="CEO Islo" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); object-fit: cover; border-radius: 50%;">
+                    <div class="photo-wrapper">
+                        <img src="../islo.jpg" alt="CEO Islo" class="team-photo" style="border-color: var(--gold);">
+                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                    </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Isloch</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
@@ -156,22 +179,25 @@
                     </p>
                     
                     <p class="member-desc">
-                        Responsável por toda a Udesaken. Atua diretamente no desenvolvimento do site, do bot e dos sistemas da empresa, além de administrar e coordenar todas as áreas do projeto.
+                        Responsável por toda a Udesaken. Atua diretamente no desenvolvimento do site, do bot e dos sistemas da empresa.
                     </p>
 
                     <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto 20px;"></div>
 
                     <div class="social-grid" style="gap: 15px;">
-                        <a href="https://instagram.com/isloch_" target="_blank" class="social-btn insta" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://tiktok.com/@isloch_" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/447907210802" target="_blank" class="social-btn whats" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://instagram.com/isloch_" target="_blank" class="social-btn insta"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@isloch_" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/447562847091" target="_blank" class="social-btn whats"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="member-container hidden delay-400">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <img src="../gbr.jpg" alt="Head Manager Noxxz" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid rgba(255, 255, 255, 0.2); object-fit: cover; border-radius: 50%;">
+                    <div class="photo-wrapper">
+                        <img src="../gbr.jpg" alt="Head Manager Noxxz" class="team-photo">
+                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                    </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Noxxz</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
@@ -179,14 +205,17 @@
                     </p>
                     
                     <p class="member-desc">
-                        Gerente geral da Udesaken. Cuida da administração dos grupos oficiais, organização interna e apoio direto à liderança em decisões estratégicas.
+                        Gerente geral da Udesaken. Cuida da administração dos grupos oficiais e organização interna.
                     </p>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <img src="../hyuuzaki.jpg" alt="Manager Hyuuzaki" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid rgba(255, 255, 255, 0.2); object-fit: cover; border-radius: 50%;">
+                    <div class="photo-wrapper">
+                        <img src="../hyuuzaki.jpg" alt="Manager Hyuuzaki" class="team-photo">
+                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                    </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Hyuuzaki</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
@@ -194,22 +223,22 @@
                     </p>
                     
                     <p class="member-desc">
-                        Criador oficial de figurinhas do canal da Udesaken no WhatsApp. Também contribui com ideias e sugestões para novos comandos e melhorias do bot.
+                        Criador oficial de figurinhas e contribui com ideias para novos comandos e melhorias.
                     </p>
-
+                    
                     <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto 20px;"></div>
-
                     <div class="social-grid" style="gap: 15px;">
-                        <a href="https://x.com/hyuuzaki_Souma2" target="_blank" class="social-btn twitter" title="X (Twitter)">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
+                        <a href="https://x.com/hyuuzaki_Souma2" target="_blank" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <img src="../mz.jpg" alt="Manager Mz" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid rgba(255, 255, 255, 0.2); object-fit: cover; border-radius: 50%;">
+                    <div class="photo-wrapper">
+                        <img src="../mz.jpg" alt="Manager Mz" class="team-photo">
+                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                    </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Mz</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
@@ -217,14 +246,17 @@
                     </p>
                     
                     <p class="member-desc">
-                        Responsável pela divulgação dos chats da Udesaken. Também auxilia na criação de figurinhas para o canal oficial no WhatsApp.
+                        Responsável pela divulgação dos chats e auxilia na criação de conteúdo para o canal oficial.
                     </p>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <img src="../victoria.jpg" alt="Admin Victoria" class="team-photo" style="width: 140px; height: 140px; margin-bottom: 20px; border: 3px solid rgba(255, 255, 255, 0.2); object-fit: cover; border-radius: 50%;">
+                    <div class="photo-wrapper">
+                        <img src="../victoria.jpg" alt="Admin Victoria" class="team-photo">
+                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                    </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Victoria</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
@@ -232,24 +264,43 @@
                     </p>
                     
                     <p class="member-desc">
-                        Além de administrar os grupos, atua como Content Creator oficial, sendo responsável pela edição de vídeos e criação de prints.
+                        Administra os grupos e atua como Content Creator oficial, criando edições e prints.
                     </p>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
-                    <div class="avatar-placeholder">
-                        <i class="fas fa-user-secret"></i>
+                    <div class="photo-wrapper">
+                        <img src="../vinnz.jpg" alt="Admin Vinnz" class="team-photo">
+                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
                     </div>
                     
-                    <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Rick</h2>
+                    <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Vinnz</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
                         Admin & Editor
                     </p>
                     
                     <p class="member-desc">
-                        Administrador do grupo e Editor. Atua na organização da comunidade e auxilia nas demandas de edição.
+                        Administrador do grupo e Editor. Atua na organização da comunidade e auxilia nas edições.
+                    </p>
+                </div>
+            </div>
+
+            <div class="member-container hidden delay-500">
+                <div class="glass-card" style="padding: 40px 30px; text-align: center;">
+                    <div class="photo-wrapper">
+                        <img src="../vittoria.jpg" alt="Admin Vittoria" class="team-photo">
+                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                    </div>
+                    
+                    <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Vittoria</h2>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
+                        Admin de Grupo
+                    </p>
+                    
+                    <p class="member-desc">
+                        Atua na moderação ativa dos grupos, garantindo a ordem e o bom convívio da comunidade.
                     </p>
                 </div>
             </div>
@@ -296,7 +347,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // MENU MOBILE
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             const closeBtn = document.querySelector('.close-btn-mobile');
@@ -305,7 +355,6 @@
             if(hamburger) hamburger.addEventListener('click', toggleMenu);
             if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
 
-            // ANIMAÇÃO AO ROLAR
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) entry.target.classList.add('show');
@@ -313,7 +362,6 @@
             });
             document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
-            // COOKIES
             const cookieBanner = document.getElementById('cookieBanner');
             const btnAccept = document.getElementById('btnAccept');
 
@@ -330,8 +378,6 @@
                 });
             }
         });
-
-       
     </script>
 </body>
 </html>
