@@ -116,3 +116,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+/* ==========================================================================
+   HK INVASION LOGIC (Lightweight)
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.body;
+    const particleCount = 15; // Baixa contagem para manter performance e elegância
+    
+    // 1. Gerador de Partículas (Lado Direito)
+    function createParticle() {
+        const p = document.createElement('div');
+        p.classList.add('hk-particle');
+        
+        // 30% de chance de ser um laço, 70% de ser um brilho
+        if (Math.random() > 0.7) {
+            p.classList.add('bow');
+        }
+
+        // Posição: Focada no lado direito (70% a 100% da largura da tela)
+        const startX = Math.random() * 30 + 70; 
+        
+        // Tamanho aleatório
+        const size = Math.random() * 4 + 2; // 2px a 6px
+        
+        p.style.left = `${startX}%`;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        
+        // Duração da animação
+        const duration = Math.random() * 10 + 15; // 15s a 25s (bem lento e suave)
+        p.style.animation = `floatUp ${duration}s linear infinite`;
+        p.style.animationDelay = `-${Math.random() * 20}s`; // Começa em tempos diferentes
+
+        container.appendChild(p);
+    }
+
+    // Inicializar partículas
+    for(let i = 0; i < particleCount; i++) {
+        createParticle();
+    }
+
+    // 2. Infecção Visual Suave (Transformar Ouro em Rose Gold)
+    // Seleciona aleatoriamente alguns elementos dourados para virarem Rose Gold
+    const goldElements = document.querySelectorAll('.text-gold, .gold-border');
+    
+    const observerHK = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Adiciona um delay para parecer que a cor está mudando ao olhar
+                setTimeout(() => {
+                    entry.target.classList.add('hk-infected');
+                    // Se for borda, ajusta o filtro via CSS inline ou classe
+                    if(entry.target.classList.contains('gold-border')) {
+                        entry.target.style.filter = "drop-shadow(0 0 2px var(--hk-pink)) drop-shadow(0 0 10px var(--hk-pink))";
+                    }
+                }, 1000); 
+            }
+        });
+    }, { threshold: 0.5 });
+
+    goldElements.forEach(el => observerHK.observe(el));
+});
