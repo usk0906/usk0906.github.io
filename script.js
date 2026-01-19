@@ -1,11 +1,10 @@
 /* ==========================================================================
     UDESAKEN SYSTEM 2026 ®
-    Apenas Lógica de Banco de Dados (Firebase)
+    Lógica Geral + Tema HK Dark
    ========================================================================== */
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwtSWC3I0XcfsvnAdzlsMVOiv6n5qkH0Q",
@@ -48,21 +47,18 @@ function atualizarTela(numero) {
 
 carregarEstatisticas();
 
-// --- LÓGICA DE MÚSICA CONTÍNUA (RESUME) ---
+// --- LÓGICA DE MÚSICA CONTÍNUA ---
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bg-audio');
     const btn = document.querySelector('.music-btn');
     const icon = document.getElementById('music-icon');
 
-    // 1. AJUSTE DE VOLUME (AMBIENTE DE MERCADO)
     if(audio) {
-        audio.volume = 0.05; // 5% de volume (bem baixinho)
+        audio.volume = 0.05; 
     }
 
-    // Função global para o botão funcionar
     window.toggleMusic = function() {
         if(!audio) return;
-        // Garante que o volume continue baixo ao clicar
         try { audio.volume = 0.05; } catch (e) {} 
 
         if (audio.paused) {
@@ -90,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 2. RECUPERAR ONDE PAROU
     if (audio) {
         const savedTime = localStorage.getItem('udesaken_music_time');
         const status = localStorage.getItem('udesaken_music_status');
@@ -106,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. SALVAR ANTES DE SAIR DA PÁGINA
     window.addEventListener('beforeunload', () => {
         if (audio && !audio.paused) {
             localStorage.setItem('udesaken_music_time', audio.currentTime);
@@ -115,66 +109,38 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('udesaken_music_status', 'paused');
         }
     });
-});
-/* ==========================================================================
-   HK INVASION LOGIC (Lightweight)
-   ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+    // --- ATMOSFERA HELLO KITTY (Partículas Permanentes) ---
     const container = document.body;
-    const particleCount = 15; // Baixa contagem para manter performance e elegância
-    
-    // 1. Gerador de Partículas (Lado Direito)
+    const particleCount = 20; // Quantidade de partículas para preencher a tela
+
     function createParticle() {
         const p = document.createElement('div');
         p.classList.add('hk-particle');
         
-        // 30% de chance de ser um laço, 70% de ser um brilho
-        if (Math.random() > 0.7) {
+        // 40% chance de ser laço, 60% brilho
+        if (Math.random() > 0.6) {
             p.classList.add('bow');
         }
 
-        // Posição: Focada no lado direito (70% a 100% da largura da tela)
-        const startX = Math.random() * 30 + 70; 
-        
-        // Tamanho aleatório
-        const size = Math.random() * 4 + 2; // 2px a 6px
+        // Posição aleatória em toda a largura (0 a 100%)
+        const startX = Math.random() * 100; 
+        const size = Math.random() * 5 + 3; // Tamanho variável
         
         p.style.left = `${startX}%`;
         p.style.width = `${size}px`;
         p.style.height = `${size}px`;
         
-        // Duração da animação
-        const duration = Math.random() * 10 + 15; // 15s a 25s (bem lento e suave)
+        // Animação muito lenta e elegante
+        const duration = Math.random() * 15 + 15; // 15s a 30s
         p.style.animation = `floatUp ${duration}s linear infinite`;
-        p.style.animationDelay = `-${Math.random() * 20}s`; // Começa em tempos diferentes
+        p.style.animationDelay = `-${Math.random() * 20}s`;
 
         container.appendChild(p);
     }
 
-    // Inicializar partículas
+    // Cria as partículas
     for(let i = 0; i < particleCount; i++) {
         createParticle();
     }
-
-    // 2. Infecção Visual Suave (Transformar Ouro em Rose Gold)
-    // Seleciona aleatoriamente alguns elementos dourados para virarem Rose Gold
-    const goldElements = document.querySelectorAll('.text-gold, .gold-border');
-    
-    const observerHK = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Adiciona um delay para parecer que a cor está mudando ao olhar
-                setTimeout(() => {
-                    entry.target.classList.add('hk-infected');
-                    // Se for borda, ajusta o filtro via CSS inline ou classe
-                    if(entry.target.classList.contains('gold-border')) {
-                        entry.target.style.filter = "drop-shadow(0 0 2px var(--hk-pink)) drop-shadow(0 0 10px var(--hk-pink))";
-                    }
-                }, 1000); 
-            }
-        });
-    }, { threshold: 0.5 });
-
-    goldElements.forEach(el => observerHK.observe(el));
 });
