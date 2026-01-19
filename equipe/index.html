@@ -34,7 +34,7 @@
             height: 100%;
             width: 100%;
             position: relative;
-            overflow: visible; /* Importante para o laço não cortar */
+            overflow: visible; /* Permite que o laço saia para fora do card */
         }
         .glass-card:hover {
             border-color: var(--gold);
@@ -43,6 +43,16 @@
             background: rgba(255, 255, 255, 0.08);
         }
         
+        /* EFEITO ROSA ESPECIAL (PARA ELAS) */
+        .glass-card.pink-theme {
+            border-color: rgba(255, 105, 180, 0.3);
+        }
+        .glass-card.pink-theme:hover {
+            border-color: #ff69b4; 
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.4); /* Glow Rosa Forte */
+            background: linear-gradient(145deg, rgba(255, 105, 180, 0.1), rgba(0,0,0,0));
+        }
+
         .member-desc {
             font-size: 0.9rem;
             color: #ccc;
@@ -55,7 +65,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 40px; /* Aumentei o gap para caber os laços */
+            gap: 50px; /* Mais espaço entre cards */
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
@@ -66,12 +76,12 @@
             max-width: 100%;
         }
 
-        /* --- NOVO ESTILO DOS LAÇOS (RIBBONS) --- */
+        /* --- CONFIGURAÇÃO DA FOTO E DO LAÇO --- */
         .photo-wrapper {
             position: relative;
-            width: 140px;
-            height: 140px;
-            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 25px;
         }
 
         .team-photo {
@@ -79,36 +89,48 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            transition: 0.3s;
+            position: relative;
+            z-index: 1;
         }
 
-        .bow-icon {
+        /* Borda Rosa Brilhante para Meninas */
+        .pink-theme .team-photo {
+            border-color: #ff69b4;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+
+        /* O LAÇO HELLO KITTY (POSIÇÃO CABELO) */
+        .hk-bow {
             position: absolute;
-            bottom: 0;
-            right: -5px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #111;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 5;
+            top: -15px;   /* Bem no topo */
+            right: -10px; /* Levemente para fora na direita */
+            width: 65px;  /* Tamanho grande e fofo */
+            height: auto;
+            z-index: 10;  /* Fica na frente de tudo */
+            transform: rotate(20deg); /* Inclinadinho como presilha */
+            filter: drop-shadow(0 4px 5px rgba(0,0,0,0.5));
+            transition: 0.3s;
         }
 
-        /* Cores dos Laços */
-        .bow-pink {
-            color: #ff69b4; /* Rosa */
-            border: 2px solid #ff69b4;
-        }
-        .bow-blue {
-            color: #00bfff; /* Azul */
-            border: 2px solid #00bfff;
+        /* Animação suave no hover */
+        .glass-card:hover .hk-bow {
+            transform: rotate(20deg) scale(1.15);
         }
 
-        /* Lógica para o Líder (Isloch) */
+        /* Efeito de "Respirar" (Pulsar) para o laço rosa */
+        @keyframes bowPulse {
+            0% { filter: drop-shadow(0 0 5px #ff69b4); transform: rotate(20deg) scale(1); }
+            50% { filter: drop-shadow(0 0 15px #ff69b4); transform: rotate(20deg) scale(1.05); }
+            100% { filter: drop-shadow(0 0 5px #ff69b4); transform: rotate(20deg) scale(1); }
+        }
+
+        .hk-bow.pink-bow {
+            animation: bowPulse 3s infinite ease-in-out;
+        }
+
+        /* Lógica para o Líder */
         @media (min-width: 900px) {
             .member-container.leader {
                 flex: 0 0 100%;
@@ -133,17 +155,14 @@
         <nav>
             <ul class="nav-links">
                 <div class="close-btn-mobile"><i class="fas fa-times"></i></div>
-                
                 <li><a href="/">Início</a></li>
                 <li><a href="/planos">Planos Bot</a></li>
                 <li><a href="/vip">Clube VIP</a></li>
-                
                 <li>
                     <a href="/equipe" class="btn-team active" style="color: #FFD700;">
                         <i class="fas fa-users"></i> Equipe
                     </a>
                 </li>
-                
                 <li><a href="https://wa.me/447562847091" class="btn-header"><i class="fab fa-whatsapp"></i> Contato</a></li>
             </ul>
             <div class="hamburger">
@@ -170,21 +189,15 @@
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../islo.jpg" alt="CEO Islo" class="team-photo" style="border-color: var(--gold);">
-                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%2300bfff' stroke='%23009acd' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%2300bfff' stroke='%23009acd' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Isloch</h2>
                     <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
                         CEO, Fundador & Developer
                     </p>
-                    
-                    <p class="member-desc">
-                        Responsável por toda a Udesaken. Atua diretamente no desenvolvimento do site, do bot e dos sistemas da empresa.
-                    </p>
-
-                    <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto 20px;"></div>
-
-                    <div class="social-grid" style="gap: 15px;">
+                    <p class="member-desc">Responsável por toda a Udesaken. Atua diretamente no desenvolvimento do site, do bot e dos sistemas.</p>
+                    <div class="social-grid" style="gap: 15px; margin-top: 20px;">
                         <a href="https://instagram.com/isloch_" target="_blank" class="social-btn insta"><i class="fab fa-instagram"></i></a>
                         <a href="https://tiktok.com/@isloch_" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
                         <a href="https://wa.me/447562847091" target="_blank" class="social-btn whats"><i class="fab fa-whatsapp"></i></a>
@@ -196,17 +209,12 @@
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../gbr.jpg" alt="Head Manager Noxxz" class="team-photo">
-                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%2300bfff' stroke='%23009acd' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%2300bfff' stroke='%23009acd' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Noxxz</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Head Manager
-                    </p>
-                    
-                    <p class="member-desc">
-                        Gerente geral da Udesaken. Cuida da administração dos grupos oficiais e organização interna.
-                    </p>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Head Manager</p>
+                    <p class="member-desc">Gerente geral da Udesaken. Cuida da administração dos grupos oficiais.</p>
                 </div>
             </div>
 
@@ -214,58 +222,41 @@
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../hyuuzaki.jpg" alt="Manager Hyuuzaki" class="team-photo">
-                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%2300bfff' stroke='%23009acd' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%2300bfff' stroke='%23009acd' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Hyuuzaki</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Manager
-                    </p>
-                    
-                    <p class="member-desc">
-                        Criador oficial de figurinhas e contribui com ideias para novos comandos e melhorias.
-                    </p>
-                    
-                    <div style="width: 50px; height: 2px; background: rgba(255,255,255,0.2); margin: 0 auto 20px;"></div>
-                    <div class="social-grid" style="gap: 15px;">
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Manager</p>
+                    <p class="member-desc">Criador oficial de figurinhas e contribui com ideias para novos comandos.</p>
+                    <div class="social-grid" style="gap: 15px; margin-top: 20px;">
                         <a href="https://x.com/hyuuzaki_Souma2" target="_blank" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
-                <div class="glass-card" style="padding: 40px 30px; text-align: center;">
+                <div class="glass-card pink-theme" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../mz.jpg" alt="Manager Mz" class="team-photo">
-                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow pink-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Mz</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Manager
-                    </p>
-                    
-                    <p class="member-desc">
-                        Responsável pela divulgação dos chats e auxilia na criação de conteúdo para o canal oficial.
-                    </p>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Manager</p>
+                    <p class="member-desc">Responsável pela divulgação dos chats e auxilia na criação de conteúdo.</p>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
-                <div class="glass-card" style="padding: 40px 30px; text-align: center;">
+                <div class="glass-card pink-theme" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../victoria.jpg" alt="Admin Victoria" class="team-photo">
-                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow pink-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Victoria</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Admin & Content Creator
-                    </p>
-                    
-                    <p class="member-desc">
-                        Administra os grupos e atua como Content Creator oficial, criando edições e prints.
-                    </p>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Admin & Content</p>
+                    <p class="member-desc">Administra os grupos e atua como Content Creator oficial.</p>
                 </div>
             </div>
 
@@ -273,35 +264,25 @@
                 <div class="glass-card" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../vinnz.jpg" alt="Admin Vinnz" class="team-photo">
-                        <div class="bow-icon bow-blue"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%2300bfff' stroke='%23009acd' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%2300bfff' stroke='%23009acd' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Vinnz</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Admin & Editor
-                    </p>
-                    
-                    <p class="member-desc">
-                        Administrador do grupo e Editor. Atua na organização da comunidade e auxilia nas edições.
-                    </p>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Admin & Editor</p>
+                    <p class="member-desc">Administrador do grupo e Editor. Atua na organização da comunidade.</p>
                 </div>
             </div>
 
             <div class="member-container hidden delay-500">
-                <div class="glass-card" style="padding: 40px 30px; text-align: center;">
+                <div class="glass-card pink-theme" style="padding: 40px 30px; text-align: center;">
                     <div class="photo-wrapper">
                         <img src="../vittoria.jpg" alt="Admin Vittoria" class="team-photo">
-                        <div class="bow-icon bow-pink"><i class="fas fa-ribbon"></i></div>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cpath fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' d='M60 50 C55 40 65 40 60 50 M20 50 Q5 20 40 35 Q50 40 60 50 Q70 40 80 35 Q115 20 100 50 Q110 80 80 65 Q70 60 60 50 Q50 60 40 65 Q10 80 20 50 Z' /%3E%3Ccircle cx='60' cy='50' r='12' fill='%23ff69b4' stroke='%23ff1493' stroke-width='2' /%3E%3C/svg%3E" class="hk-bow pink-bow">
                     </div>
                     
                     <h2 style="color: white; font-size: 1.8rem; margin-bottom: 5px;">Vittoria</h2>
-                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">
-                        Admin de Grupo
-                    </p>
-                    
-                    <p class="member-desc">
-                        Atua na moderação ativa dos grupos, garantindo a ordem e o bom convívio da comunidade.
-                    </p>
+                    <p class="text-gold" style="font-weight: 700; letter-spacing: 1px; font-size: 0.85rem; margin-bottom: 15px; text-transform: uppercase;">Admin de Grupo</p>
+                    <p class="member-desc">Atua na moderação ativa dos grupos, garantindo a ordem e o bom convívio.</p>
                 </div>
             </div>
 
@@ -330,9 +311,9 @@
     <div id="cookieBanner" class="cookie-consent">
         <div class="cookie-text">
             <i class="fas fa-cookie-bite" style="color: #FFD700; margin-right: 10px;"></i>
-            Utilizamos cookies para garantir a melhor experiência. Ao continuar, você concorda com nossos <a href="/termos">Termos</a>.
+            Utilizamos cookies para garantir a melhor experiência.
         </div>
-        <button id="btnAccept" class="btn-accept">Aceitar e Continuar</button>
+        <button id="btnAccept" class="btn-accept">Aceitar</button>
     </div>
 
     <div class="music-widget">
