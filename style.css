@@ -3,25 +3,42 @@
    ========================================================================== */
 
 :root {
-    --purple: #9d4edd;        /* Roxo mais vibrante */
-    --purple-dark: #240046;   /* Roxo profundo para fundos */
-    --hk-pink: #ff69b4;       /* Hot Pink (Cor Principal de Destaque) */
-    --hk-soft: #ffc0cb;       /* Rosa Bebê para brilhos suaves */
-    --hk-neon: #ff1493;       /* Deep Pink para Neons */
+    /* Removemos o roxo e focamos no contraste Preto x Rosa */
+    --purple: #1a1a1a;        /* Cinza chumbo para cartões (substitui o roxo médio) */
+    --purple-dark: #000000;   /* Preto absoluto */
+    
+    --hk-pink: #ff69b4;       /* Hot Pink (Mantido - Cor Principal) */
+    --hk-soft: #ffb7c5;       /* Rosa Bebê (Apenas para brilhos sutis) */
+    --hk-neon: #ff1493;       /* Rosa Neon forte para botões */
+    
     --black: #050505;
-    --text: #f0f0f0;
-    --glass: rgba(255, 255, 255, 0.05);
+    --text: #ffffff;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
 body { 
-    background: linear-gradient(135deg, #05000a, #1a0b2e, #000000);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    /* Gradiente sutil apenas entre tons de preto e cinza muito escuro */
+    background: linear-gradient(135deg, #000000, #050505, #0a0a0a);
+    background-size: 200% 200%;
     color: var(--text); 
     overflow-x: hidden; 
     position: relative;
+}
+
+/* Ajuste para os Cards ficarem pretos translúcidos em vez de roxos */
+.price-card {
+    background: rgba(10, 10, 10, 0.8) !important; 
+    border: 1px solid rgba(255, 105, 180, 0.15) !important; /* Borda rosa sutil */
+}
+
+.price-card:hover {
+    background: rgba(20, 20, 20, 0.95) !important;
+    border-color: var(--hk-pink) !important;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2) !important; /* Sombra rosa */
+}
+
+/* Header mais escuro */
+header {
+    background: rgba(0, 0, 0, 0.9);
 }
 
 @keyframes gradientBG {
