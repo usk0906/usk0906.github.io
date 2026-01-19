@@ -386,112 +386,112 @@ footer {
     align-items: center;
 }
 
-/* --- RESPONSIVIDADE (SUBSTITUA TUDO ABAIXO NO FINAL DO ARQUIVO) --- */
-@media (max-width: 992px) { /* Ajuste para tablets e celulares */
+/* --- RESPONSIVIDADE (MOBILE & TABLET) --- */
+
+/* Regra 1: Tablets e Celulares (Menor que 992px) */
+@media (max-width: 992px) {
     
-    /* 1. Menu Lateral (Estilo Gaveta Premium) */
-    .hamburger { display: block; z-index: 1001; }
-    
+    /* MENU HAMBÚRGUER (Aparece) */
+    .hamburger { 
+        display: block; 
+        z-index: 1002; 
+        font-size: 1.8rem;
+        color: var(--hk-pink);
+    }
+
+    /* LINKS DO MENU (Esconde e vira gaveta) */
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%; /* Escondido na direita */
-        width: 80%;   /* Ocupa 80% da tela */
+        width: 75%;   /* Largura da gaveta */
         height: 100vh;
-        background: rgba(5, 0, 10, 0.98); /* Fundo quase sólido */
+        background: rgba(5, 0, 10, 0.98); /* Fundo escuro */
         backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 2000;
+        z-index: 1001; /* Em cima de tudo */
         border-left: 1px solid var(--hk-pink);
         box-shadow: -10px 0 50px rgba(0,0,0,0.8);
+        padding-top: 60px; /* Espaço para não colar no topo */
     }
 
     .nav-links.active {
-        right: 0; /* Desliza para dentro */
+        right: 0; /* Gaveta abre */
     }
 
-    .nav-links li { margin: 20px 0; width: 100%; text-align: center; }
-    .nav-links a { font-size: 1.2rem; display: block; padding: 10px; }
+    .nav-links li { margin: 15px 0; width: 100%; text-align: center; }
+    .nav-links a { font-size: 1.3rem; display: block; padding: 10px; }
     
-    .btn-header { width: 80%; margin: 0 auto; text-align: center; display: block; }
+    .btn-header { width: 80%; margin: 10px auto; display: block; text-align: center; }
 
+    /* BOTÃO FECHAR (X) dentro do menu */
     .close-btn-mobile { 
         display: block; 
         position: absolute; 
-        top: 30px; 
-        right: 30px; 
+        top: 25px; 
+        right: 25px; 
         font-size: 2rem; 
         color: var(--hk-pink);
         cursor: pointer;
     }
 
-    /* 2. Hero Section (Alinhamento Vertical) */
+    /* HERO (Ajuste de textos gigantes) */
     .hero {
-        flex-direction: column-reverse; /* Imagem em cima ou embaixo? Vamos de Texto em Cima */
-        justify-content: center;
+        flex-direction: column; /* Texto em cima, imagem embaixo */
+        padding: 140px 5% 40px; /* Mais espaço no topo para o header */
         text-align: center;
-        padding: 120px 5% 60px; /* Mais espaço no topo por causa do header fixo */
+        justify-content: flex-start;
     }
 
-    .hero-content { 
-        max-width: 100%; 
-        margin-top: 40px; /* Espaço entre imagem e texto */
-    }
-
-    .hero-content h1 { font-size: 2.5rem; } /* Fonte menor para não estourar */
-    .hero-content p { font-size: 1rem; padding: 0 10px; }
-
+    .hero-content { margin-top: 0; width: 100%; }
+    .hero-content h1 { font-size: 2.2rem; line-height: 1.2; } /* Texto menor */
+    
     .cta-buttons { 
-        justify-content: center; 
-        flex-direction: column; /* Botões um embaixo do outro no mobile */
-        gap: 15px;
-        padding: 0 20px;
+        flex-direction: column; 
+        width: 100%; 
+        gap: 15px; 
+        margin-top: 30px;
     }
     
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .btn-primary, .btn-secondary { 
+        width: 100%; 
+        justify-content: center; 
+        padding: 15px; /* Botões mais fáceis de tocar */
+    }
 
-    /* 3. Imagem Hero */
+    /* IMAGEM */
     .hero-visual {
+        margin-top: 40px;
         width: 100%;
         display: flex;
         justify-content: center;
     }
-    .hero-img-effect {
-        max-width: 280px; /* Limita tamanho da imagem no mobile */
-    }
+    .hero-img-effect { max-width: 250px; } /* Imagem menor para caber */
 
-    /* 4. Cards e Grid */
-    .section-padding { padding: 60px 5%; }
-    .price-card { width: 100%; margin-bottom: 30px; } /* Card ocupa largura total */
-    
-    /* 5. Footer e Widgets */
-    .footer-container { gap: 40px; text-align: center; }
-    
-    .music-widget { 
-        bottom: 20px; 
-        left: 20px; 
-        transform: scale(0.9); /* Um pouco menor no mobile */
-    }
-    
-    /* Ajuste do banner de cookies para não tapar o widget de música */
+    /* BANNER DE COOKIES (Compacto) */
     .cookie-consent {
         flex-direction: column;
+        padding: 20px;
+        bottom: 0;
         gap: 15px;
         text-align: center;
-        padding-bottom: 30px;
     }
-    .cookie-text { max-width: 100%; }
-    .btn-accept { width: 100%; }
+    .btn-accept { width: 100%; margin: 0; }
+
+    /* WIDGET DE MÚSICA (Reposicionado) */
+    .music-widget {
+        bottom: 120px; /* Sobe para não ficar embaixo do cookie banner */
+        left: 20px;
+        transform: scale(0.8);
+    }
 }
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    .close-btn-mobile { color: var(--hk-pink); }
-    .nav-links { background: #05000a; border-left: 1px solid rgba(255, 105, 180, 0.2); }
-    .music-widget { bottom: 180px; left: 20px; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .section-padding { padding: 60px 5%; }
+/* Regra 2: Celulares Pequenos (Menor que 480px) */
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.8rem; } /* Texto ainda menor para celular pequeno */
+    .section-padding { padding: 40px 5%; }
+    .price-card { width: 100%; margin-bottom: 20px; }
 }
