@@ -638,100 +638,106 @@ footer {
         drop-shadow(0 0 10px var(--clr)); /* Brilho mais forte */
 }
 /* ==========================================================================
-   NOVA ATUALIZAÇÃO VISUAL (VIBE DA IMAGEM)
+   VISUAL CYBERPUNK/SMOKE (CORRIGIDO)
    ========================================================================== */
 
-:root {
-    /* Adicionando o Rosa Neon da imagem às variáveis */
-    --neon-pink: #ff0080; 
-}
-
-/* 1. O Efeito de Neblina Rosa no Fundo */
-body::after {
-    content: '';
+/* 1. O Efeito de Nuvem/Fumaça Neon (Camadas) */
+.neon-fog-container {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50vh; /* Ocupa metade da altura da tela */
-    background: linear-gradient(to top, rgba(255, 0, 128, 0.25), transparent);
-    z-index: -1; /* Fica atrás do texto */
-    pointer-events: none; /* Não atrapalha cliques */
-    animation: pulseFog 5s infinite alternate;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Fica atrás do texto, mas na frente do fundo preto */
+    pointer-events: none;
 }
 
-@keyframes pulseFog {
-    0% { opacity: 0.8; height: 50vh; }
-    100% { opacity: 1; height: 55vh; filter: hue-rotate(10deg); }
+.fog-layer {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    filter: blur(80px); /* O segredo da fumaça: MUITO blur */
+    opacity: 0.6;
+    animation: fogPulse 8s infinite alternate;
 }
 
-/* 2. Hello Kitty Andando com Placa */
+/* Camada 1: Rosa Choque (Base) */
+.fog-1 {
+    width: 120vw;
+    height: 60vh;
+    background: radial-gradient(circle, #ff0080 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+/* Camada 2: Roxo (Profundidade) */
+.fog-2 {
+    width: 100vw;
+    height: 50vh;
+    bottom: -15%;
+    background: radial-gradient(circle, #8a2be2 0%, transparent 70%);
+    animation-delay: 2s;
+    opacity: 0.5;
+}
+
+/* Camada 3: Brilho Rosa Claro (Detalhe) */
+.fog-3 {
+    width: 80vw;
+    height: 40vh;
+    bottom: -20%;
+    background: radial-gradient(circle, #ff69b4 0%, transparent 60%);
+    animation-delay: 4s;
+    opacity: 0.4;
+}
+
+@keyframes fogPulse {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+    100% { transform: translateX(-50%) scale(1.1); opacity: 0.7; }
+}
+
+/* 2. Hello Kitty Walker (Simplificado) */
 .hello-kitty-walker {
     position: fixed;
-    bottom: 20px;
-    right: -300px; /* Começa fora da tela na direita */
-    z-index: 9999; /* Fica na frente de tudo */
+    bottom: 10px; /* Bem no rodapé */
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Animação para atravessar a tela a cada 25 segundos */
-    animation: walkAcross 25s linear infinite;
-    pointer-events: none; /* Deixa clicar no site atrás dela */
+    pointer-events: none;
+    
+    /* Começa fora da tela na esquerda e vai para a direita */
+    left: -200px; 
+    animation: walkRight 30s linear infinite;
 }
 
-/* A Plaquinha */
+/* A Placa */
 .kitty-sign {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid var(--neon-pink);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #ff0080;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 5px;
-    box-shadow: 0 0 15px var(--neon-pink);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
+    margin-bottom: -5px; /* Cola na cabeça dela */
+    box-shadow: 0 0 10px #ff0080;
+    white-space: nowrap;
+    z-index: 2;
 }
 
-/* Triângulo da fala da placa */
-.kitty-sign::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--neon-pink);
-}
-
+/* A Imagem */
 .kitty-img {
-    width: 100px; /* Tamanho da Hello Kitty */
+    width: 80px; 
     height: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 0, 128, 0.6));
+    display: block; /* Garante que ocupa espaço */
+    filter: drop-shadow(0 0 15px rgba(255, 0, 128, 0.8)); /* Glow na boneca */
 }
 
-/* Animação de movimento */
-@keyframes walkAcross {
-    0% { 
-        right: -300px; 
-        transform: scaleX(1); /* Virada para esquerda */
-    }
-    49% {
-        transform: scaleX(1);
-    }
-    50% { 
-        right: 110%; /* Saiu da tela pela esquerda */
-        transform: scaleX(-1); /* Vira para a direita (espelha) */
-    }
-    51% {
-        right: 110%;
-    }
-    100% { 
-        right: -300px; /* Volta para a posição inicial */
-        transform: scaleX(-1);
-    }
+@keyframes walkRight {
+    0% { left: -200px; transform: scaleX(1); } /* Fora da tela esq */
+    45% { left: 50%; transform: scaleX(1); } /* Meio */
+    100% { left: 110%; transform: scaleX(1); } /* Fora da tela dir */
 }
