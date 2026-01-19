@@ -52,6 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bg-audio');
     const btn = document.querySelector('.music-btn');
     const icon = document.getElementById('music-icon');
+    const links = document.querySelectorAll('.nav-links a');
+const navLinks = document.querySelector('.nav-links');
+
+// Fecha o menu ao clicar em qualquer link
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
 
     if(audio) {
         audio.volume = 0.05; 

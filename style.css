@@ -378,6 +378,114 @@ footer {
     background: linear-gradient(to bottom, var(--purple), var(--hk-pink)); 
     border-radius: 4px;
 }
+/* --- ESTILOS DO MENU MOBILE (Adicione/Substitua isso antes do @media) --- */
+/* O menu padrão desktop */
+.nav-links { 
+    display: flex; 
+    gap: 30px; 
+    align-items: center;
+}
+
+/* --- RESPONSIVIDADE (SUBSTITUA TUDO ABAIXO NO FINAL DO ARQUIVO) --- */
+@media (max-width: 992px) { /* Ajuste para tablets e celulares */
+    
+    /* 1. Menu Lateral (Estilo Gaveta Premium) */
+    .hamburger { display: block; z-index: 1001; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido na direita */
+        width: 80%;   /* Ocupa 80% da tela */
+        height: 100vh;
+        background: rgba(5, 0, 10, 0.98); /* Fundo quase sólido */
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        border-left: 1px solid var(--hk-pink);
+        box-shadow: -10px 0 50px rgba(0,0,0,0.8);
+    }
+
+    .nav-links.active {
+        right: 0; /* Desliza para dentro */
+    }
+
+    .nav-links li { margin: 20px 0; width: 100%; text-align: center; }
+    .nav-links a { font-size: 1.2rem; display: block; padding: 10px; }
+    
+    .btn-header { width: 80%; margin: 0 auto; text-align: center; display: block; }
+
+    .close-btn-mobile { 
+        display: block; 
+        position: absolute; 
+        top: 30px; 
+        right: 30px; 
+        font-size: 2rem; 
+        color: var(--hk-pink);
+        cursor: pointer;
+    }
+
+    /* 2. Hero Section (Alinhamento Vertical) */
+    .hero {
+        flex-direction: column-reverse; /* Imagem em cima ou embaixo? Vamos de Texto em Cima */
+        justify-content: center;
+        text-align: center;
+        padding: 120px 5% 60px; /* Mais espaço no topo por causa do header fixo */
+    }
+
+    .hero-content { 
+        max-width: 100%; 
+        margin-top: 40px; /* Espaço entre imagem e texto */
+    }
+
+    .hero-content h1 { font-size: 2.5rem; } /* Fonte menor para não estourar */
+    .hero-content p { font-size: 1rem; padding: 0 10px; }
+
+    .cta-buttons { 
+        justify-content: center; 
+        flex-direction: column; /* Botões um embaixo do outro no mobile */
+        gap: 15px;
+        padding: 0 20px;
+    }
+    
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+
+    /* 3. Imagem Hero */
+    .hero-visual {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .hero-img-effect {
+        max-width: 280px; /* Limita tamanho da imagem no mobile */
+    }
+
+    /* 4. Cards e Grid */
+    .section-padding { padding: 60px 5%; }
+    .price-card { width: 100%; margin-bottom: 30px; } /* Card ocupa largura total */
+    
+    /* 5. Footer e Widgets */
+    .footer-container { gap: 40px; text-align: center; }
+    
+    .music-widget { 
+        bottom: 20px; 
+        left: 20px; 
+        transform: scale(0.9); /* Um pouco menor no mobile */
+    }
+    
+    /* Ajuste do banner de cookies para não tapar o widget de música */
+    .cookie-consent {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .cookie-text { max-width: 100%; }
+    .btn-accept { width: 100%; }
+}
 
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
