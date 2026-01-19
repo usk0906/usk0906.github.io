@@ -1,50 +1,28 @@
 /* ==========================================================================
-    UDESAKEN 2026 ® - HELLO KITTY DARK EDITION (Rebranding)
+    UDESAKEN 2026 ® - HELLO KITTY BLACK EDITION
+    Tema: Preto OLED + Rosa Neon
    ========================================================================== */
 
 :root {
-    /* Removemos o roxo e focamos no contraste Preto x Rosa */
-    --purple: #1a1a1a;        /* Cinza chumbo para cartões (substitui o roxo médio) */
-    --purple-dark: #000000;   /* Preto absoluto */
-    
-    --hk-pink: #ff69b4;       /* Hot Pink (Mantido - Cor Principal) */
-    --hk-soft: #ffb7c5;       /* Rosa Bebê (Apenas para brilhos sutis) */
-    --hk-neon: #ff1493;       /* Rosa Neon forte para botões */
-    
-    --black: #050505;
-    --text: #ffffff;
+    /* PALETA BLACK & PINK */
+    --bg-dark: #000000;       /* Preto Absoluto */
+    --bg-card: #0a0a0a;       /* Cinza quase preto para cards */
+    --hk-pink: #ff69b4;       /* Hot Pink (Destaque principal) */
+    --hk-neon: #ff1493;       /* Deep Pink (Brilho intenso) */
+    --hk-soft: #ffb7c5;       /* Rosa Bebê (Detalhes sutis) */
+    --text: #ffffff;          /* Branco puro */
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
 body { 
-    /* Gradiente sutil apenas entre tons de preto e cinza muito escuro */
-    background: linear-gradient(135deg, #000000, #050505, #0a0a0a);
-    background-size: 200% 200%;
+    background-color: var(--bg-dark);
+    /* Gradiente muito sutil apenas para dar profundidade */
+    background-image: radial-gradient(circle at 50% 0%, #1a0510 0%, #000000 60%);
     color: var(--text); 
     overflow-x: hidden; 
     position: relative;
-}
-
-/* Ajuste para os Cards ficarem pretos translúcidos em vez de roxos */
-.price-card {
-    background: rgba(10, 10, 10, 0.8) !important; 
-    border: 1px solid rgba(255, 105, 180, 0.15) !important; /* Borda rosa sutil */
-}
-
-.price-card:hover {
-    background: rgba(20, 20, 20, 0.95) !important;
-    border-color: var(--hk-pink) !important;
-    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2) !important; /* Sombra rosa */
-}
-
-/* Header mais escuro */
-header {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 a { text-decoration: none; color: white; transition: 0.3s; }
@@ -58,41 +36,37 @@ ul { list-style: none; }
     text-shadow: 0 0 20px rgba(255, 20, 147, 0.3);
 }
 
-/* --- PARTÍCULAS AMBIENTE (Novo Padrão) --- */
+/* --- PARTÍCULAS (Ambientação) --- */
 .hk-particle {
     position: fixed;
     background: white;
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
-    box-shadow: 0 0 10px var(--hk-pink);
+    box-shadow: 0 0 5px var(--hk-pink);
     opacity: 0;
 }
 .hk-particle.bow {
-    width: 20px !important;
-    height: 20px !important;
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
+    width: 20px !important; height: 20px !important;
+    background: transparent; border-radius: 0; box-shadow: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff69b4'%3E%3Cpath d='M22,12c0-1.1-0.9-2-2-2c-0.6,0-1.1,0.2-1.5,0.6c-0.5-0.9-1.3-1.6-2.3-2c0.6-0.8,1-1.8,1-2.9c0-2.8-2.2-5-5-5 c-1.7,0-3.2,0.8-4.1,2.1C7.2,1.8,5.7,1,4,1C1.2,1-1,3.2-1,6c0,1.1,0.4,2.1,1,2.9c-1,0.5-1.8,1.2-2.3,2.1C-2.7,12.6-3,13.3-3,14 c0,2.2,1.8,4,4,4c1.5,0,2.9-0.9,3.5-2.2c0.6,1.4,2,2.2,3.5,2.2c2.2,0,4-1.8,4-4c0-0.7-0.2-1.4-0.6-1.9C11.9,12.2,12.4,12,13,12 H22z'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
+    background-size: contain; background-repeat: no-repeat;
     filter: drop-shadow(0 0 5px var(--hk-neon));
 }
 @keyframes floatUp {
     0% { transform: translateY(110vh) translateX(0) scale(0.5); opacity: 0; }
-    20% { opacity: 0.5; }
-    80% { opacity: 0.5; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
     100% { transform: translateY(-10vh) translateX(20px) scale(1); opacity: 0; }
 }
 
-/* --- HEADER & NAV --- */
+/* --- HEADER --- */
 header {
     position: fixed; top: 0; width: 100%; padding: 20px 5%;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(5, 0, 10, 0.85); backdrop-filter: blur(15px);
-    z-index: 1000; border-bottom: 1px solid rgba(255, 105, 180, 0.15);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.9); /* Header bem escuro */
+    backdrop-filter: blur(10px);
+    z-index: 1000; border-bottom: 1px solid rgba(255, 105, 180, 0.1);
 }
 
 .logo { font-size: 1.5rem; font-weight: 700; color: white; text-transform: uppercase; letter-spacing: 2px; }
@@ -101,11 +75,6 @@ header {
 .nav-links { display: flex; gap: 30px; align-items: center;}
 .nav-links a { font-size: 0.95rem; color: #ccc; font-weight: 500; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--hk-soft); text-shadow: 0 0 10px var(--hk-pink); }
-.nav-links a::after {
-    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
-    background: var(--hk-pink); transition: 0.3s;
-}
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
 .btn-header {
     border: 1px solid var(--hk-pink); padding: 8px 20px; 
@@ -113,11 +82,10 @@ header {
 }
 .btn-header:hover { background: var(--hk-pink); color: white !important; box-shadow: 0 0 15px var(--hk-pink); }
 
-/* Botão Hambúrguer (Mobile) */
-.hamburger { display: none; font-size: 1.8rem; color: var(--hk-pink); cursor: pointer; }
+.hamburger { display: none; } /* Escondido no Desktop */
 .close-btn-mobile { display: none; }
 
-/* --- HERO --- */
+/* --- HERO SECTION --- */
 .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
     padding: 0 10%; position: relative; z-index: 2;
@@ -126,21 +94,14 @@ header {
 .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; color: white; }
 .hero-content p { color: #bbb; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.6; }
 
-.hero-visual { perspective: 1000px; }
-.hero-img-effect {
-    max-width: 400px; width: 100%; border: none; box-shadow: none;
-    animation: floatImage 6s ease-in-out infinite;
+.pink-glow-border {
+    filter: drop-shadow(0 0 5px var(--hk-pink));
     transition: filter 0.3s ease;
 }
-
-/* Nova classe de borda rosa neon */
-.pink-glow-border {
-    filter: 
-        drop-shadow(0 0 2px var(--hk-pink)) 
-        drop-shadow(0 0 8px var(--hk-neon)) 
-        drop-shadow(0 0 20px rgba(255, 20, 147, 0.3));
+.hero-img-effect {
+    max-width: 400px; width: 100%; 
+    animation: floatImage 6s ease-in-out infinite;
 }
-
 @keyframes floatImage {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
@@ -148,367 +109,181 @@ header {
 
 .badge-news {
     display: inline-block; padding: 8px 16px; border-radius: 50px;
-    background: rgba(255, 105, 180, 0.1); border: 1px solid rgba(255, 105, 180, 0.3);
+    background: rgba(255, 105, 180, 0.05); border: 1px solid rgba(255, 105, 180, 0.3);
     font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
-    margin-bottom: 20px; color: var(--hk-soft);
+    margin-bottom: 20px; color: var(--hk-pink);
 }
 
 /* --- BOTÕES --- */
 .cta-buttons { display: flex; gap: 15px; }
 
-/* Botão Primário (Roxo base) */
 .btn-primary {
-    padding: 15px 35px; background: var(--purple); color: white; border: none;
+    padding: 15px 35px; background: #222; color: white; border: none;
     border-radius: 50px; font-weight: bold; cursor: pointer;
-    box-shadow: 0 0 15px rgba(157, 78, 221, 0.4); transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); transition: 0.3s;
     display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--purple); }
+.btn-primary:hover { background: #333; transform: translateY(-3px); }
 
-/* Botão Secundário (Outline) */
 .btn-secondary {
     padding: 15px 35px; background: transparent; border: 1px solid white; color: white;
     border-radius: 50px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
 }
-.btn-secondary:hover { background: white; color: black; border-color: white; }
+.btn-secondary:hover { background: white; color: black; }
 
-/* Botão Destaque (Substitui o Gold Glow) - Agora é Rosa Neon */
+/* Botão Neon Pink (Destaque) */
 .btn-pink-glow {
-    background: linear-gradient(45deg, var(--hk-neon), var(--hk-pink));
-    color: white; border: none; box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
+    background: var(--hk-pink) !important; color: white !important;
+    box-shadow: 0 0 20px var(--hk-neon);
 }
 .btn-pink-glow:hover {
-    box-shadow: 0 0 40px rgba(255, 105, 180, 0.6);
-    transform: translateY(-3px) scale(1.02);
+    background: var(--hk-neon) !important;
+    box-shadow: 0 0 40px var(--hk-pink); transform: translateY(-3px);
 }
 
-/* --- CARDS --- */
+/* --- CARDS & GRID --- */
 .section-padding { padding: 80px 10%; position: relative; z-index: 2; }
 .section-header { text-align: center; margin-bottom: 50px; }
-.line { width: 60px; height: 4px; background: var(--purple); margin: 15px auto; border-radius: 2px; }
-.pink-line { background: var(--hk-pink); box-shadow: 0 0 10px var(--hk-pink); }
+.pink-line { width: 60px; height: 3px; background: var(--hk-pink); margin: 15px auto; box-shadow: 0 0 10px var(--hk-pink); }
 
-.pricing-grid { 
-    display: flex; justify-content: center; align-items: center;
-    gap: 40px; flex-wrap: wrap; 
-}
+.pricing-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
 
-/* Card Padrão */
+/* Card Black Edition */
 .price-card {
-    background: rgba(30, 20, 40, 0.6); 
-    border: 1px solid rgba(157, 78, 221, 0.2);
+    background: var(--bg-card); 
+    border: 1px solid #222;
     padding: 40px 30px; border-radius: 20px; text-align: center;
     width: 340px; transition: 0.4s; position: relative;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 .price-card:hover {
     transform: translateY(-10px);
-    background: rgba(40, 20, 50, 0.8);
-    border-color: var(--purple);
-    box-shadow: 0 20px 50px rgba(157, 78, 221, 0.25);
+    border-color: var(--hk-pink);
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
 }
 
-/* Card VIP (Substitui Gold Theme) - Estilo HK Premium */
+/* Card VIP */
 .price-card.popular.pink-theme {
-    background: linear-gradient(145deg, rgba(60, 10, 40, 0.8), rgba(20, 5, 20, 0.9));
+    background: linear-gradient(145deg, #0f050a, #000000);
     border: 1px solid var(--hk-pink);
-    box-shadow: 0 0 30px rgba(255, 20, 147, 0.15);
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.1);
 }
 .price-card.popular.pink-theme:hover {
-    background: linear-gradient(145deg, rgba(80, 20, 60, 0.9), rgba(30, 10, 30, 1));
-    border-color: var(--hk-soft);
-    box-shadow: 0 0 50px rgba(255, 105, 180, 0.4);
+    box-shadow: 0 0 50px rgba(255, 105, 180, 0.3);
 }
 
 .btn-price { 
     display: block; width: 100%; padding: 15px; border-radius: 12px; 
-    border: 1px solid #444; color: white; font-weight: bold; 
-    transition: 0.3s; margin-top: 20px; 
+    border: 1px solid #333; color: white; font-weight: bold; margin-top: 20px; transition: 0.3s;
 }
-.btn-price:hover { background: white; color: black; border-color: white; }
-
-.btn-glow-pink {
-    background: linear-gradient(45deg, var(--hk-pink), var(--purple)) !important;
-    color: white !important; border: none;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
-}
+.btn-price:hover { background: white; color: black; }
 
 .badge-pink {
     position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-    background: linear-gradient(90deg, var(--hk-neon), var(--hk-pink)); 
-    color: white; 
-    padding: 5px 20px; border-radius: 20px; font-weight: 800;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
-    letter-spacing: 1px;
-}
-
-/* --- EQUIPE --- */
-.team-wrapper { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-.team-member { text-align: center; }
-.team-photo { 
-    width: 120px; height: 120px; border-radius: 50%; object-fit: cover; 
-    border: 3px solid var(--hk-pink); 
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-    margin-bottom: 15px; transition: 0.3s;
+    background: var(--hk-pink); color: white; padding: 5px 20px; 
+    border-radius: 20px; font-weight: 800; letter-spacing: 1px;
+    box-shadow: 0 0 15px var(--hk-neon);
 }
 
 /* --- FOOTER --- */
 footer {
-    background-color: #020005;
-    border-top: 1px solid rgba(255, 105, 180, 0.2);
+    background-color: #020202; border-top: 1px solid #111;
     padding: 60px 20px 30px; margin-top: 80px; position: relative; z-index: 2;
 }
-.footer-container {
-    max-width: 1000px; margin: 0 auto;
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 40px; text-align: center;
-}
-.footer-col {
-    flex: 1; min-width: 250px;
-    display: flex; flex-direction: column; align-items: center;
-}
-.footer-col h4 {
-    color: var(--hk-pink); margin-bottom: 25px; font-size: 1.1rem;
-    font-weight: 600; text-transform: uppercase;
-}
-.footer-col h4::after {
-    content: ''; display: block; width: 40px; height: 2px;
-    background: var(--hk-pink); margin: 10px auto 0;
-    box-shadow: 0 0 5px var(--hk-pink);
-}
+.footer-container { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; text-align: center; }
+.footer-col h4 { color: var(--hk-pink); margin-bottom: 20px; text-transform: uppercase; }
 .footer-links li { margin-bottom: 10px; }
-.footer-links a { color: #888; font-size: 0.9rem; }
-.footer-links a:hover { color: var(--hk-soft); text-shadow: 0 0 5px var(--hk-pink); }
+.footer-links a:hover { color: var(--hk-pink); }
 
-.social-grid { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
 .social-btn {
-    width: 45px; height: 45px; background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    color: #ccc; font-size: 1.2rem; transition: all 0.4s;
+    width: 45px; height: 45px; background: #111; border: 1px solid #222;
+    border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    color: #ccc; margin: 0 5px; transition: 0.3s;
 }
-/* Unificando o hover das redes para rosa para manter o tema */
-.social-btn:hover { 
-    background: var(--hk-pink); color: white; border-color: var(--hk-pink); 
-    transform: translateY(-5px); box-shadow: 0 0 20px var(--hk-pink);
-}
+.social-btn:hover { background: var(--hk-pink); color: white; box-shadow: 0 0 15px var(--hk-pink); transform: translateY(-3px); }
 
-.copyright {
-    margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center; color: #555; font-size: 0.85rem;
-}
+.copyright { margin-top: 50px; border-top: 1px solid #111; padding-top: 20px; text-align: center; color: #444; font-size: 0.8rem; }
 
-/* --- BANNER COOKIES --- */
+/* --- COOKIES & MUSIC --- */
 .cookie-consent {
     position: fixed; bottom: 0; left: 0; width: 100%;
-    background: rgba(10, 5, 15, 0.95); backdrop-filter: blur(10px);
-    border-top: 1px solid var(--hk-pink);
+    background: rgba(10, 10, 10, 0.95); border-top: 1px solid var(--hk-pink);
     padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
     z-index: 2000; transform: translateY(100%); transition: transform 0.5s ease-out;
-    box-shadow: 0 -5px 20px rgba(255, 105, 180, 0.1);
 }
 .cookie-consent.active { transform: translateY(0); }
-.cookie-text { color: #e0e0e0; font-size: 0.95rem; max-width: 70%; }
-.cookie-text i { color: var(--hk-pink); margin-right: 10px; }
-.cookie-text a { color: var(--hk-soft); font-weight: bold; text-decoration: none; }
-.cookie-text a:hover { text-decoration: underline; text-shadow: 0 0 5px var(--hk-pink); }
+.btn-accept { background: var(--hk-pink); color: white; border: none; padding: 10px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; }
 
-.btn-accept {
-    background: var(--hk-pink); color: white; border: none; padding: 10px 30px;
-    border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s;
-    font-size: 0.9rem; box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
-}
-.btn-accept:hover { background: white; color: var(--hk-neon); box-shadow: 0 0 20px white; }
-
-/* --- WIDGET MÚSICA (Rosa/Branco) --- */
 .music-widget { position: fixed; bottom: 30px; left: 30px; z-index: 2001; }
 .music-btn {
-    width: 50px; height: 50px; background: rgba(0,0,0,0.6);
+    width: 50px; height: 50px; background: rgba(0,0,0,0.8);
     border: 2px solid var(--hk-pink); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer; color: var(--hk-pink); transition: 0.3s;
-    backdrop-filter: blur(5px); box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+    cursor: pointer; color: var(--hk-pink); box-shadow: 0 0 10px var(--hk-pink);
 }
-.music-btn:hover {
-    background: var(--hk-pink); color: white;
-    box-shadow: 0 0 30px var(--hk-pink); transform: scale(1.1);
-}
-.music-btn.playing { border-color: #fff; box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); }
-
 .waves { display: none; align-items: flex-end; gap: 3px; height: 20px; }
 .music-btn.playing .waves { display: flex; }
 .music-btn.playing i { display: none; }
-.waves span {
-    width: 3px; background: #fff; /* Ondas brancas para contraste no rosa */
-    animation: waveAnim 1s ease-in-out infinite; border-radius: 2px;
-}
-.waves span:nth-child(1) { height: 10px; animation-delay: 0.1s; background: var(--hk-soft); }
-.waves span:nth-child(2) { height: 20px; animation-delay: 0.2s; background: #fff; }
-.waves span:nth-child(3) { height: 15px; animation-delay: 0.3s; background: var(--hk-soft); }
-.waves span:nth-child(4) { height: 10px; animation-delay: 0.4s; background: #fff; }
-@keyframes waveAnim { 0%, 100% { height: 5px; } 50% { height: 20px; } }
+.waves span { width: 3px; background: var(--hk-pink); animation: wave 1s infinite; }
+@keyframes wave { 0%,100% {height: 5px;} 50% {height: 20px;} }
 
-/* --- ANIMAÇÕES GERAIS --- */
+/* --- UTILITÁRIOS --- */
 .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .show { opacity: 1; transform: translateY(0); }
-.delay-100 { transition-delay: 0.1s; }
-.delay-200 { transition-delay: 0.2s; }
-.delay-300 { transition-delay: 0.3s; }
+.delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; } .delay-300 { transition-delay: 0.3s; }
 
-/* --- PÁGINAS INTERNAS (CMD/SEARCH) --- */
-.search-wrapper input {
-    border: 1px solid rgba(255, 105, 180, 0.3);
-}
-.search-wrapper input:focus {
-    border-color: var(--hk-pink);
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-}
-.btn-filter:hover, .btn-filter.active {
-    background: var(--hk-pink); border-color: var(--hk-pink); color: white;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
-}
-.btn-filter[data-filter="vip"]:hover, .btn-filter[data-filter="vip"].active {
-    background: var(--hk-neon); border-color: var(--hk-neon); color: white;
-}
-.cmd-card:hover { border-color: var(--hk-pink); }
-.cmd-prefix { color: var(--hk-pink); }
-.badge-tag.vip { background: rgba(255, 105, 180, 0.15); color: var(--hk-pink); border: 1px solid rgba(255, 105, 180, 0.3); }
+/* ==========================================================================
+   RESPONSIVIDADE (CORREÇÃO MOBILE DEFINITIVA)
+   ========================================================================== */
 
-/* --- BOTÃO EQUIPE --- */
-.btn-team {
-    color: var(--hk-pink) !important; border: 1px solid var(--hk-pink);
-    padding: 8px 25px; border-radius: 50px; font-weight: 600;
-    text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
-    transition: all 0.3s ease; box-shadow: 0 0 10px rgba(255, 105, 180, 0.1);
-    display: inline-flex; align-items: center; gap: 8px;
-}
-.btn-team:hover {
-    background: var(--hk-pink); color: white !important;
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.5); transform: translateY(-3px);
-}
-
-/* --- SCROLLBAR --- */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #050505; }
-::-webkit-scrollbar-thumb { 
-    background: linear-gradient(to bottom, var(--purple), var(--hk-pink)); 
-    border-radius: 4px;
-}
-/* --- ESTILOS DO MENU MOBILE (Adicione/Substitua isso antes do @media) --- */
-/* O menu padrão desktop */
-.nav-links { 
-    display: flex; 
-    gap: 30px; 
-    align-items: center;
-}
-
-/* --- RESPONSIVIDADE (MOBILE & TABLET) --- */
-
-/* Regra 1: Tablets e Celulares (Menor que 992px) */
 @media (max-width: 992px) {
     
-    /* MENU HAMBÚRGUER (Aparece) */
-    .hamburger { 
-        display: block; 
-        z-index: 1002; 
-        font-size: 1.8rem;
-        color: var(--hk-pink);
-    }
-
-    /* LINKS DO MENU (Esconde e vira gaveta) */
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Escondido na direita */
-        width: 75%;   /* Largura da gaveta */
-        height: 100vh;
-        background: rgba(5, 0, 10, 0.98); /* Fundo escuro */
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1001; /* Em cima de tudo */
-        border-left: 1px solid var(--hk-pink);
-        box-shadow: -10px 0 50px rgba(0,0,0,0.8);
-        padding-top: 60px; /* Espaço para não colar no topo */
-    }
-
-    .nav-links.active {
-        right: 0; /* Gaveta abre */
-    }
-
-    .nav-links li { margin: 15px 0; width: 100%; text-align: center; }
-    .nav-links a { font-size: 1.3rem; display: block; padding: 10px; }
+    /* 1. Menu Gaveta (Drawer) */
+    .hamburger { display: block; z-index: 1002; font-size: 1.8rem; color: var(--hk-pink); cursor: pointer; }
     
+    .nav-links {
+        position: fixed; top: 0; right: -100%;
+        width: 80%; height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        border-left: 1px solid var(--hk-pink);
+        flex-direction: column; justify-content: center;
+        transition: right 0.4s ease; z-index: 1001;
+        box-shadow: -20px 0 50px rgba(0,0,0,0.8);
+    }
+    .nav-links.active { right: 0; }
+    .nav-links li { margin: 15px 0; width: 100%; text-align: center; }
+    .nav-links a { font-size: 1.3rem; display: block; padding: 15px; }
+
+    .close-btn-mobile { 
+        display: block; position: absolute; top: 30px; right: 30px; 
+        font-size: 2rem; color: var(--hk-pink); cursor: pointer; 
+    }
     .btn-header { width: 80%; margin: 10px auto; display: block; text-align: center; }
 
-    /* BOTÃO FECHAR (X) dentro do menu */
-    .close-btn-mobile { 
-        display: block; 
-        position: absolute; 
-        top: 25px; 
-        right: 25px; 
-        font-size: 2rem; 
-        color: var(--hk-pink);
-        cursor: pointer;
+    /* 2. Hero Section */
+    .hero { 
+        flex-direction: column; padding: 120px 5% 40px; 
+        text-align: center; justify-content: flex-start;
     }
-
-    /* HERO (Ajuste de textos gigantes) */
-    .hero {
-        flex-direction: column; /* Texto em cima, imagem embaixo */
-        padding: 140px 5% 40px; /* Mais espaço no topo para o header */
-        text-align: center;
-        justify-content: flex-start;
-    }
-
-    .hero-content { margin-top: 0; width: 100%; }
-    .hero-content h1 { font-size: 2.2rem; line-height: 1.2; } /* Texto menor */
+    .hero-content { width: 100%; margin: 0; }
+    .hero-content h1 { font-size: 2.2rem; }
     
-    .cta-buttons { 
-        flex-direction: column; 
-        width: 100%; 
-        gap: 15px; 
-        margin-top: 30px;
-    }
-    
-    .btn-primary, .btn-secondary { 
-        width: 100%; 
-        justify-content: center; 
-        padding: 15px; /* Botões mais fáceis de tocar */
-    }
+    .hero-visual { margin-top: 40px; width: 100%; display: flex; justify-content: center; }
+    .hero-img-effect { max-width: 250px; }
 
-    /* IMAGEM */
-    .hero-visual {
-        margin-top: 40px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    .hero-img-effect { max-width: 250px; } /* Imagem menor para caber */
+    .cta-buttons { flex-direction: column; width: 100%; gap: 15px; margin-top: 30px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 15px; }
 
-    /* BANNER DE COOKIES (Compacto) */
-    .cookie-consent {
-        flex-direction: column;
-        padding: 20px;
-        bottom: 0;
-        gap: 15px;
-        text-align: center;
-    }
-    .btn-accept { width: 100%; margin: 0; }
+    /* 3. Cards */
+    .section-padding { padding: 60px 5%; }
+    .price-card { width: 100%; margin-bottom: 25px; }
 
-    /* WIDGET DE MÚSICA (Reposicionado) */
-    .music-widget {
-        bottom: 120px; /* Sobe para não ficar embaixo do cookie banner */
-        left: 20px;
-        transform: scale(0.8);
-    }
+    /* 4. Banner Cookies & Widget */
+    .cookie-consent { flex-direction: column; padding: 20px; gap: 15px; text-align: center; }
+    .btn-accept { width: 100%; }
+    .music-widget { bottom: 130px; left: 20px; transform: scale(0.9); }
 }
 
-/* Regra 2: Celulares Pequenos (Menor que 480px) */
 @media (max-width: 480px) {
-    .hero-content h1 { font-size: 1.8rem; } /* Texto ainda menor para celular pequeno */
-    .section-padding { padding: 40px 5%; }
-    .price-card { width: 100%; margin-bottom: 20px; }
+    .hero-content h1 { font-size: 1.8rem; }
 }
